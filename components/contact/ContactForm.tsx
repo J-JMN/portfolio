@@ -16,7 +16,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import FadeIn from "@/components/animations/FadeIn";
 
 const formSchema = z.object({
@@ -51,12 +57,15 @@ export default function ContactForm() {
   }
 
   return (
-    <FadeIn delay={0.2} className="w-full max-w-xl mx-auto">
+    <FadeIn delay={0.2} className="w-full">
       <Card className="border-primary/20 bg-card/50 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-2xl font-heading">Send a Message</CardTitle>
+          <CardTitle className="text-2xl font-heading">
+            Send a Message
+          </CardTitle>
           <CardDescription>
-            Have a project in mind or just want to say hi? Fill out the form below.
+            Have a project in mind or just want to say hi? Fill out the form
+            below.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -67,15 +76,23 @@ export default function ContactForm() {
               </div>
               <h3 className="text-xl font-bold">Message Sent!</h3>
               <p className="text-muted-foreground">
-                Thanks for reaching out. I'll get back to you as soon as possible.
+                Thanks for reaching out. I&apos;ll get back to you as soon as
+                possible.
               </p>
-              <Button onClick={() => setIsSuccess(false)} variant="outline" className="mt-4">
+              <Button
+                onClick={() => setIsSuccess(false)}
+                variant="outline"
+                className="mt-4"
+              >
                 Send Another Message
               </Button>
             </div>
           ) : (
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
@@ -104,7 +121,7 @@ export default function ContactForm() {
                     )}
                   />
                 </div>
-                
+
                 <FormField
                   control={form.control}
                   name="subject"
@@ -118,7 +135,7 @@ export default function ContactForm() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="message"
@@ -126,18 +143,22 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Tell me about your project..." 
+                        <Textarea
+                          placeholder="Tell me about your project..."
                           className="min-h-[150px]"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 w-4 h-4 animate-spin" />

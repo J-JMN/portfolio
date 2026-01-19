@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AboutHero from "@/components/about/AboutHero";
 import Highlights from "@/components/about/Highlights";
 import FadeIn from "@/components/animations/FadeIn";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -31,34 +32,70 @@ export default function AboutPage() {
 
             <FadeIn direction="left">
               <h2 className="text-3xl font-heading font-bold mb-6">
-                My Journey
+                Why Work With Me?
               </h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
-                <p>
-                  My journey in tech began with curiosity and quickly evolved
-                  into a passion for building digital solutions that solve
-                  real-world problems.
+                <p className="text-lg">
+                  I don&apos;t just write code — I craft digital experiences
+                  that help businesses grow. Whether you need a stunning
+                  website, a powerful web application, or a complete digital
+                  transformation, I deliver solutions that exceed expectations.
                 </p>
                 <p>
-                  I started my professional career as an intern at Chanzo
-                  Technologies in October 2025, where I quickly proved my
-                  capabilities and transitioned into a Junior Frontend Developer
-                  role in January 2026. While my title says frontend, I actively
-                  contribute to both frontend and backend development.
-                </p>
-                <p>
-                  Alongside my role at Chanzo, I&apos;ve successfully delivered
-                  websites for clients including Stratedge Solutions, Chanzo
-                  Technologies, and Sun Rays Foundation. Each project has
-                  strengthened my ability to understand client needs and deliver
-                  quality solutions.
+                  With a track record of successfully delivering projects for
+                  clients like{" "}
+                  <span className="text-primary font-medium">
+                    Stratedge Solutions
+                  </span>
+                  ,
+                  <span className="text-primary font-medium">
+                    {" "}
+                    Chanzo Technologies
+                  </span>
+                  ,
+                  <span className="text-primary font-medium">
+                    {" "}
+                    Sun Rays Foundation
+                  </span>
+                  , and
+                  <span className="text-primary font-medium"> Nyota Roots</span>
+                  , I understand what it takes to turn your vision into reality.
                 </p>
               </div>
 
+              <div className="mt-6 space-y-3">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-foreground/80">
+                    Fast turnaround without compromising quality
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-foreground/80">
+                    Clear communication throughout the project
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-foreground/80">
+                    Modern, responsive designs that convert
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-foreground/80">
+                    Ongoing support and maintenance available
+                  </span>
+                </div>
+              </div>
+
               <div className="mt-8">
-                <Button className="gap-2 rounded-full">
-                  <Download className="w-4 h-4" />
-                  Download Resume
+                <Button className="gap-2 rounded-full" asChild>
+                  <Link href="/contact">
+                    Let&apos;s Discuss Your Project
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </Button>
               </div>
             </FadeIn>

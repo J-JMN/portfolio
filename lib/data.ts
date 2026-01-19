@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 export const personalInfo = {
     name: "Joseph Mburu",
     role: "Fullstack Developer",
-    bio: "I build scalable, high-performance web applications from frontend to backend. Specializing in React, Next.js, Node.js, and Python, I deliver end-to-end solutions that drive real business results.",
+    bio: "I help businesses bring their digital vision to life. From stunning websites to powerful web applications, I deliver solutions that engage users and drive growth.",
     email: "j.mburu.pro@gmail.com",
     location: "Nairobi, Kenya",
     availability: "Open to new opportunities",
@@ -46,6 +46,7 @@ export const skills = {
         { name: "Flask" },
         { name: "Django" },
         { name: "MySQL" },
+        { name: "Laravel" },
         { name: "Prisma" },
     ],
     tools: [
@@ -61,7 +62,7 @@ export const experience = [
         role: "Junior Frontend Developer",
         period: "Jan 2026 - Present",
         description: "Contributing to both frontend and backend development of web applications. Building responsive user interfaces and developing server-side functionality to deliver complete solutions.",
-        technologies: ["Next.js", "JavaScript", "Laravel", "Bootstrap v5"],
+        technologies: ["Next.js", "JavaScript", "Laravel", "Bootstrap v5", "MySQL"],
     },
     {
         id: 2,
@@ -106,6 +107,16 @@ export const projects = [
     },
     {
         id: 4,
+        title: "Nyota Roots",
+        description: "Educational platform for a schools program company offering life skills courses and certifications for children. Features course management, school collaboration tools, and certification tracking.",
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Education"],
+        demoUrl: "https://stratedgesolutions.co.ke/nyotaroots/#home",
+        githubUrl: "#",
+        featured: true,
+    },
+    {
+        id: 5,
         title: "Tic Tac Toe Game",
         description: "An interactive web-based Tic Tac Toe game with a clean UI, score tracking, tutorial, Rewards, and the option to play against another player or an AI opponent.",
         image: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=800&q=80",
@@ -117,7 +128,7 @@ export const projects = [
 ];
 
 export const highlights = [
-    { label: "Projects Delivered", value: "2+" },
-    { label: "Happy Clients", value: "3+" },
+    { label: "Projects Delivered", value: "5+" },
+    { label: "Happy Clients", value: "4+" },
     { label: "Technologies", value: "15+" },
 ];

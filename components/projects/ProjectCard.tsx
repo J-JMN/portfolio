@@ -3,7 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -34,7 +41,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <div className="relative h-48 w-full overflow-hidden bg-muted">
           {/* Placeholder for image if generation failed or loading */}
           <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary/30">
-             <span className="text-sm">Project Screenshot</span>
+            <span className="text-sm">Project Screenshot</span>
           </div>
           <Image
             src={project.image}
@@ -47,19 +54,39 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             }}
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-            <Button size="icon" variant="secondary" asChild className="rounded-full hover:scale-110 transition-transform">
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="View Source">
+            <Button
+              size="icon"
+              variant="secondary"
+              asChild
+              className="rounded-full hover:scale-110 transition-transform"
+            >
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Source"
+              >
                 <Github className="w-5 h-5" />
               </a>
             </Button>
-            <Button size="icon" variant="default" asChild className="rounded-full hover:scale-110 transition-transform">
-              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label="View Demo">
+            <Button
+              size="icon"
+              variant="default"
+              asChild
+              className="rounded-full hover:scale-110 transition-transform"
+            >
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Demo"
+              >
                 <ExternalLink className="w-5 h-5" />
               </a>
             </Button>
           </div>
         </div>
-        
+
         <CardHeader>
           <CardTitle className="line-clamp-1 group-hover:text-primary transition-colors">
             {project.title}
@@ -68,7 +95,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             {project.description}
           </CardDescription>
         </CardHeader>
-        
+
         <CardContent className="flex-grow">
           <div className="flex flex-wrap gap-2">
             {project.tags.slice(0, 3).map((tag) => (
@@ -83,12 +110,14 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             )}
           </div>
         </CardContent>
-        
+
         <CardFooter className="pt-0">
           <Button variant="ghost" className="w-full group/btn" asChild>
-            <Link href={`/projects`}>
-              View Details 
-              <span className="ml-2 transition-transform group-hover/btn:translate-x-1">→</span>
+            <Link href={`/projects/${project.id}`}>
+              View Details
+              <span className="ml-2 transition-transform group-hover/btn:translate-x-1">
+                →
+              </span>
             </Link>
           </Button>
         </CardFooter>

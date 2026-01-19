@@ -115,31 +115,89 @@ export default function Hero() {
         <div className="order-1 lg:order-2 flex justify-center relative">
           <FadeIn delay={0.3} direction="left">
             <div className="relative w-72 h-72 md:w-96 md:h-96">
-              {/* Subtle Glow Behind */}
+              {/* Animated Floating Particles */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-primary/60 rounded-full"
+                  style={{
+                    top: `${20 + i * 15}%`,
+                    left: i % 2 === 0 ? "-10%" : "105%",
+                  }}
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 3 + i * 0.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.3,
+                  }}
+                />
+              ))}
+
+              {/* Outer Glow Pulse */}
               <motion.div
-                className="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-blue-500/30 rounded-full blur-2xl"
+                className="absolute -inset-8 bg-gradient-to-tr from-primary/20 via-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
                 animate={{
-                  scale: [1, 1.05, 1],
-                  opacity: [0.4, 0.6, 0.4],
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3],
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
 
-              {/* Animated Gradient Ring */}
+              {/* Secondary Glow Ring */}
+              <motion.div
+                className="absolute -inset-4 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, transparent 60%, hsl(var(--primary) / 0.15) 100%)",
+                }}
+                animate={{
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Primary Animated Gradient Ring */}
               <motion.div
                 className="absolute inset-0 rounded-full p-1"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent 0%, hsl(var(--primary)) 25%, transparent 50%)",
+                    "conic-gradient(from 0deg, transparent 0%, hsl(var(--primary)) 20%, hsl(217 91% 60%) 40%, transparent 60%)",
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               >
                 <div className="w-full h-full rounded-full bg-background" />
               </motion.div>
 
+              {/* Inner Highlight Ring */}
+              <motion.div
+                className="absolute inset-1 rounded-full border border-primary/30"
+                animate={{
+                  boxShadow: [
+                    "0 0 0 0 hsl(var(--primary) / 0)",
+                    "0 0 20px 2px hsl(var(--primary) / 0.3)",
+                    "0 0 0 0 hsl(var(--primary) / 0)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
               {/* Profile Image */}
-              <div className="absolute inset-2 rounded-full overflow-hidden shadow-2xl border-2 border-border/50">
+              <div className="absolute inset-3 rounded-full overflow-hidden shadow-2xl border-2 border-white/10">
                 <Image
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
                   alt="Joseph Mburu"
@@ -149,6 +207,27 @@ export default function Hero() {
                   priority
                 />
               </div>
+
+              {/* Decorative Corner Accents */}
+              <motion.div
+                className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-lg"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-primary rounded-bl-lg"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              />
             </div>
           </FadeIn>
         </div>
