@@ -11,6 +11,52 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/lib/data";
 
+const projectOverviews: Record<
+  number,
+  { challenge: string; solution: string; impact: string }
+> = {
+  1: {
+    challenge:
+      "Chanzo Technologies needed a professional digital presence that would establish credibility in the competitive Edu-Tech space while effectively communicating their innovative approach to technology education.",
+    solution:
+      "I designed and developed a sleek, modern website with smooth scroll animations and an intuitive navigation structure. The site features dynamic service showcases, beautiful dynamic background and a responsive layout that adapts seamlessly across all devices.",
+    impact:
+      "The new website has significantly enhanced Chanzo's brand perception, providing a polished platform that effectively converts visitors into leads and establishes trust with potential clients and partners.",
+  },
+  2: {
+    challenge:
+      "As my first client project, Stratedge Solutions required a website that would convey their expertise in strategic consulting while maintaining a clean, professional aesthetic that appeals to corporate clients.",
+    solution:
+      "I built a streamlined React application with Vite, featuring a minimalist design that puts their services front and center. The backend integration with Python ensures reliable contact form functionality and data handling.",
+    impact:
+      "This project marked a significant milestone in my freelance journey, delivering a fully functional website that the client uses daily to attract and engage potential consulting clients.",
+  },
+  3: {
+    challenge:
+      "Sun Rays Foundation needed a heartfelt digital platform that would effectively communicate their charitable mission while making it easy for supporters to learn about their programs and get involved.",
+    solution:
+      "I crafted an accessible, emotionally engaging website using Next.js and TypeScript. Special attention was paid to storytelling elements, program showcases, and clear calls-to-action that guide visitors toward supporting the foundation.",
+    impact:
+      "The website serves as the foundation's primary outreach tool, helping them share their impact stories and connect with donors and volunteers who believe in their cause.",
+  },
+  4: {
+    challenge:
+      "Nyota Roots required a comprehensive website to promote their educational program",
+    solution:
+      "I developed a feature-rich website with a clean and intuitive design. The design puts the focus on the program,the students, parents and the school partners.",
+    impact:
+      "The website now serves as a lead generation platform for Nyota Roots, helping them attract more students and partners. The website is also used to raise funds for the program, create partnership opportunities too through the communication functionality in the website.",
+  },
+  5: {
+    challenge:
+      "I wanted to create a fun, interactive project that would showcase my ability to implement game logic while providing an enjoyable experience for users of all ages.",
+    solution:
+      "I built a polished Tic Tac Toe game featuring two play modes: player vs player and player vs AI. The game includes score tracking, a helpful tutorial for new players, and a reward system to keep players engaged.",
+    impact:
+      "This project demonstrates my versatility as a developer, showing that I can create entertaining, interactive experiences beyond traditional business websites, with clean code and thoughtful UX throughout.",
+  },
+};
+
 export default function ProjectDetailPage() {
   const params = useParams();
   const projectId = Number(params.id);
@@ -141,24 +187,39 @@ export default function ProjectDetailPage() {
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl font-heading font-bold mb-6">
-                Project Overview
-              </h2>
-              <div className="prose prose-invert max-w-none">
-                <p className="text-foreground/80 leading-relaxed text-lg">
-                  {project.description}
-                </p>
-                <p className="text-foreground/80 leading-relaxed mt-4">
-                  This project was built using modern web technologies including{" "}
-                  {project.tags.slice(0, 3).join(", ")}
-                  {project.tags.length > 3
-                    ? ` and ${project.tags.length - 3} more technologies`
-                    : ""}
-                  . The focus was on delivering a high-quality, performant
-                  solution that meets the client&apos;s needs while providing an
-                  excellent user experience.
-                </p>
-              </div>
+              {projectOverviews[project.id] ? (
+                <>
+                  <h2 className="text-2xl font-heading font-bold mb-6">
+                    The Challenge
+                  </h2>
+                  <p className="text-foreground/80 leading-relaxed text-lg mb-8">
+                    {projectOverviews[project.id].challenge}
+                  </p>
+
+                  <h2 className="text-2xl font-heading font-bold mb-6">
+                    My Approach
+                  </h2>
+                  <p className="text-foreground/80 leading-relaxed text-lg mb-8">
+                    {projectOverviews[project.id].solution}
+                  </p>
+
+                  <h2 className="text-2xl font-heading font-bold mb-6">
+                    The Result
+                  </h2>
+                  <p className="text-foreground/80 leading-relaxed text-lg">
+                    {projectOverviews[project.id].impact}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-2xl font-heading font-bold mb-6">
+                    Project Overview
+                  </h2>
+                  <p className="text-foreground/80 leading-relaxed text-lg">
+                    {project.description}
+                  </p>
+                </>
+              )}
 
               {/* Back to Projects Button at Bottom */}
               <div className="mt-12 pt-8 border-t border-border">

@@ -36,7 +36,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p className="text-lg">
-                  I don&apos;t just write code — I craft digital experiences
+                  I don&apos;t just write code, I craft digital experiences
                   that help businesses grow. Whether you need a stunning
                   website, a powerful web application, or a complete digital
                   transformation, I deliver solutions that exceed expectations.
