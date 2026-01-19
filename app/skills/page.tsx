@@ -25,25 +25,6 @@ export default function SkillsPage() {
       </section>
 
       <SkillsGrid />
-      
-      <section className="py-16 bg-secondary/20">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <FadeIn delay={0.4}>
-            <h2 className="text-2xl font-bold mb-4">Currently Learning</h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="px-4 py-2 rounded-full bg-background border border-border text-muted-foreground">
-                Rust
-              </span>
-              <span className="px-4 py-2 rounded-full bg-background border border-border text-muted-foreground">
-                WebAssembly
-              </span>
-              <span className="px-4 py-2 rounded-full bg-background border border-border text-muted-foreground">
-                Three.js
-              </span>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
 
       <Footer />
     </main>

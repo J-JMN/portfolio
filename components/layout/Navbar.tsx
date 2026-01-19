@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { personalInfo } from "@/lib/data";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -38,23 +39,20 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
+        "fixed top-0 w-full z-50 border-b border-transparent transition-all duration-500 ease-in-out",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-border/40 shadow-sm"
-          : "bg-transparent"
+          ? "bg-white dark:bg-card/95 backdrop-blur-md border-border/40 shadow-lg"
+          : "bg-transparent",
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link 
-            href="/" 
-            className="flex items-center gap-2 font-heading font-bold text-xl hover:opacity-80 transition-opacity"
+          {/* Logo - Just name */}
+          <Link
+            href="/"
+            className="font-heading font-bold text-xl hover:opacity-80 transition-opacity"
           >
-            <div className="p-1.5 bg-primary rounded-lg text-primary-foreground">
-              <Code2 className="w-5 h-5" />
-            </div>
-            <span>John Doe</span>
+            {personalInfo.name}
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,7 +67,7 @@ export default function Navbar() {
                     "px-4 py-2 rounded-md text-sm font-medium transition-colors relative",
                     isActive
                       ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50",
                   )}
                 >
                   {item.name}
@@ -78,7 +76,11 @@ export default function Navbar() {
                       layoutId="navbar-indicator"
                       className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full mx-4"
                       initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </Link>
@@ -122,7 +124,7 @@ export default function Navbar() {
                       "px-4 py-3 rounded-md text-base font-medium transition-colors",
                       isActive
                         ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent",
                     )}
                   >
                     {item.name}

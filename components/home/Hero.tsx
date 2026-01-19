@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TextReveal from "@/components/animations/TextReveal";
 import FadeIn from "@/components/animations/FadeIn";
 import { personalInfo } from "@/lib/data";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -32,43 +34,76 @@ export default function Hero() {
           <div className="space-y-4">
             <FadeIn delay={0.2}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1]">
-                Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">{personalInfo.name}</span>
+                Hi, I'm{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
+                  {personalInfo.name}
+                </span>
               </h1>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground font-medium">
+              <h2 className="text-2xl md:text-3xl text-foreground font-medium">
                 <TextReveal text={personalInfo.role} delay={0.5} />
               </h2>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.4}>
-            <p className="text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg text-foreground/90 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               {personalInfo.bio}
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.5} className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-            <Button size="lg" className="rounded-full px-8 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all" asChild>
+          <FadeIn
+            delay={0.5}
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2"
+          >
+            <Button
+              size="lg"
+              className="rounded-full px-8 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+              asChild
+            >
               <Link href="/projects">
                 View My Work
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base hover:bg-secondary/50" asChild>
-              <Link href="/contact">
-                Contact Me
-              </Link>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-8 h-12 text-base hover:bg-secondary/50"
+              asChild
+            >
+              <Link href="/contact">Contact Me</Link>
             </Button>
-            
+
             <div className="flex items-center gap-2 ml-2 border-l border-border/50 pl-6">
-              <Button size="icon" variant="ghost" className="rounded-full hover:bg-secondary/50 hover:text-primary" asChild>
-                <a href={personalInfo.socials[0].url} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="rounded-full hover:bg-secondary/50 hover:text-primary"
+                asChild
+              >
+                <a
+                  href={personalInfo.socials[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
                   <Github className="w-5 h-5" />
                 </a>
               </Button>
-              <Button size="icon" variant="ghost" className="rounded-full hover:bg-secondary/50 hover:text-primary" asChild>
-                <a href={personalInfo.socials[1].url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="rounded-full hover:bg-secondary/50 hover:text-primary"
+                asChild
+              >
+                <a
+                  href={personalInfo.socials[1].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
                   <Linkedin className="w-5 h-5" />
                 </a>
               </Button>
@@ -78,34 +113,45 @@ export default function Hero() {
 
         {/* Visual Content / Profile Image */}
         <div className="order-1 lg:order-2 flex justify-center relative">
-          <FadeIn delay={0.3} direction="left" className="relative w-72 h-72 md:w-96 md:h-96">
-            {/* Subtle Glow Behind */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-full blur-3xl transform scale-110" />
-            
-            <div className="relative w-full h-full rounded-full border border-border/50 bg-background/30 backdrop-blur-sm overflow-hidden flex items-center justify-center shadow-2xl">
-              {/* Placeholder for Profile Image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-500/5" />
-              <div className="text-center p-8 relative z-10">
-                <span className="text-7xl mb-4 block filter drop-shadow-lg">👨‍💻</span>
-                <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest">Profile Image</p>
+          <FadeIn delay={0.3} direction="left">
+            <div className="relative w-72 h-72 md:w-96 md:h-96">
+              {/* Subtle Glow Behind */}
+              <motion.div
+                className="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-blue-500/30 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.4, 0.6, 0.4],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Animated Gradient Ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full p-1"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent 0%, hsl(var(--primary)) 25%, transparent 50%)",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-full h-full rounded-full bg-background" />
+              </motion.div>
+
+              {/* Profile Image */}
+              <div className="absolute inset-2 rounded-full overflow-hidden shadow-2xl border-2 border-border/50">
+                <Image
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  alt="Joseph Mburu"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
-            </div>
-            
-            {/* Decorative Elements */}
-            <div className="absolute -top-6 -right-6 p-4 bg-card/80 backdrop-blur-md rounded-2xl border border-border/50 shadow-xl animate-bounce delay-1000">
-              <span className="text-2xl">🚀</span>
-            </div>
-            <div className="absolute -bottom-6 -left-6 p-4 bg-card/80 backdrop-blur-md rounded-2xl border border-border/50 shadow-xl animate-bounce delay-700">
-              <span className="text-2xl">💻</span>
             </div>
           </FadeIn>
         </div>
-      </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center gap-2 opacity-50">
-        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-muted-foreground to-transparent" />
       </div>
     </section>
   );
