@@ -17,8 +17,8 @@ export default function SkillsPage() {
               Technical <span className="text-primary">Skills</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              I've spent years refining my skills in various technologies.
-              Here's a breakdown of the tools and frameworks I use to bring
+              I&apos;ve spent years refining my skills in various technologies.
+              Here&apos;s a breakdown of the tools and frameworks I use to bring
               ideas to life.
             </p>
           </FadeIn>

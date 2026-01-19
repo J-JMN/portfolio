@@ -14,8 +14,8 @@ export default function Hero() {
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden pt-16 pb-20">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-primary/5 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-blue-500/5 rounded-full blur-3xl opacity-50" />
+        <div className="absolute top-[-10%] left-[-10%] w-160 h-160 bg-primary/5 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-160 h-160 bg-blue-500/5 rounded-full blur-3xl opacity-50" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -34,8 +34,8 @@ export default function Hero() {
           <div className="space-y-4">
             <FadeIn delay={0.2}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1]">
-                Hi, I'm{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
+                Hi, I&apos;m{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-blue-600">
                   {personalInfo.name}
                 </span>
               </h1>
@@ -140,7 +140,7 @@ export default function Hero() {
 
               {/* Outer Glow Pulse */}
               <motion.div
-                className="absolute -inset-8 bg-gradient-to-tr from-primary/20 via-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+                className="absolute -inset-8 bg-linear-to-tr from-primary/20 via-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.3, 0.5, 0.3],

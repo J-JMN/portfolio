@@ -26,7 +26,7 @@ export default function ProjectDetailPage() {
               Project Not Found
             </h1>
             <p className="text-muted-foreground mb-8">
-              The project you're looking for doesn't exist.
+              The project you&apos;re looking for doesn&apos;t exist.
             </p>
             <Button asChild>
               <Link href="/projects">
@@ -155,7 +155,7 @@ export default function ProjectDetailPage() {
                     ? ` and ${project.tags.length - 3} more technologies`
                     : ""}
                   . The focus was on delivering a high-quality, performant
-                  solution that meets the client's needs while providing an
+                  solution that meets the client&apos;s needs while providing an
                   excellent user experience.
                 </p>
               </div>

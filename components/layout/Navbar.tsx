@@ -29,10 +29,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <div
@@ -163,6 +160,7 @@ export default function Navbar() {
                     <Link
                       key={item.path}
                       href={item.path}
+                      onClick={closeMenu}
                       className={cn(
                         "px-4 py-3 rounded-lg text-base font-medium transition-colors",
                         isActive
@@ -177,6 +175,7 @@ export default function Navbar() {
                 <div className="pt-4 mt-2 border-t border-border/50">
                   <Link
                     href="/contact"
+                    onClick={closeMenu}
                     className="w-full px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full inline-block text-center hover:bg-primary/90 transition-colors"
                   >
                     Hire Me

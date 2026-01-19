@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Transition } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -10,10 +10,14 @@ interface TextRevealProps {
   delay?: number;
 }
 
-export default function TextReveal({ text, className, delay = 0 }: TextRevealProps) {
+export default function TextReveal({
+  text,
+  className,
+  delay = 0,
+}: TextRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  
+
   const words = text.split(" ");
 
   const container = {
@@ -32,7 +36,7 @@ export default function TextReveal({ text, className, delay = 0 }: TextRevealPro
         type: "spring",
         damping: 12,
         stiffness: 100,
-      } as any,
+      } as Transition,
     },
     hidden: {
       opacity: 0,
@@ -41,7 +45,7 @@ export default function TextReveal({ text, className, delay = 0 }: TextRevealPro
         type: "spring",
         damping: 12,
         stiffness: 100,
-      } as any,
+      } as Transition,
     },
   };
 

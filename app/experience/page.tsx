@@ -17,8 +17,8 @@ export default function ExperiencePage() {
               Work <span className="text-primary">Experience</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              My professional journey and the companies I've had the pleasure of
-              working with.
+              My professional journey and the companies I&apos;ve had the
+              pleasure of working with.
             </p>
           </FadeIn>
         </div>

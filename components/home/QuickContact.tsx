@@ -15,18 +15,28 @@ export default function QuickContact() {
             Ready to start your next project?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            I'm currently available for freelance work and open to new opportunities. 
-            Let's discuss how I can help you achieve your goals.
+            I&apos;m currently available for freelance work and open to new
+            opportunities. Let&apos;s discuss how I can help you achieve your
+            goals.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="rounded-full w-full sm:w-auto group" asChild>
+            <Button
+              size="lg"
+              className="rounded-full w-full sm:w-auto group"
+              asChild
+            >
               <Link href="/contact">
                 Get in Touch
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto" asChild>
-              <a href="mailto:john.doe@example.com">
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full w-full sm:w-auto"
+              asChild
+            >
+              <a href="mailto:j.mburu.pro@gmail.com">
                 <Mail className="mr-2 w-4 h-4" />
                 Send Email
               </a>

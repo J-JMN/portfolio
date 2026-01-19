@@ -65,25 +65,25 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
                     Fast turnaround without compromising quality
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
                     Clear communication throughout the project
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
                     Modern, responsive designs that convert
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
                     Ongoing support and maintenance available
                   </span>
