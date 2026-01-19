@@ -112,9 +112,9 @@ export default function Hero() {
         </div>
 
         {/* Visual Content / Profile Image */}
-        <div className="order-1 lg:order-2 flex justify-center relative">
+        <div className="order-1 lg:order-2 flex justify-center relative overflow-hidden">
           <FadeIn delay={0.3} direction="left">
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 overflow-visible">
               {/* Animated Floating Particles */}
               {[...Array(6)].map((_, i) => (
                 <motion.div
@@ -122,7 +122,7 @@ export default function Hero() {
                   className="absolute w-2 h-2 bg-primary/60 rounded-full"
                   style={{
                     top: `${20 + i * 15}%`,
-                    left: i % 2 === 0 ? "-10%" : "105%",
+                    left: i % 2 === 0 ? "5%" : "90%",
                   }}
                   animate={{
                     y: [0, -20, 0],
@@ -199,7 +199,7 @@ export default function Hero() {
               {/* Profile Image */}
               <div className="absolute inset-3 rounded-full overflow-hidden shadow-2xl border-2 border-white/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  src="/images/profile-picture.png"
                   alt="Joseph Mburu"
                   width={400}
                   height={400}

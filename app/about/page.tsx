@@ -10,7 +10,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       <AboutHero />
       <Highlights />
@@ -21,7 +21,7 @@ export default function AboutPage() {
             <FadeIn direction="right">
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
                 <Image
-                  src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=600&h=600&fit=crop"
+                  src="https://images.unsplash.com/photo-1612396555231-0211d42a46d1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2h5fGVufDB8MXwwfHx8Mg%3D%3D"
                   alt="Coding workspace"
                   fill
                   className="object-cover"

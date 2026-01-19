@@ -7,7 +7,7 @@ import { personalInfo } from "@/lib/data";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       <section className="pt-24 pb-8 relative overflow-hidden min-h-[calc(100vh-80px)]">

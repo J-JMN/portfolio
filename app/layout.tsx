@@ -13,8 +13,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe | Software Engineer",
-  description: "Portfolio of a passionate software engineer and web developer specializing in modern web technologies.",
+  title: "Joseph Mburu | Fullstack Developer",
+  description:
+    "Portfolio of Joseph Mburu, a fullstack developer based in Nairobi, Kenya. I help businesses bring their digital vision to life.",
 };
 
 export default function RootLayout({

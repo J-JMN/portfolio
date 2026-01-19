@@ -96,7 +96,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="flex-grow">
+        <CardContent className="grow">
           <div className="flex flex-wrap gap-2">
             {project.tags.slice(0, 3).map((tag) => (
               <Badge key={tag} variant="secondary" className="text-xs">
