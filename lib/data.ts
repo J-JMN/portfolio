@@ -98,10 +98,10 @@ export const projects = [
     {
         id: 3,
         title: "Sun Rays Foundation",
-        description: "Website for a charitable foundation, designed to showcase their mission, programs, and impact. Built with accessibility and user engagement in mind.",
+        description: "A mock-up website design inspired by the Sunrays Foundation NGO, crafted to demonstrate my approach to creating impactful digital experiences for charitable organizations. This showcase piece highlights modern design principles, accessibility standards, and engaging user interfaces tailored for non-profit storytelling. Available for purchase and fully customizable to align with your organization's unique mission, branding, and requirements.",
         image: "/images/sunrays-foundation-website.png",
         tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-        demoUrl: "https://sunraysfoundation.org",
+        demoUrl: "https://sun-rays-foundation.vercel.app/",
         githubUrl: "#",
         featured: true,
     },
@@ -129,6 +129,6 @@ export const projects = [
 
 export const highlights = [
     { label: "Projects Delivered", value: "5+" },
-    { label: "Happy Clients", value: "4+" },
+    { label: "Happy Clients", value: "3+" },
     { label: "Technologies", value: "15+" },
 ];

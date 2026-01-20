@@ -37,7 +37,7 @@ const projectOverviews: Record<
     solution:
       "I crafted an accessible, emotionally engaging website using Next.js and TypeScript. Special attention was paid to storytelling elements, program showcases, and clear calls-to-action that guide visitors toward supporting the foundation.",
     impact:
-      "The website serves as the foundation's primary outreach tool, helping them share their impact stories and connect with donors and volunteers who believe in their cause.",
+      "The website serves as the foundation's would have been primary outreach tool, helping them share their impact stories and connect with donors and volunteers who believe in their cause but in a more modern look.",
   },
   4: {
     challenge:

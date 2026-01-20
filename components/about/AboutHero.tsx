@@ -44,7 +44,7 @@ export default function AboutHero() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold">4+</span>
+                  <span className="text-primary font-bold">3+</span>
                 </div>
                 <span className="text-muted-foreground">Happy Clients</span>
               </div>
