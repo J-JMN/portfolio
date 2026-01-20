@@ -70,10 +70,6 @@ const technologies: Technology[] = [
     name: "Laravel",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
   },
-  {
-    name: "PHP",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
-  },
   // Databases
   {
     name: "PostgreSQL",
