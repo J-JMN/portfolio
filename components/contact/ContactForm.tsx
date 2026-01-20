@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import emailjs from "@emailjs/browser";
 import { Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,11 +31,14 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   subject: z.string().min(5, "Subject must be at least 5 characters"),
   message: z.string().min(10, "Message must be at least 10 characters"),
+  honeypot: z.string().optional(),
 });
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,17 +47,73 @@ export default function ContactForm() {
       email: "",
       subject: "",
       message: "",
+      honeypot: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(values);
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    form.reset();
+    setError(null);
+
+    // Honeypot check - if filled, it's a bot
+    // Show fake success but don't send anything
+    if (values.honeypot) {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setIsSuccess(true);
+      form.reset();
+      setIsSubmitting(false);
+      return;
+    }
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const autoReplyTemplateId =
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_AUTOREPLY_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError("Email service is not configured. Please try again later.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Send main email to you (portfolio owner)
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: values.name,
+          from_email: values.email,
+          subject: values.subject,
+          message: values.message,
+        },
+        publicKey,
+      );
+
+      // Send auto-reply confirmation to the submitter
+      if (autoReplyTemplateId) {
+        await emailjs.send(
+          serviceId,
+          autoReplyTemplateId,
+          {
+            to_name: values.name,
+            to_email: values.email,
+            subject: values.subject,
+            message: values.message,
+          },
+          publicKey,
+        );
+      }
+
+      setIsSuccess(true);
+      form.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -153,6 +213,39 @@ export default function ContactForm() {
                     </FormItem>
                   )}
                 />
+
+                {/* Honeypot field - hidden from users, bots will fill this */}
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    left: "-9999px",
+                    top: "-9999px",
+                    opacity: 0,
+                    pointerEvents: "none",
+                    height: 0,
+                    overflow: "hidden",
+                  }}
+                >
+                  <FormField
+                    control={form.control}
+                    name="honeypot"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Leave this field empty</FormLabel>
+                        <FormControl>
+                          <Input tabIndex={-1} autoComplete="off" {...field} />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {error && (
+                  <div className="p-3 rounded-lg bg-red-500/10 text-red-500 text-sm">
+                    {error}
+                  </div>
+                )}
 
                 <Button
                   type="submit"
