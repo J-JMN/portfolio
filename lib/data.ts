@@ -50,7 +50,6 @@ export const skills = {
         { name: "Prisma" },
     ],
     tools: [
-        { name: "Git" },
         { name: "Docker" },
     ],
 };

@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SkillsGrid from "@/components/skills/SkillsGrid";
+import TechMarquee from "@/components/skills/TechMarquee";
 import FadeIn from "@/components/animations/FadeIn";
 
 export default function SkillsPage() {
@@ -24,6 +25,8 @@ export default function SkillsPage() {
           </FadeIn>
         </div>
       </section>
+
+      <TechMarquee />
 
       <SkillsGrid />
 
