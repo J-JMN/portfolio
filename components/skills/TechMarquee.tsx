@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import FadeIn from "@/components/animations/FadeIn";
 
 interface Technology {
   name: string;
@@ -95,102 +96,78 @@ const technologies: Technology[] = [
 
 function TechItem({ tech }: { tech: Technology }) {
   return (
-    <div className="flex-shrink-0 flex flex-col items-center justify-center gap-3 px-6 md:px-8 group cursor-default">
-      <div className="relative w-14 h-14 md:w-18 md:h-18 lg:w-20 lg:h-20 flex items-center justify-center rounded-2xl bg-card/80 backdrop-blur-sm border border-primary/10 shadow-lg group-hover:border-primary/40 group-hover:shadow-primary/20 group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+    <div className="shrink-0 flex flex-col items-center justify-center gap-2 mx-4 md:mx-6 group cursor-default">
+      <div className="relative w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 flex items-center justify-center rounded-xl bg-card/60 backdrop-blur-sm border border-primary/10 shadow-md group-hover:border-primary/40 group-hover:shadow-primary/20 group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
         <Image
           src={tech.icon}
           alt={tech.name}
-          width={48}
-          height={48}
-          className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain filter group-hover:brightness-110 transition-all duration-300"
+          width={40}
+          height={40}
+          className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 object-contain filter group-hover:brightness-110 transition-all duration-300"
           unoptimized
         />
       </div>
-      <span className="text-xs md:text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
+      <span className="text-[10px] md:text-xs font-medium text-muted-foreground/80 group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
         {tech.name}
       </span>
     </div>
   );
 }
 
-function MarqueeRow({
-  technologies,
-  reverse = false,
-  speed = 30,
-}: {
-  technologies: Technology[];
-  reverse?: boolean;
-  speed?: number;
-}) {
-  return (
-    <div className="flex overflow-hidden group">
-      <div
-        className={`flex animate-marquee group-hover:[animation-play-state:paused] ${reverse ? "[animation-direction:reverse]" : ""}`}
-        style={{ animationDuration: `${speed}s` }}
-      >
-        {technologies.map((tech, index) => (
-          <TechItem key={`first-${tech.name}-${index}`} tech={tech} />
-        ))}
-      </div>
-      <div
-        className={`flex animate-marquee group-hover:[animation-play-state:paused] ${reverse ? "[animation-direction:reverse]" : ""}`}
-        style={{ animationDuration: `${speed}s` }}
-        aria-hidden="true"
-      >
-        {technologies.map((tech, index) => (
-          <TechItem key={`second-${tech.name}-${index}`} tech={tech} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function TechMarquee() {
-  const firstRowTech = technologies.slice(0, 13);
-  const secondRowTech = technologies.slice(13);
+  const allTech = [...technologies];
 
   return (
-    <section className="py-16 overflow-hidden relative">
-      {/* Background decorations */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl transform -translate-y-1/2" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl transform -translate-y-1/2" />
-      </div>
+    <section className="py-8 overflow-hidden relative">
+      {/* Inline styles for the marquee animation */}
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% - 0px));
+          }
+        }
+        .marquee-container:hover .marquee-track {
+          animation-play-state: paused;
+        }
+        .marquee-track {
+          display: flex;
+          flex-shrink: 0;
+        }
+      `}</style>
 
-      <div className="container mx-auto px-4 md:px-6 mb-12">
-        <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold mb-3">
-            Technologies I <span className="text-primary">Work With</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            A continuous journey through the tools and frameworks that power my
-            development workflow
-          </p>
+      <FadeIn>
+        {/* Marquee container with gradient masks */}
+        <div className="relative">
+          {/* Left gradient mask */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 lg:w-48 bg-linear-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
+          {/* Right gradient mask */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 lg:w-48 bg-linear-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
+
+          {/* Single row infinite marquee */}
+          <div className="marquee-container flex overflow-hidden py-4">
+            <div
+              className="marquee-track flex shrink-0"
+              style={{ animation: "scroll 40s linear infinite" }}
+            >
+              {allTech.map((tech, index) => (
+                <TechItem key={`first-${tech.name}-${index}`} tech={tech} />
+              ))}
+            </div>
+            <div
+              className="marquee-track flex shrink-0"
+              style={{ animation: "scroll 40s linear infinite" }}
+              aria-hidden="true"
+            >
+              {allTech.map((tech, index) => (
+                <TechItem key={`second-${tech.name}-${index}`} tech={tech} />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Marquee container with gradient masks */}
-      <div className="relative">
-        {/* Left gradient mask */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 lg:w-56 bg-linear-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-        {/* Right gradient mask */}
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 lg:w-56 bg-linear-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
-
-        {/* First row - scrolling left */}
-        <div className="mb-6">
-          <MarqueeRow technologies={firstRowTech} speed={40} />
-        </div>
-
-        {/* Second row - scrolling right */}
-        <div>
-          <MarqueeRow technologies={secondRowTech} reverse speed={30} />
-        </div>
-      </div>
-
-      {/* Decorative line */}
-      <div className="container mx-auto px-4 md:px-6 mt-14">
-        <div className="h-px bg-linear-to-r from-transparent via-primary/30 to-transparent" />
-      </div>
+      </FadeIn>
     </section>
   );
 }
