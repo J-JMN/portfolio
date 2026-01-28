@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Joseph Mburu | Fullstack Developer",
   description:
-    "Portfolio of Joseph Mburu, a fullstack developer based in Nairobi, Kenya. I help businesses bring their digital vision to life.",
+    "Joseph Mburu's portfolio, fullstack developer based in Nairobi, Kenya. I help businesses bring their digital vision to life.",
 };
 
 export default function RootLayout({
