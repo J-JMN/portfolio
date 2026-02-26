@@ -17,35 +17,35 @@ const projectOverviews: Record<
 > = {
   1: {
     challenge:
-      "Chanzo Technologies needed a professional digital presence that would establish credibility in the competitive Edu-Tech space while effectively communicating their innovative approach to technology education.",
+      "Chanzo Technologies, an Edu-Tech startup, needed a website that would establish credibility in a crowded market and clearly communicate what makes their approach to technology education different.",
     solution:
-      "I designed and developed a sleek, modern website with smooth scroll animations and an intuitive navigation structure. The site features dynamic service showcases, beautiful dynamic background and a responsive layout that adapts seamlessly across all devices.",
+      "During my internship, I built a modern Next.js site with scroll-driven animations, dynamic service showcases, and a responsive layout that works seamlessly across devices. The design mirrors the brand's energy — clean, forward-thinking, and approachable.",
     impact:
-      "The new website has significantly enhanced Chanzo's brand perception, providing a polished platform that effectively converts visitors into leads and establishes trust with potential clients and partners.",
+      "The website became Chanzo's primary lead generation tool, helping them attract clients and partners. It also gave me my first real taste of shipping production code for a business with real users.",
   },
   2: {
     challenge:
-      "As my first client project, Stratedge Solutions required a website that would convey their expertise in strategic consulting while maintaining a clean, professional aesthetic that appeals to corporate clients.",
+      "Stratedge Solutions, a strategic partnerships consultancy, needed a complete digital presence from scratch — not just a marketing site, but a platform to manage blog content, handle discovery call bookings, and process client inquiries, all with an admin panel the founder could use independently.",
     solution:
-      "I built a streamlined React application with Vite, featuring a minimalist design that puts their services front and center. The backend integration with Python ensures reliable contact form functionality and data handling.",
+      "I built a full-stack application: React 19 with TypeScript on the frontend and a Django REST API backend with JWT authentication. The platform includes a blog CMS with Cloudinary image uploads, a multi-step booking wizard with email notifications to both admin and client, contact management with read/unread tracking, and a dashboard with real-time stats. Deployed on cPanel with Passenger WSGI.",
     impact:
-      "This project marked a significant milestone in my freelance journey, delivering a fully functional website that the client uses daily to attract and engage potential consulting clients.",
+      "This was my first freelance client project and it launched a real business online. The founder manages all content, bookings, and inquiries through the admin panel daily. It proved I could deliver a production-grade full-stack application end to end.",
   },
   3: {
     challenge:
-      "Sun Rays Foundation needed a heartfelt digital platform that would effectively communicate their charitable mission while making it easy for supporters to learn about their programs and get involved.",
+      "I wanted to build a showcase piece demonstrating how I'd approach a non-profit website — one that balances emotional storytelling with clear calls to action, accessibility, and modern design.",
     solution:
-      "I crafted an accessible, emotionally engaging website using Next.js and TypeScript. Special attention was paid to storytelling elements, program showcases, and clear calls-to-action that guide visitors toward supporting the foundation.",
+      "Using Next.js and TypeScript, I designed a template inspired by the Sun Rays Foundation NGO. The site prioritizes storytelling through program showcases, impact statistics, and volunteer/donor pathways — all built with accessibility-first principles and a warm visual language.",
     impact:
-      "The website serves as the foundation's would have been primary outreach tool, helping them share their impact stories and connect with donors and volunteers who believe in their cause but in a more modern look.",
+      "This design showcase led directly to the Sun Rays Foundation commissioning me to rebuild their actual website. It demonstrated that thoughtful design work can open real client doors.",
   },
   4: {
     challenge:
-      "Nyota Roots required a comprehensive website to promote their educational program",
+      "Nyota Roots runs life skills programs in schools and needed a website that could speak to three different audiences: parents looking for enrichment programs, schools seeking partnerships, and organizations interested in collaboration.",
     solution:
-      "I developed a feature-rich website with a clean and intuitive design. The design puts the focus on the program,the students, parents and the school partners.",
+      "I built a Next.js platform with dedicated pathways for each audience. Course catalogs with certification details, school partnership information, and clear contact channels — all wrapped in a warm, approachable design that reflects the program's focus on children's development.",
     impact:
-      "The website now serves as a lead generation platform for Nyota Roots, helping them attract more students and partners. The website is also used to raise funds for the program, create partnership opportunities too through the communication functionality in the website.",
+      "The site serves as Nyota Roots' primary outreach and lead generation tool, helping them onboard new school partners and communicate program value to parents. The contact functionality has opened doors for new partnership opportunities.",
   },
   5: {
     challenge:
@@ -54,6 +54,14 @@ const projectOverviews: Record<
       "I built a polished Tic Tac Toe game featuring two play modes: player vs player and player vs AI. The game includes score tracking, a helpful tutorial for new players, and a reward system to keep players engaged.",
     impact:
       "This project demonstrates my versatility as a developer, showing that I can create entertaining, interactive experiences beyond traditional business websites, with clean code and thoughtful UX throughout.",
+  },
+  6: {
+    challenge:
+      "The Sun Rays Foundation reached out after seeing my design showcase and commissioned me to modernize their existing website. Their current site needed a complete visual and structural overhaul to better represent their mission and improve the user experience across devices.",
+    solution:
+      "I'm rebuilding the site from the ground up with Next.js and TypeScript — a fresh contemporary design with improved navigation, stronger storytelling, and a fully responsive mobile experience. This is an ongoing engagement that includes continued maintenance and iterative improvements.",
+    impact:
+      "Work in progress. The redesign is actively underway, and this project represents my first ongoing client retainer — a relationship that grew directly from a showcase piece into a real commissioned engagement.",
   },
 };
 
