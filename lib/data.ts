@@ -100,7 +100,7 @@ export const projects = [
     id: 3,
     title: "Sun Rays Foundation",
     description:
-      "A design showcase inspired by the Sun Rays Foundation NGO — built to demonstrate my approach to impactful non-profit websites. Features modern design, accessibility-first principles, and engaging storytelling interfaces. Fully customizable and available as a template for charitable organizations.",
+      "A design showcase inspired by the Sun Rays Foundation NGO — built to demonstrate my approach to impactful non-profit websites. Features modern design, accessibility-first principles, and engaging storytelling interfaces. Available as a purchase template for organizations that are looking for a website and I offer customization to fit the brand.",
     image: "/images/sunrays-foundation-website.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     demoUrl: "https://sun-rays-foundation.vercel.app/",
