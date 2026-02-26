@@ -111,7 +111,7 @@ export const projects = [
     id: 4,
     title: "Nyota Roots",
     description:
-      "Educational platform for a schools program offering life skills courses and certifications for children. Features course catalogs, school partnership tools, certification tracking, and a warm, approachable design aimed at parents and educators.",
+      "Educational platform for a schools program offering life skills courses and certifications for children. Features course catalogs, school partnership tools, certification tracking, and a warm, approachable design aimed at parents and educators. This project's client is the same one that came to me after I worked on the stratedge solutions website for them,yet another project that brought me to this opportunity to yet deliver my services.",
     image: "/images/nyota-roots-website.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Education"],
     demoUrl: "https://nyotaroots.stratedgesolutions.co.ke/#home",
