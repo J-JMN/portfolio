@@ -100,9 +100,9 @@ export const projects = [
     id: 3,
     title: "Sun Rays Foundation",
     description:
-      "A design showcase inspired by the Sun Rays Foundation NGO — built to demonstrate my approach to impactful non-profit websites. Features modern design, accessibility-first principles, and engaging storytelling interfaces. Available as a purchase template for organizations that are looking for a website and I offer customization to fit the brand.",
+      "A design showcase for the Sun Rays Foundation NGO — built to demonstrate my approach to impactful non-profit websites. Features modern design, Blog CMS, Custom Admin dashboard, Email notifications, CMS models and API endpoints for programs, locations, partners, milestones, and testimonials with admin CRUD operations and public views,accessibility-first principles, and engaging storytelling interfaces.",
     image: "/images/sunrays-foundation-website.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tags: ["React.js", "TypeScript", "Tailwind CSS", "Django"],
     demoUrl: "https://sun-rays-foundation.vercel.app/",
     githubUrl: "https://github.com/J-JMN/sun-rays-foundation",
     featured: true,
@@ -133,11 +133,11 @@ export const projects = [
     id: 6,
     title: "Sun Rays Foundation (Official Site)",
     description:
-      "Commissioned by the Sun Rays Foundation to modernize their existing website. Currently rebuilding the site from the ground up with a fresh, contemporary design — improving navigation, storytelling, and mobile experience. This is an ongoing engagement for continued maintenance and improvements.",
+      "Commissioned by the Sun Rays Foundation to modernize their existing website. Features modern design, Blog CMS, Custom Admin dashboard, Email notifications, CMS models and API endpoints for programs, locations, partners, milestones, and testimonials with admin CRUD operations and public views,accessibility-first principles, and engaging storytelling interfaces.",
     image: "/images/realsunraysfoundation.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Website Redesign"],
+    tags: ["React.js", "TypeScript", "Tailwind CSS", "Website Redesign", "Django"],
     demoUrl: "https://sunraysfoundation.org",
-    githubUrl: "https://github.com/J-JMN/sunraysfoundation.africa",
+    githubUrl: "https://github.com/J-JMN/sun-rays-foundation",
     featured: true,
   },
 ];

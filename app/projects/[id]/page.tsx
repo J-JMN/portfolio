@@ -35,7 +35,7 @@ const projectOverviews: Record<
     challenge:
       "I wanted to build a showcase piece demonstrating how I'd approach a non-profit website — one that balances emotional storytelling with clear calls to action, accessibility, and modern design.",
     solution:
-      "Using Next.js and TypeScript, I designed a template inspired by the Sun Rays Foundation NGO. The site prioritizes storytelling through program showcases, impact statistics, and volunteer/donor pathways — all built with accessibility-first principles and a warm visual language.",
+      "Using React.js, Django REST API and TypeScript, I designed a template for Sun Rays Foundation NGO. The site prioritizes storytelling through program showcases, impact statistics, and volunteer/donor pathways — all built with accessibility-first principles and a warm visual language.",
     impact:
       "This design showcase led directly to the Sun Rays Foundation commissioning me to rebuild their actual website. It demonstrated that thoughtful design work can open real client doors.",
   },
@@ -59,7 +59,7 @@ const projectOverviews: Record<
     challenge:
       "The Sun Rays Foundation reached out after seeing my design showcase and commissioned me to modernize their existing website. Their current site needed a complete visual and structural overhaul to better represent their mission and improve the user experience across devices.",
     solution:
-      "I'm rebuilding the site from the ground up with Next.js and TypeScript — a fresh contemporary design with improved navigation, stronger storytelling, and a fully responsive mobile experience. This is an ongoing engagement that includes continued maintenance and iterative improvements.",
+      "I'm rebuilding the site from the ground up with React.js, Django REST API and TypeScript — a fresh contemporary design with improved design and navigation, Blog CMS, Custom Admin dashboard, Email notifications, CMS models and API endpoints for programs, locations, partners, milestones, and testimonials with admin CRUD operations and public views,accessibility-first principles, and engaging storytelling interfaces.",
     impact:
       "Work in progress. The redesign is actively underway, and this project represents my first ongoing client retainer — a relationship that grew directly from a showcase piece into a real commissioned engagement.",
   },
