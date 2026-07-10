@@ -31,14 +31,6 @@ const projectOverviews: Record<
     impact:
       "This was my first freelance client project and it launched a real business online. The founder manages all content, bookings, and inquiries through the admin panel daily. It proved I could deliver a production-grade full-stack application end to end.",
   },
-  3: {
-    challenge:
-      "I wanted to build a showcase piece demonstrating how I'd approach a non-profit website — one that balances emotional storytelling with clear calls to action, accessibility, and modern design.",
-    solution:
-      "Using React.js, Django REST API and TypeScript, I designed a template for Sun Rays Foundation NGO. The site prioritizes storytelling through program showcases, impact statistics, and volunteer/donor pathways — all built with accessibility-first principles and a warm visual language.",
-    impact:
-      "This design showcase led directly to the Sun Rays Foundation commissioning me to rebuild their actual website. It demonstrated that thoughtful design work can open real client doors.",
-  },
   4: {
     challenge:
       "Nyota Roots runs life skills programs in schools and needed a website that could speak to three different audiences: parents looking for enrichment programs, schools seeking partnerships, and organizations interested in collaboration.",
@@ -54,14 +46,6 @@ const projectOverviews: Record<
       "I built a polished Tic Tac Toe game featuring two play modes: player vs player and player vs AI. The game includes score tracking, a helpful tutorial for new players, and a reward system to keep players engaged.",
     impact:
       "This project demonstrates my versatility as a developer, showing that I can create entertaining, interactive experiences beyond traditional business websites, with clean code and thoughtful UX throughout.",
-  },
-  6: {
-    challenge:
-      "The Sun Rays Foundation reached out after seeing my design showcase and commissioned me to modernize their existing website. Their current site needed a complete visual and structural overhaul to better represent their mission and improve the user experience across devices.",
-    solution:
-      "I'm rebuilding the site from the ground up with React.js, Django REST API and TypeScript — a fresh contemporary design with improved design and navigation, Blog CMS, Custom Admin dashboard, Email notifications, CMS models and API endpoints for programs, locations, partners, milestones, and testimonials with admin CRUD operations and public views,accessibility-first principles, and engaging storytelling interfaces.",
-    impact:
-      "Work in progress. The redesign is actively underway, and this project represents my first ongoing client retainer — a relationship that grew directly from a showcase piece into a real commissioned engagement.",
   },
 };
 
