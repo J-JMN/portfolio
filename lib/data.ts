@@ -122,7 +122,7 @@ export const projects = [
     id: 6,
     title: "Sun Rays Foundation",
     description:
-      "Full-stack web platform for an international non-profit organization. Built with React 19 and Django REST API — features a content management system for programs, events, gallery, and blog posts. Includes an admin panel with JWT authentication, Cloudinary image uploads, rich-text editing with TipTap, contact form management with anti-spam protection, and deployment on cPanel with Passenger WSGI.",
+      "A powerful digital platform for an international non-profit transforming lives across East Africa. The website showcases their programs, shares inspiring impact stories, and connects them with donors, volunteers, and partners worldwide. Features an easy-to-use admin panel so the team can manage everything themselves — from blog posts to event galleries — without any technical knowledge.",
     image: "/images/sun-rays-foundation-website.png",
     tags: ["React", "TypeScript", "Tailwind CSS", "Django", "MySQL"],
     demoUrl: "https://sunraysfoundationafrica.org",

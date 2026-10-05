@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TextReveal from "@/components/animations/TextReveal";
@@ -111,10 +110,10 @@ export default function Hero() {
           </FadeIn>
         </div>
 
-        {/* Visual Content / Profile Image */}
+        {/* Visual Content / Animated Name Display */}
         <div className="order-1 lg:order-2 flex justify-center relative overflow-hidden">
           <FadeIn delay={0.3} direction="left">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 overflow-visible">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 overflow-visible flex items-center justify-center">
               {/* Animated Floating Particles */}
               {[...Array(6)].map((_, i) => (
                 <motion.div
@@ -196,16 +195,29 @@ export default function Hero() {
                 }}
               />
 
-              {/* Profile Image */}
-              <div className="absolute inset-3 rounded-full overflow-hidden shadow-2xl border-2 border-white/10">
-                <Image
-                  src="/images/profile-picture.png"
-                  alt="Joseph Mburu"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                  priority
-                />
+              {/* Name Display */}
+              <div className="absolute inset-3 rounded-full overflow-hidden shadow-2xl border-2 border-white/10 bg-background flex items-center justify-center">
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                  <motion.span
+                    className="text-5xl md:text-7xl font-heading font-bold text-transparent bg-clip-text bg-linear-to-br from-primary via-blue-500 to-purple-500"
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  >
+                    JM
+                  </motion.span>
+                </motion.div>
               </div>
 
               {/* Decorative Corner Accents */}

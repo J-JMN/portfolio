@@ -49,11 +49,11 @@ const projectOverviews: Record<
   },
   6: {
     challenge:
-      "Sun Rays Foundation, an international non-profit operating across East Africa, needed a comprehensive digital platform to showcase their programs, share impact stories, manage events, and handle inquiries from potential donors and volunteers — all while being easily maintainable by non-technical staff.",
+      "Sun Rays Foundation is on a mission to transform lives across East Africa — but their incredible work was invisible online. With programs spanning education, healthcare, and community development across multiple countries, they needed more than a website. They needed a digital home that could tell their story, showcase their impact, and connect them with donors, volunteers, and partners who share their vision.",
     solution:
-      "I built a full-stack application using React 19 with TypeScript for the frontend and Django REST API with custom JWT authentication on the backend. The platform features a complete CMS for managing programs, events with photo galleries, blog posts with rich-text editing via TipTap, testimonials, and partner showcases. Implemented anti-spam protection with honeypot fields and rate limiting, Cloudinary integration for image uploads, and a responsive design that works beautifully on all devices. Deployed on cPanel with Passenger WSGI.",
+      "I created a complete digital platform that puts Sun Rays Foundation's mission front and center. Visitors can explore life-changing programs, read powerful impact stories, browse event galleries, and easily get in touch — whether they want to donate, volunteer, or partner. Behind the scenes, the team has full control: they can publish blog posts, update program details, manage events, and respond to inquiries — all without touching a single line of code. The site looks stunning on any device and loads fast, ensuring no one misses a chance to connect.",
     impact:
-      "The website serves as Sun Rays Foundation's primary digital presence, helping them communicate their mission to audiences across multiple countries. The admin panel enables the team to independently manage all content, track contact submissions, and publish updates without developer intervention. This project demonstrated my ability to deliver production-grade non-profit solutions with complex content management needs.",
+      "Sun Rays Foundation now has a professional digital presence that matches the scale of their ambition. The platform has become their primary tool for reaching supporters across borders, sharing success stories that inspire action, and managing the growing interest in their work. What started as 'we need a website' became a launchpad for expanding their reach and impact across East Africa.",
   },
 };
 
