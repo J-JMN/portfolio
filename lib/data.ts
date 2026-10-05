@@ -118,10 +118,21 @@ export const projects = [
     githubUrl: "https://github.com/J-JMN/TicTacToe",
     featured: false,
   },
+  {
+    id: 6,
+    title: "Sun Rays Foundation",
+    description:
+      "Full-stack web platform for an international non-profit organization. Built with React 19 and Django REST API — features a content management system for programs, events, gallery, and blog posts. Includes an admin panel with JWT authentication, Cloudinary image uploads, rich-text editing with TipTap, contact form management with anti-spam protection, and deployment on cPanel with Passenger WSGI.",
+    image: "/images/sun-rays-foundation-website.png",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Django", "MySQL"],
+    demoUrl: "https://sunraysfoundationafrica.org",
+    githubUrl: "https://github.com/J-JMN/sun-rays-foundation",
+    featured: true,
+  },
 ];
 
 export const highlights = [
-  { label: "Projects Delivered", value: "4+" },
-  { label: "Happy Clients", value: "3+" },
+  { label: "Projects Delivered", value: "5+" },
+  { label: "Happy Clients", value: "4+" },
   { label: "Technologies", value: "15+" },
 ];
