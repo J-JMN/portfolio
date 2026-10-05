@@ -17,35 +17,35 @@ const projectOverviews: Record<
 > = {
   1: {
     challenge:
-      "Chanzo Technologies, an Edu-Tech startup, needed a website that would establish credibility in a crowded market and clearly communicate what makes their approach to technology education different.",
+      "Chanzo Technologies had a big vision — to make technology education accessible to everyone in Kenya. But without an online presence, they were invisible to the students, parents, and partners they wanted to reach. They needed a website that could establish instant credibility and clearly communicate why they're different in a crowded education market.",
     solution:
-      "During my internship, I built a modern Next.js site with scroll-driven animations, dynamic service showcases, and a responsive layout that works seamlessly across devices. The design mirrors the brand's energy — clean, forward-thinking, and approachable.",
+      "I created a website that feels alive. Smooth animations guide visitors through their story as they scroll. Each service is showcased with clear explanations and eye-catching visuals. The design adapts beautifully to any screen size, so whether someone discovers Chanzo on their phone during a commute or on a computer at home, they get the full experience.",
     impact:
-      "The website became Chanzo's primary lead generation tool, helping them attract clients and partners. It also gave me my first real taste of shipping production code for a business with real users.",
+      "The website became Chanzo's primary way of attracting new students and partners. It transformed them from 'that startup nobody's heard of' into a credible player in Kenya's education technology space. For me, it was the project that proved I could deliver real value for a real business.",
   },
   2: {
     challenge:
-      "Stratedge Solutions, a strategic partnerships consultancy, needed a complete digital presence from scratch — not just a marketing site, but a platform to manage blog content, handle discovery call bookings, and process client inquiries, all with an admin panel the founder could use independently.",
+      "The founder of Stratedge Solutions was running her consultancy through scattered emails, phone calls, and manual scheduling. She needed a professional online home that could handle everything — showcasing her expertise, letting potential clients book calls, managing inquiries, and sharing business insights — all without needing to hire a tech person.",
     solution:
-      "I built a full-stack application: React 19 with TypeScript on the frontend and a Django REST API backend with JWT authentication. The platform includes a blog CMS with Cloudinary image uploads, a multi-step booking wizard with email notifications to both admin and client, contact management with read/unread tracking, and a dashboard with real-time stats. Deployed on cPanel with Passenger WSGI.",
+      "I built her a complete digital headquarters. Potential clients can browse her services, read helpful articles on the blog, and book discovery calls through a friendly step-by-step process that asks the right questions upfront. When someone reaches out, both she and the client get email confirmations instantly. Behind the scenes, she has a private dashboard where she can write blog posts, upload images, track who's contacted her, and see statistics on her site's activity — all through simple click-and-type interfaces.",
     impact:
-      "This was my first freelance client project and it launched a real business online. The founder manages all content, bookings, and inquiries through the admin panel daily. It proved I could deliver a production-grade full-stack application end to end.",
+      "This was my first freelance project, and it changed everything. A real business now runs on something I built. The founder uses her dashboard daily to manage her growing consultancy, and the polished online presence has helped her attract clients who take her seriously from the first click. It proved to me that I could deliver a complete, professional solution from start to finish.",
   },
   4: {
     challenge:
-      "Nyota Roots runs life skills programs in schools and needed a website that could speak to three different audiences: parents looking for enrichment programs, schools seeking partnerships, and organizations interested in collaboration.",
+      "Nyota Roots teaches children essential life skills through school programs — but they had no way to reach the people who needed to know about them. Parents searching for enrichment programs, schools looking to add value for students, and organizations wanting to partner all needed different information, and there was nowhere to send them.",
     solution:
-      "I built a Next.js platform with dedicated pathways for each audience. Course catalogs with certification details, school partnership information, and clear contact channels — all wrapped in a warm, approachable design that reflects the program's focus on children's development.",
+      "I designed a website that feels warm and inviting, just like their programs. Each audience finds their path immediately: parents can explore courses and see what their children will learn, schools can discover partnership opportunities, and organizations can understand collaboration options. The design uses friendly colors and imagery that reflect the joy of children learning and growing.",
     impact:
-      "The site serves as Nyota Roots' primary outreach and lead generation tool, helping them onboard new school partners and communicate program value to parents. The contact functionality has opened doors for new partnership opportunities.",
+      "The website has become Nyota Roots' primary outreach tool. Schools now discover them online and reach out for partnerships. Parents feel confident enrolling their children after seeing the professional presentation of the programs. What's more, this client found me through my previous work — proof that quality work creates its own opportunities.",
   },
   5: {
     challenge:
-      "I wanted to create a fun, interactive project that would showcase my ability to implement game logic while providing an enjoyable experience for users of all ages.",
+      "Sometimes you just want to build something fun. I wanted to create a game that anyone could pick up and enjoy — something that would bring a smile to someone's face during a break, settle a friendly rivalry, or help pass the time. The classic Tic Tac Toe seemed perfect, but I wanted to make it special.",
     solution:
-      "I built a polished Tic Tac Toe game featuring two play modes: player vs player and player vs AI. The game includes score tracking, a helpful tutorial for new players, and a reward system to keep players engaged.",
+      "I reimagined the simple game we all played as kids. You can challenge a friend sitting next to you or play against a computer opponent that actually puts up a fight. The score keeps track across games so you can crown a true champion. New to the game? A friendly tutorial walks you through everything. And little rewards along the way make every victory feel satisfying.",
     impact:
-      "This project demonstrates my versatility as a developer, showing that I can create entertaining, interactive experiences beyond traditional business websites, with clean code and thoughtful UX throughout.",
+      "This project shows a different side of what I can create. Beyond business websites and professional platforms, I can build experiences that are purely about joy and engagement. It's polished, it's fun, and it proves that good design and attention to detail matter in everything — even a game you've played a thousand times before.",
   },
   6: {
     challenge:

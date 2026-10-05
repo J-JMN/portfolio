@@ -78,7 +78,7 @@ export const projects = [
     id: 1,
     title: "Chanzo Technologies",
     description:
-      "Company website for an Edu-Tech startup, built during my internship. Features scroll-driven animations, service showcases, and a responsive design that reflects the brand's mission to make technology education accessible.",
+      "The digital face of an education technology startup on a mission to make tech skills accessible to everyone. I built a website that captures their energy — sleek animations that draw you in, clear messaging that explains their vision, and a design that looks stunning whether you're viewing on your phone or a big screen. This was my first real-world project, built during my internship.",
     image: "/images/chanzo-website.png",
     tags: ["Next.js", "JavaScript", "Tailwind CSS"],
     demoUrl: "https://chanzo.co.ke",
@@ -89,7 +89,7 @@ export const projects = [
     id: 2,
     title: "Stratedge Solutions",
     description:
-      "Full-stack web platform for a strategic partnerships consultancy. Built with React 19 and a Django REST API backend — features a blog CMS with Cloudinary uploads, multi-step discovery call booking, contact management with dual email notifications, JWT-authenticated admin panel, and deployment on cPanel.",
+      "A complete digital platform for a business consultancy that helps companies form strategic partnerships. More than just a website — it's their entire online operation. Clients can book discovery calls through a guided step-by-step process, the team publishes insights on their blog, and every inquiry lands in an organized dashboard. The founder manages everything herself, no technical help needed.",
     image: "/images/stratedge-solutions-website.png",
     tags: ["React", "TypeScript", "Tailwind CSS", "Django", "MySQL"],
     demoUrl: "https://stratedgesolutions.co.ke",
@@ -100,23 +100,12 @@ export const projects = [
     id: 4,
     title: "Nyota Roots",
     description:
-      "Educational platform for a schools program offering life skills courses and certifications for children. Features course catalogs, school partnership tools, certification tracking, and a warm, approachable design aimed at parents and educators. This project's client is the same one that came to me after I worked on the stratedge solutions website for them,yet another project that brought me to this opportunity to deliver my services.",
+      "A welcoming digital home for a children's life skills program that operates in schools across Kenya. The website speaks to three different audiences — parents exploring enrichment options, schools looking to partner, and organizations seeking collaboration. It features course information, certification details, and easy ways to get in touch. This client came to me after seeing my work on Stratedge Solutions.",
     image: "/images/nyota-roots-website.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Education"],
     demoUrl: "https://nyotaroots.stratedgesolutions.co.ke/#home",
     githubUrl: "https://github.com/J-JMN/nyotaroots",
     featured: true,
-  },
-  {
-    id: 5,
-    title: "Tic Tac Toe Game",
-    description:
-      "An interactive web-based Tic Tac Toe game with a clean UI, score tracking, tutorial, Rewards, and the option to play against another player or an AI opponent.",
-    image: "/images/tic-tac-toe-game-website.png",
-    tags: ["Next.js", "JavaScript", "CSS", "Game Logic"],
-    demoUrl: "https://tic-tac-toe-rho-two-61.vercel.app/",
-    githubUrl: "https://github.com/J-JMN/TicTacToe",
-    featured: false,
   },
   {
     id: 6,
@@ -128,6 +117,17 @@ export const projects = [
     demoUrl: "https://sunraysfoundationafrica.org",
     githubUrl: "https://github.com/J-JMN/sun-rays-foundation",
     featured: true,
+  },
+  {
+    id: 5,
+    title: "Tic Tac Toe Game",
+    description:
+      "A beautifully crafted take on the classic game we all know and love. Challenge a friend or test your skills against a clever computer opponent. Features score tracking to settle debates, a helpful tutorial for newcomers, and fun rewards to keep you playing. Simple on the surface, addictive underneath.",
+    image: "/images/tic-tac-toe-game-website.png",
+    tags: ["Next.js", "JavaScript", "CSS", "Game Logic"],
+    demoUrl: "https://tic-tac-toe-rho-two-61.vercel.app/",
+    githubUrl: "https://github.com/J-JMN/TicTacToe",
+    featured: false,
   },
 ];
 
