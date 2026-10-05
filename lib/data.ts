@@ -111,7 +111,7 @@ export const projects = [
     id: 6,
     title: "Sun Rays Foundation",
     description:
-      "A powerful digital platform for an international non-profit transforming lives across East Africa. The website showcases their programs, shares inspiring impact stories, and connects them with donors, volunteers, and partners worldwide. Features an easy-to-use admin panel so the team can manage everything themselves — from blog posts to event galleries — without any technical knowledge.",
+      "A powerful digital platform for an international non-profit transforming lives across Africa. The website showcases their programs, shares inspiring impact stories, and connects them with donors, volunteers, and partners worldwide. Features an easy-to-use admin panel so the team can manage everything themselves — from blog posts to event galleries — without any technical knowledge.",
     image: "/images/sun-rays-foundation-website.png",
     tags: ["React", "TypeScript", "Tailwind CSS", "Django", "MySQL"],
     demoUrl: "https://sunraysfoundationafrica.org",
