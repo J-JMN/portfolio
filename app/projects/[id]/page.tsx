@@ -49,7 +49,7 @@ const projectOverviews: Record<
   },
   6: {
     challenge:
-      "Sun Rays Foundation is on a mission to transform lives across East Africa — but their incredible work was invisible online. With programs spanning education, healthcare, and community development across multiple countries, they needed more than a website. They needed a digital home that could tell their story, showcase their impact, and connect them with donors, volunteers, and partners who share their vision.",
+      "Sun Rays Foundation is on a mission to transform lives across Africa — but their incredible work was invisible online. With programs spanning education, healthcare, and community development across multiple countries, they needed more than a website. They needed a digital home that could tell their story, showcase their impact, and connect them with donors, volunteers, and partners who share their vision.",
     solution:
       "I created a complete digital platform that puts Sun Rays Foundation's mission front and center. Visitors can explore life-changing programs, read powerful impact stories, browse event galleries, and easily get in touch — whether they want to donate, volunteer, or partner. Behind the scenes, the team has full control: they can publish blog posts, update program details, manage events, and respond to inquiries — all without touching a single line of code. The site looks stunning on any device and loads fast, ensuring no one misses a chance to connect.",
     impact:
