@@ -124,9 +124,7 @@ Follow these steps to configure EmailJS for the INTAVOR contact form.
     
     <!-- Header -->
     <div style="background: linear-gradient(135deg, #7A6CFF 0%, #6555ED 100%); border-radius: 16px 16px 0 0; padding: 30px; text-align: center;">
-      <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
-        <span style="font-size: 28px;">✉️</span>
-      </div>
+      <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 15px; text-align: center; line-height: 60px; font-size: 28px;">✉️</div>
       <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">Message Received!</h1>
     </div>
     
@@ -151,10 +149,10 @@ Follow these steps to configure EmailJS for the INTAVOR contact form.
         </div>
       </div>
       
-      <!-- Signature — replace your-domain.com with the live site domain -->
+      <!-- Signature -->
       <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #344157; text-align: center;">
         <p style="color: #cbd5e1; font-size: 15px; margin: 0 0 15px;">Best regards,</p>
-        <img src="https://your-domain.com/brand/intavor-logo-on-dark.png" alt="INTAVOR — Tech built with intention." width="170" style="display: block; margin: 0 auto; max-width: 170px; height: auto;" />
+        <img src="https://intavor.vercel.app/brand/intavor-logo-on-dark.png" alt="INTAVOR — Tech built with intention." width="170" height="41" style="display: block; margin: 0 auto; max-width: 170px; height: auto; border: 0;" />
       </div>
       
     </div>
