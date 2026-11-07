@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { personalInfo } from "@/lib/data";
+import { brandInfo } from "@/lib/data";
+import BrandLogo from "@/components/layout/BrandLogo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,15 +12,16 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Link
               href="/"
-              className="font-heading font-bold text-xl mb-4 block"
+              className="mb-3 block"
             >
-              {personalInfo.name}
+              <BrandLogo />
             </Link>
+            <p className="mb-5 text-sm text-primary">{brandInfo.tagline}</p>
             <p className="text-muted-foreground max-w-xs mb-6">
-              {personalInfo.bio}
+              {brandInfo.bio}
             </p>
             <div className="flex gap-4">
-              {personalInfo.socials.map((social) => (
+              {brandInfo.socials.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
@@ -66,7 +68,7 @@ export default function Footer() {
                   href="/experience"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Experience
+                  Website Management
                 </Link>
               </li>
             </ul>
@@ -77,16 +79,15 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href={`mailto:${personalInfo.email}`}
+                  href={`mailto:${brandInfo.email}`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {personalInfo.email}
+                  {brandInfo.email}
                 </a>
               </li>
-              <li className="text-muted-foreground">{personalInfo.location}</li>
-              <li className="text-green-500 font-medium text-sm flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                {personalInfo.availability}
+              <li className="text-muted-foreground">{brandInfo.location}</li>
+              <li className="text-primary font-medium text-sm">
+                {brandInfo.availability}
               </li>
             </ul>
           </div>
@@ -94,7 +95,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex justify-center text-sm text-muted-foreground">
           <p>
-            &copy; {currentYear} {personalInfo.name}. All rights reserved.
+            &copy; {currentYear} {brandInfo.name}. All rights reserved.
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import SkillsGrid from "@/components/skills/SkillsGrid";
 import TechMarquee from "@/components/skills/TechMarquee";
 import FadeIn from "@/components/animations/FadeIn";
-import { Code2, Cpu, Layers, Pickaxe, Sparkles, ThumbsUp } from "lucide-react";
+import { Code2, Cpu, Pickaxe, ThumbsUp } from "lucide-react";
 
 export default function SkillsPage() {
   return (
@@ -13,7 +13,7 @@ export default function SkillsPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-12 relative overflow-hidden">
         {/* Background decorations */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 blur-3xl -z-10 rounded-full" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-3xl -z-10 rounded-full" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/10 blur-3xl -z-10 rounded-full" />
 
         <div className="container mx-auto px-4 md:px-6">
@@ -35,13 +35,13 @@ export default function SkillsPage() {
 
             <FadeIn delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                From concept to deployment, I leverage a diverse tech stack to
-                build solutions that are not just functional, but{" "}
+                From concept to deployment and ongoing support, each tool is
+                selected to build solutions that are not just functional, but{" "}
                 <span className="text-foreground font-medium">
                   fast, scalable, and built to last
                 </span>
-                . Every tool in my toolkit has been battle-tested across
-                real-world projects.
+                . This stack is used across live client websites, business
+                workflows, CMS tools, and technical maintenance.
               </p>
             </FadeIn>
 

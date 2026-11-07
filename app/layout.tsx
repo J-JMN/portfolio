@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -8,15 +8,20 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Joseph Mburu | Fullstack Developer",
+  title: {
+    default: "INTAVOR | Tech built with intention.",
+    template: "%s | INTAVOR",
+  },
   description:
-    "Joseph Mburu's portfolio, fullstack developer based in Nairobi, Kenya. I help businesses bring their digital vision to life.",
+    "INTAVOR builds and manages intentional websites and web applications for businesses and organisations in Nairobi and beyond.",
+  applicationName: "INTAVOR",
+  openGraph: {
+    title: "INTAVOR | Tech built with intention.",
+    description:
+      "Web development, platform delivery, and ongoing website support for businesses and organisations.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground font-sans`}
+        className={`${inter.variable} antialiased bg-background text-foreground font-sans`}
       >
         {children}
         <Analytics />

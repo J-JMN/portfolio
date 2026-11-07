@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
 import FadeIn from "@/components/animations/FadeIn";
 import { Mail, MapPin, Clock } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import { brandInfo } from "@/lib/data";
 
 export default function ContactPage() {
   return (
@@ -12,7 +12,7 @@ export default function ContactPage() {
 
       <section className="pt-24 pb-8 relative overflow-hidden min-h-[calc(100vh-80px)]">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-3xl -z-10 rounded-full" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 blur-3xl -z-10 rounded-full" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/5 blur-3xl -z-10 rounded-full" />
 
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -31,12 +31,12 @@ export default function ContactPage() {
                     Get in Touch
                   </span>
                   <h1 className="text-3xl md:text-4xl font-heading font-bold mb-3">
-                    Let&apos;s Build Something{" "}
-                    <span className="text-primary">Amazing</span>
+                    Build It Well.{" "}
+                    <span className="text-primary">Keep It Working.</span>
                   </h1>
                   <p className="text-muted-foreground">
-                    Ready to bring your ideas to life? Send me a message and
-                    let&apos;s discuss your project.
+                    Share what your website needs to do, whether it is a new
+                    build, a focused improvement, or ongoing support.
                   </p>
                 </div>
               </FadeIn>
@@ -50,10 +50,10 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-muted-foreground">Email</p>
                       <a
-                        href={`mailto:${personalInfo.email}`}
+                        href={`mailto:${brandInfo.email}`}
                         className="font-medium hover:text-primary transition-colors text-sm"
                       >
-                        {personalInfo.email}
+                        {brandInfo.email}
                       </a>
                     </div>
                   </div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-muted-foreground">Location</p>
                       <p className="font-medium text-sm">
-                        {personalInfo.location}
+                        {brandInfo.location}
                       </p>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                       </p>
                       <p className="font-medium text-green-500 flex items-center gap-2 text-sm">
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                        {personalInfo.availability}
+                        {brandInfo.availability}
                       </p>
                     </div>
                   </div>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                     Connect:
                   </span>
                   <div className="flex gap-2">
-                    {personalInfo.socials.map((social) => (
+                    {brandInfo.socials.map((social) => (
                       <a
                         key={social.name}
                         href={social.url}

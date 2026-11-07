@@ -12,12 +12,11 @@ export default function QuickContact() {
       <div className="container mx-auto px-4 md:px-6 text-center">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-            Ready to start your next project?
+            Need a website built or better managed?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            I&apos;m currently available for freelance work and open to new
-            opportunities. Let&apos;s discuss how I can help you achieve your
-            goals.
+            Start with a new digital platform, improve an existing one, or put
+            dependable ongoing support in place.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -26,7 +25,7 @@ export default function QuickContact() {
               asChild
             >
               <Link href="/contact">
-                Get in Touch
+                Discuss Your Website
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -36,7 +35,7 @@ export default function QuickContact() {
               className="rounded-full w-full sm:w-auto"
               asChild
             >
-              <a href="mailto:j.mburu.pro@gmail.com">
+              <a href="mailto:intavortech@gmail.com">
                 <Mail className="mr-2 w-4 h-4" />
                 Send Email
               </a>

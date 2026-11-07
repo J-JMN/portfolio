@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -25,6 +25,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import FadeIn from "@/components/animations/FadeIn";
+import { brandInfo } from "@/lib/data";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -38,8 +39,6 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const formRef = useRef<HTMLFormElement>(null);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,20 +77,22 @@ export default function ContactForm() {
     }
 
     try {
-      // Send main email to you (portfolio owner)
+      // Send the project enquiry to the configured mailbox.
       await emailjs.send(
         serviceId,
         templateId,
         {
           from_name: values.name,
           from_email: values.email,
+          to_email: brandInfo.email,
+          brand_name: brandInfo.name,
           subject: values.subject,
           message: values.message,
         },
         publicKey,
       );
 
-      // Send auto-reply confirmation to the submitter
+      // Send an auto-reply confirmation when a template is configured.
       if (autoReplyTemplateId) {
         await emailjs.send(
           serviceId,
@@ -99,6 +100,8 @@ export default function ContactForm() {
           {
             to_name: values.name,
             to_email: values.email,
+            reply_to: brandInfo.email,
+            brand_name: brandInfo.name,
             subject: values.subject,
             message: values.message,
           },
@@ -124,8 +127,8 @@ export default function ContactForm() {
             Send a Message
           </CardTitle>
           <CardDescription>
-            Have a project in mind or just want to say hi? Fill out the form
-            below.
+            Tell INTAVOR about a new build, an existing website, or the support
+            you need.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -136,7 +139,7 @@ export default function ContactForm() {
               </div>
               <h3 className="text-xl font-bold">Message Sent!</h3>
               <p className="text-muted-foreground">
-                Thanks for reaching out. I&apos;ll get back to you as soon as
+                Thanks for reaching out. A response will follow as soon as
                 possible.
               </p>
               <Button
@@ -204,7 +207,7 @@ export default function ContactForm() {
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell me about your project..."
+                          placeholder="Share your goals, scope, or support needs..."
                           className="min-h-[150px]"
                           {...field}
                         />

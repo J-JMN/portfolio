@@ -32,18 +32,17 @@ export default function AboutPage() {
 
             <FadeIn direction="left">
               <h2 className="text-3xl font-heading font-bold mb-6">
-                Why Work With Me?
+                Why INTAVOR?
               </h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p className="text-lg">
-                  I don&apos;t just write code, I craft digital experiences that
-                  help businesses grow. Whether you need a stunning website, a
-                  powerful web application, or a complete digital
-                  transformation, I deliver solutions that exceed expectations.
+                  INTAVOR means Intent + Endeavor: thoughtful decisions followed
+                  by focused execution. Each project starts with what the
+                  website needs to accomplish, then turns that direction into a
+                  dependable digital product.
                 </p>
                 <p>
-                  With a track record of successfully delivering projects for
-                  clients like{" "}
+                  Work delivered for{" "}
                   <span className="text-primary font-medium">
                     Stratedge Solutions
                   </span>
@@ -52,9 +51,14 @@ export default function AboutPage() {
                     {" "}
                     Chanzo Technologies
                   </span>
-                  , and
+                  ,
                   <span className="text-primary font-medium"> Nyota Roots</span>
-                  , I understand what it takes to turn your vision into reality.
+                  , and{" "}
+                  <span className="text-primary font-medium">
+                    Sun Rays Foundation
+                  </span>
+                  . These relationships now extend into ongoing website
+                  management and technical support.
                 </p>
               </div>
 
@@ -62,25 +66,25 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Fast turnaround without compromising quality
+                    Clear scope and purposeful technical decisions
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Clear communication throughout the project
+                    Responsive experiences built for real audiences
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Modern, responsive designs that convert
+                    Full-stack features, CMS tools, and integrations
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Ongoing support and maintenance available
+                    Ongoing website management after delivery
                   </span>
                 </div>
               </div>
@@ -88,7 +92,7 @@ export default function AboutPage() {
               <div className="mt-8">
                 <Button className="gap-2 rounded-full" asChild>
                   <Link href="/contact">
-                    Let&apos;s Discuss Your Project
+                    Discuss Your Project
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>

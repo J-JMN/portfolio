@@ -3,7 +3,7 @@
 import { Mail, MapPin, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import FadeIn from "@/components/animations/FadeIn";
-import { personalInfo } from "@/lib/data";
+import { brandInfo } from "@/lib/data";
 
 export default function ContactInfo() {
   return (
@@ -16,8 +16,8 @@ export default function ContactInfo() {
             </div>
             <div>
               <h3 className="font-bold mb-1">Email</h3>
-              <a href={`mailto:${personalInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
-                {personalInfo.email}
+              <a href={`mailto:${brandInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                {brandInfo.email}
               </a>
             </div>
           </CardContent>
@@ -33,7 +33,7 @@ export default function ContactInfo() {
             <div>
               <h3 className="font-bold mb-1">Location</h3>
               <p className="text-muted-foreground">
-                {personalInfo.location}
+                {brandInfo.location}
               </p>
             </div>
           </CardContent>
@@ -50,7 +50,7 @@ export default function ContactInfo() {
               <h3 className="font-bold mb-1">Availability</h3>
               <p className="text-green-500 font-medium flex items-center gap-2 justify-center">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                {personalInfo.availability}
+                {brandInfo.availability}
               </p>
             </div>
           </CardContent>

@@ -2,26 +2,33 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Calendar, Building } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Building2, ChevronDown, CircleDot } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface ExperienceCardProps {
-  experience: {
+  engagement: {
     id: number;
-    company: string;
-    role: string;
-    period: string;
-    description: string;
+    client: string;
+    service: string;
+    status: string;
+    summary: string;
+    responsibilities: string[];
     technologies: string[];
+    projectId: number;
   };
   index: number;
 }
 
-export default function ExperienceCard({ experience, index }: ExperienceCardProps) {
+export default function ExperienceCard({
+  engagement,
+  index,
+}: ExperienceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const detailsId = `engagement-details-${engagement.id}`;
 
   return (
     <motion.div
@@ -40,22 +47,27 @@ export default function ExperienceCard({ experience, index }: ExperienceCardProp
         
         {/* Content Card */}
         <div className={cn(
-          "w-full md:w-[calc(50%-2rem)] ml-12 md:ml-0",
+          "ml-12 w-[calc(100%-3rem)] md:ml-0 md:w-[calc(50%-2rem)]",
           index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
         )}>
           <Card className="border-primary/20 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300">
             <CardHeader className="pb-2">
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col items-start justify-between gap-3 sm:flex-row">
                 <div>
-                  <h3 className="text-xl font-bold text-primary">{experience.role}</h3>
+                  <h3 className="text-xl font-bold text-primary">
+                    {engagement.service}
+                  </h3>
                   <div className="flex items-center gap-2 text-muted-foreground mt-1">
-                    <Building className="w-4 h-4" />
-                    <span className="font-medium">{experience.company}</span>
+                    <Building2 className="w-4 h-4" />
+                    <span className="font-medium">{engagement.client}</span>
                   </div>
                 </div>
-                <Badge variant="outline" className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  {experience.period}
+                <Badge
+                  variant="outline"
+                  className="flex items-center gap-1 self-start"
+                >
+                  <CircleDot className="w-3 h-3 text-primary" />
+                  {engagement.status}
                 </Badge>
               </div>
             </CardHeader>
@@ -64,24 +76,43 @@ export default function ExperienceCard({ experience, index }: ExperienceCardProp
                 "text-muted-foreground transition-all duration-300",
                 isExpanded ? "" : "line-clamp-2"
               )}>
-                {experience.description}
+                {engagement.summary}
               </p>
               
               <AnimatePresence>
                 {isExpanded && (
                   <motion.div
+                    id={detailsId}
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     className="mt-4"
                   >
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {experience.technologies.map((tech) => (
+                    <ul className="mb-4 space-y-2 text-sm text-muted-foreground">
+                      {engagement.responsibilities.map((item) => (
+                        <li key={item} className="flex gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      {engagement.technologies.map((tech) => (
                         <Badge key={tech} variant="secondary" className="text-xs">
                           {tech}
                         </Badge>
                       ))}
                     </div>
+                    <Button
+                      variant="link"
+                      className="mt-3 h-auto px-0"
+                      asChild
+                    >
+                      <Link href={`/projects/${engagement.projectId}`}>
+                        View project
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -91,6 +122,8 @@ export default function ExperienceCard({ experience, index }: ExperienceCardProp
                 size="sm"
                 className="mt-2 w-full hover:bg-primary/5"
                 onClick={() => setIsExpanded(!isExpanded)}
+                aria-expanded={isExpanded}
+                aria-controls={detailsId}
               >
                 {isExpanded ? "Show Less" : "Show More"}
                 <ChevronDown className={cn(

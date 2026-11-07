@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import TextReveal from "@/components/animations/TextReveal";
 import FadeIn from "@/components/animations/FadeIn";
-import { personalInfo } from "@/lib/data";
+import { brandInfo } from "@/lib/data";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-160 h-160 bg-primary/5 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-160 h-160 bg-blue-500/5 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-160 h-160 bg-primary/10 rounded-full blur-3xl opacity-50" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -26,29 +26,29 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              Available for new opportunities
+              Web development + ongoing support
             </div>
           </FadeIn>
 
           <div className="space-y-4">
             <FadeIn delay={0.2}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1]">
-                Hi, I&apos;m{" "}
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-blue-600">
-                  {personalInfo.name}
+                Tech built with{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-[#c4bcff] to-primary">
+                  intention.
                 </span>
               </h1>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <h2 className="text-2xl md:text-3xl text-foreground font-medium">
-                <TextReveal text={personalInfo.role} delay={0.5} />
+              <h2 className="text-2xl font-semibold leading-snug text-foreground md:text-3xl">
+                {brandInfo.role}
               </h2>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.4}>
             <p className="text-lg text-foreground/90 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              {personalInfo.bio}
+              {brandInfo.bio}
             </p>
           </FadeIn>
 
@@ -62,7 +62,7 @@ export default function Hero() {
               asChild
             >
               <Link href="/projects">
-                View My Work
+                Explore Client Work
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -72,45 +72,12 @@ export default function Hero() {
               className="rounded-full px-8 h-12 text-base hover:bg-secondary/50"
               asChild
             >
-              <Link href="/contact">Contact Me</Link>
+              <Link href="/contact">Discuss Your Website</Link>
             </Button>
-
-            <div className="flex items-center gap-2 ml-2 border-l border-border/50 pl-6">
-              <Button
-                size="icon"
-                variant="ghost"
-                className="rounded-full hover:bg-secondary/50 hover:text-primary"
-                asChild
-              >
-                <a
-                  href={personalInfo.socials[0].url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-              </Button>
-              <Button
-                size="icon"
-                variant="ghost"
-                className="rounded-full hover:bg-secondary/50 hover:text-primary"
-                asChild
-              >
-                <a
-                  href={personalInfo.socials[1].url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </Button>
-            </div>
           </FadeIn>
         </div>
 
-        {/* Visual Content / Animated Name Display */}
+        {/* Visual Content */}
         <div className="order-1 lg:order-2 flex justify-center relative overflow-hidden">
           <FadeIn delay={0.3} direction="left">
             <div className="relative w-72 h-72 md:w-96 md:h-96 overflow-visible flex items-center justify-center">
@@ -137,9 +104,8 @@ export default function Hero() {
                 />
               ))}
 
-              {/* Outer Glow Pulse */}
               <motion.div
-                className="absolute -inset-8 bg-linear-to-tr from-primary/20 via-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+                className="absolute -inset-8 bg-linear-to-tr from-primary/25 via-[#a99cff]/15 to-[#1e2b3b]/30 rounded-full blur-3xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.3, 0.5, 0.3],
@@ -156,7 +122,7 @@ export default function Hero() {
                 className="absolute -inset-4 rounded-full"
                 style={{
                   background:
-                    "radial-gradient(circle, transparent 60%, hsl(var(--primary) / 0.15) 100%)",
+                    "radial-gradient(circle, transparent 60%, rgb(122 108 255 / 0.15) 100%)",
                 }}
                 animate={{
                   scale: [1, 1.05, 1],
@@ -170,7 +136,7 @@ export default function Hero() {
                 className="absolute inset-0 rounded-full p-1"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent 0%, hsl(var(--primary)) 20%, hsl(217 91% 60%) 40%, transparent 60%)",
+                    "conic-gradient(from 0deg, transparent 0%, #7a6cff 20%, #a99cff 40%, transparent 60%)",
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
@@ -183,9 +149,9 @@ export default function Hero() {
                 className="absolute inset-1 rounded-full border border-primary/30"
                 animate={{
                   boxShadow: [
-                    "0 0 0 0 hsl(var(--primary) / 0)",
-                    "0 0 20px 2px hsl(var(--primary) / 0.3)",
-                    "0 0 0 0 hsl(var(--primary) / 0)",
+                    "0 0 0 0 rgb(122 108 255 / 0)",
+                    "0 0 20px 2px rgb(122 108 255 / 0.3)",
+                    "0 0 0 0 rgb(122 108 255 / 0)",
                   ],
                 }}
                 transition={{
@@ -195,28 +161,37 @@ export default function Hero() {
                 }}
               />
 
-              {/* Name Display */}
+              {/* Brand mark */}
               <div className="absolute inset-3 rounded-full overflow-hidden shadow-2xl border-2 border-white/10 bg-background flex items-center justify-center">
                 <motion.div
-                  className="text-center"
+                  className="flex w-full flex-col items-center gap-4 px-8 text-center"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <motion.span
-                    className="text-5xl md:text-7xl font-heading font-bold text-transparent bg-clip-text bg-linear-to-br from-primary via-blue-500 to-purple-500"
+                  <motion.div
+                    className="w-full max-w-56"
                     animate={{
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                      y: [0, -4, 0],
                     }}
                     transition={{
                       duration: 5,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    style={{ backgroundSize: "200% 200%" }}
                   >
-                    JM
-                  </motion.span>
+                    <Image
+                      src="/brand/intavor-symbol-gradient.svg"
+                      alt="INTAVOR"
+                      width={720}
+                      height={370}
+                      priority
+                      className="h-auto w-full"
+                    />
+                  </motion.div>
+                  <span className="text-sm font-semibold tracking-[0.3em] text-foreground">
+                    INTAVOR
+                  </span>
                 </motion.div>
               </div>
 

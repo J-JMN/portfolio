@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -23,7 +23,6 @@ interface ProjectCardProps {
     image: string;
     tags: string[];
     demoUrl: string;
-    githubUrl: string;
   };
   index?: number;
 }
@@ -53,22 +52,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               e.currentTarget.style.display = "none";
             }}
           />
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-            <Button
-              size="icon"
-              variant="secondary"
-              asChild
-              className="rounded-full hover:scale-110 transition-transform"
-            >
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View Source"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </Button>
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <Button
               size="icon"
               variant="default"

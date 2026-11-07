@@ -14,7 +14,7 @@ export default function SkillsGrid() {
               Skill <span className="text-primary">Breakdown</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              Organized by domain, here&apos;s where my expertise lies
+              Practical capabilities organised by delivery area
             </p>
           </div>
         </FadeIn>

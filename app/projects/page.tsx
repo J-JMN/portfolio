@@ -14,11 +14,11 @@ export default function ProjectsPage() {
         <div className="container mx-auto px-4 md:px-6 text-center">
           <FadeIn>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
-              Featured <span className="text-primary">Projects</span>
+              Selected <span className="text-primary">Client Work</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              A collection of projects that demonstrate my ability to solve
-              complex problems and build intuitive user experiences.
+              Websites, business platforms, and digital experiences delivered
+              with a focus on clarity, practical workflows, and ongoing value.
             </p>
           </FadeIn>
         </div>

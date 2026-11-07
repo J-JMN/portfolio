@@ -1,7 +1,7 @@
 "use client";
 
 import ExperienceCard from "@/components/experience/ExperienceCard";
-import { experience } from "@/lib/data";
+import { clientEngagements } from "@/lib/data";
 
 export default function Timeline() {
   return (
@@ -12,8 +12,8 @@ export default function Timeline() {
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
           
           <div className="relative z-10">
-            {experience.map((item, index) => (
-              <ExperienceCard key={item.id} experience={item} index={index} />
+            {clientEngagements.map((item, index) => (
+              <ExperienceCard key={item.id} engagement={item} index={index} />
             ))}
           </div>
         </div>

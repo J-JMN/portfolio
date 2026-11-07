@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -20,9 +19,6 @@ export default function FadeIn({
   duration = 0.5,
   fullWidth = false,
 }: FadeInProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   const getDirectionVariants = () => {
     switch (direction) {
       case "up":
@@ -58,9 +54,9 @@ export default function FadeIn({
 
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
       variants={variants}
       transition={{ duration, delay, ease: "easeOut" }}
       className={className}

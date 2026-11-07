@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView, type Transition } from "framer-motion";
-import { useRef } from "react";
+import { motion, type Transition } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
@@ -15,9 +14,6 @@ export default function TextReveal({
   className,
   delay = 0,
 }: TextRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   const words = text.split(" ");
 
   const container = {
@@ -51,11 +47,11 @@ export default function TextReveal({
 
   return (
     <motion.div
-      ref={ref}
       style={{ overflow: "hidden", display: "flex", flexWrap: "wrap" }}
       variants={container}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
       className={cn("font-bold", className)}
     >
       {words.map((word, index) => (

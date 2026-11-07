@@ -6,12 +6,13 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import BrandLogo from "@/components/layout/BrandLogo";
 
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Skills", path: "/skills" },
-  { name: "Experience", path: "/experience" },
+  { name: "Expertise", path: "/experience" },
   { name: "Projects", path: "/projects" },
   { name: "Contact", path: "/contact" },
 ];
@@ -40,8 +41,8 @@ export default function Navbar() {
         className={cn(
           "transition-all duration-500 ease-in-out",
           scrolled
-            ? "bg-background/95 backdrop-blur-xl border border-border/50 shadow-2xl shadow-primary/10 rounded-2xl max-w-4xl w-full mx-4"
-            : "bg-transparent w-full",
+            ? "bg-background/95 backdrop-blur-xl border border-border/70 shadow-2xl shadow-black/20 rounded-2xl max-w-6xl w-full mx-4"
+            : "bg-background/70 backdrop-blur-md border-b border-border/40 w-full",
         )}
       >
         <div
@@ -52,12 +53,15 @@ export default function Navbar() {
         >
           <div
             className={cn(
-              "flex items-center justify-center transition-all duration-500",
+              "flex items-center justify-between transition-all duration-500",
               scrolled ? "h-14" : "h-16",
             )}
           >
-            {/* Desktop Navigation - Centered */}
-            <div className="hidden md:flex items-center gap-2">
+            <Link href="/" onClick={closeMenu} aria-label="INTAVOR home">
+              <BrandLogo priority />
+            </Link>
+
+            <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => {
                 const isActive = pathname === item.path;
                 return (
@@ -65,10 +69,10 @@ export default function Navbar() {
                     key={item.path}
                     href={item.path}
                     className={cn(
-                      "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
+                      "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
                       isActive
                         ? "text-primary bg-primary/10"
-                        : "text-white hover:text-primary hover:bg-white/5",
+                        : "text-foreground/80 hover:text-primary hover:bg-white/5",
                     )}
                   >
                     {item.name}
@@ -88,51 +92,21 @@ export default function Navbar() {
                 );
               })}
 
-              {/* Animated Hire Me Button */}
-              <div className="ml-4 relative">
-                {/* Animated ring around button */}
-                <motion.div
-                  className="absolute -inset-1 rounded-full opacity-75"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, hsl(var(--primary)), #60a5fa, hsl(var(--primary)))",
-                    backgroundSize: "200% 100%",
-                  }}
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-                {/* Pulsing glow effect */}
-                <motion.div
-                  className="absolute -inset-2 bg-primary/30 rounded-full blur-md"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.5, 0.8, 0.5],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
+              <div className="ml-3">
                 <Link
                   href="/contact"
-                  className="relative px-6 py-2.5 bg-primary text-primary-foreground font-semibold text-base rounded-full inline-block hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+                  className="relative px-5 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-full inline-block hover:bg-[#6555ed] transition-colors shadow-lg shadow-primary/20"
                 >
-                  Hire Me
+                  Start a Project
                 </Link>
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-white absolute right-4"
+              className="lg:hidden p-2 text-foreground"
               onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -151,7 +125,8 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden rounded-b-2xl"
+              id="mobile-navigation"
+              className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden rounded-b-2xl"
             >
               <div className="px-4 py-4 flex flex-col gap-2">
                 {navItems.map((item) => {
@@ -165,7 +140,7 @@ export default function Navbar() {
                         "px-4 py-3 rounded-lg text-base font-medium transition-colors",
                         isActive
                           ? "bg-primary/10 text-primary"
-                          : "text-white hover:text-primary hover:bg-white/5",
+                          : "text-foreground/80 hover:text-primary hover:bg-white/5",
                       )}
                     >
                       {item.name}
@@ -178,7 +153,7 @@ export default function Navbar() {
                     onClick={closeMenu}
                     className="w-full px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full inline-block text-center hover:bg-primary/90 transition-colors"
                   >
-                    Hire Me
+                    Start a Project
                   </Link>
                 </div>
               </div>

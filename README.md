@@ -1,11 +1,11 @@
-# Joseph Mburu - Portfolio Website
+# INTAVOR Website
 
-A modern, responsive portfolio website built with Next.js 16, React 19, and Tailwind CSS 4. Features smooth animations, a dark theme, and a clean design to showcase professional work and skills.
+The public website for INTAVOR — Tech built with intention. It presents client platforms, ongoing website-management work, technical capabilities, and project enquiries.
 
 ## Features
 
 - **Responsive Design** - Fully responsive across all devices
-- **Modern UI** - Clean, professional design with a dark theme
+- **INTAVOR Brand System** - Branded assets, typography, and dark visual system
 - **Smooth Animations** - Framer Motion powered animations and transitions
 - **Dynamic Content** - Easily customizable data-driven content
 - **Contact Form** - React Hook Form with Zod validation
@@ -15,11 +15,11 @@ A modern, responsive portfolio website built with Next.js 16, React 19, and Tail
 
 | Page | Description |
 |------|-------------|
-| **Home** | Hero section with animated profile, quick intro, and call-to-action |
-| **About** | Detailed background, highlights, and reasons to work together |
+| **Home** | Brand positioning, featured client work, and project call-to-action |
+| **About** | INTAVOR's approach, meaning, and delivery highlights |
 | **Skills** | Categorized technical skills (Frontend, Backend, Tools) |
-| **Experience** | Professional timeline with work history |
-| **Projects** | Portfolio of completed projects with details and links |
+| **Experience** | Client website management and ongoing support relationships |
+| **Projects** | Selected client platforms and technical work with details and links |
 | **Contact** | Contact form and social links |
 
 ## Tech Stack
@@ -38,7 +38,7 @@ A modern, responsive portfolio website built with Next.js 16, React 19, and Tail
 ├── app/                    # Next.js App Router pages
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
-│   ├── experience/        # Experience/work history page
+│   ├── experience/        # Client website management page
 │   ├── projects/          # Projects listing and detail pages
 │   ├── skills/            # Skills showcase page
 │   ├── globals.css        # Global styles and Tailwind theme
@@ -48,14 +48,14 @@ A modern, responsive portfolio website built with Next.js 16, React 19, and Tail
 │   ├── about/             # About page components
 │   ├── animations/        # Reusable animation components (FadeIn, TextReveal)
 │   ├── contact/           # Contact form components
-│   ├── experience/        # Timeline components
+│   ├── experience/        # Client engagement components
 │   ├── home/              # Hero, QuickContact components
 │   ├── layout/            # Navbar, Footer
 │   ├── projects/          # Project cards and grids
 │   ├── skills/            # Skills grid components
 │   └── ui/                # Base UI components (Button, Badge, Input, etc.)
 ├── lib/
-│   ├── data.ts            # Portfolio content data (projects, skills, experience)
+│   ├── data.ts            # Brand, projects, skills, and engagement data
 │   └── utils.ts           # Utility functions
 └── public/
     └── images/            # Project screenshots and profile picture
@@ -90,13 +90,13 @@ A modern, responsive portfolio website built with Next.js 16, React 19, and Tail
 
 ## Customization
 
-### Personal Information
+### Brand and Content
 
 Edit `lib/data.ts` to update:
-- **personalInfo** - Name, role, bio, email, location, social links
+- **brandInfo** - Brand positioning, email, location, and social links
 - **skills** - Frontend, backend, and tools categories
-- **experience** - Work history timeline
-- **projects** - Portfolio projects with images and links
+- **clientEngagements** - Ongoing website management and support
+- **projects** - Selected projects with images and links
 - **highlights** - Stats displayed on the about page
 
 ### Styling
@@ -130,12 +130,10 @@ npm run start
 
 ## License
 
-This project is NOT open source and all rights reserved to Joseph Mburu.
+This project is not open source. All rights are reserved to INTAVOR.
 
 ## Contact
 
-**Joseph Mburu** - Fullstack Web Developer
+**INTAVOR** — Tech built with intention.
 
-- Email: j.mburu.pro@gmail.com
-- LinkedIn: [joseph-mburu-n](https://www.linkedin.com/in/joseph-mburu-n/)
-- GitHub: [J-JMN](https://github.com/J-JMN)
+- Email: intavortech@gmail.com
