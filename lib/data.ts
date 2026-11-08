@@ -60,7 +60,7 @@ export const clientEngagements = [
     id: 2,
     client: "Stratedge Solutions",
     service: "Business platform management",
-    status: "Ongoing support",
+    status: "Active retainer",
     summary:
       "Continued support for a consultancy platform that brings together service content, discovery-call bookings, enquiries, publishing, and day-to-day administration.",
     responsibilities: [
@@ -74,7 +74,7 @@ export const clientEngagements = [
     id: 3,
     client: "Nyota Roots",
     service: "Education website support",
-    status: "Ongoing support",
+    status: "Active retainer",
     summary:
       "Website management for an education programme serving parents, schools, and organisations, with clear pathways to courses, certification, and partnerships.",
     responsibilities: [
