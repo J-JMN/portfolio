@@ -5,15 +5,14 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import {
   Card,
-  CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: {
@@ -21,23 +20,40 @@ interface ProjectCardProps {
     title: string;
     description: string;
     image: string;
-    tags: string[];
+    sector: string;
     demoUrl: string;
   };
   index?: number;
+  wide?: boolean;
 }
 
-export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  index = 0,
+  wide = false,
+}: ProjectCardProps) {
   return (
     <motion.div
+      className={cn("h-full", wide && "md:col-span-2")}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
     >
-      <Card className="h-full flex flex-col overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors group">
-        <div className="relative h-48 w-full overflow-hidden bg-muted">
+      <Card
+        className={cn(
+          "group flex h-full flex-col gap-0 overflow-hidden border-border/50 bg-card/50 py-0 backdrop-blur-sm transition-colors hover:border-primary/50",
+          wide &&
+            "md:grid md:grid-cols-[1.1fr_0.9fr] md:grid-rows-[1fr_auto]",
+        )}
+      >
+        <div
+          className={cn(
+            "relative aspect-video w-full overflow-hidden bg-muted",
+            wide && "md:row-span-2 md:aspect-auto md:h-full md:min-h-80",
+          )}
+        >
           {/* Placeholder for image if generation failed or loading */}
           <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-secondary/30">
             <span className="text-sm">Project Screenshot</span>
@@ -71,31 +87,26 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         </div>
 
-        <CardHeader>
-          <CardTitle className="line-clamp-1 group-hover:text-primary transition-colors">
+        <CardHeader
+          className={cn(
+            "grow py-6",
+            wide && "md:self-end md:px-8 md:pb-5 md:pt-8",
+          )}
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#b7adff]">
+            {project.sector}
+          </p>
+          <CardTitle className="text-xl transition-colors group-hover:text-primary">
             {project.title}
           </CardTitle>
-          <CardDescription className="line-clamp-2">
+          <CardDescription className="line-clamp-3 leading-relaxed">
             {project.description}
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="grow">
-          <div className="flex flex-wrap gap-2">
-            {project.tags.slice(0, 3).map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
-                {tag}
-              </Badge>
-            ))}
-            {project.tags.length > 3 && (
-              <Badge variant="outline" className="text-xs">
-                +{project.tags.length - 3}
-              </Badge>
-            )}
-          </div>
-        </CardContent>
-
-        <CardFooter className="pt-0">
+        <CardFooter
+          className={cn("pb-6 pt-0", wide && "md:px-8 md:pb-8")}
+        >
           <Button variant="ghost" className="w-full group/btn" asChild>
             <Link href={`/projects/${project.id}`}>
               View Details

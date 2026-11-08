@@ -17,8 +17,7 @@ The public website for INTAVOR — Tech built with intention. It presents client
 |------|-------------|
 | **Home** | Brand positioning, featured client work, and project call-to-action |
 | **About** | INTAVOR's approach, meaning, and delivery highlights |
-| **Skills** | Categorized technical skills (Frontend, Backend, Tools) |
-| **Experience** | Client website management and ongoing support relationships |
+| **Expertise** | Services (build, manage, improve), way of working, and ongoing client partnerships |
 | **Projects** | Selected client platforms and technical work with details and links |
 | **Contact** | Contact form and social links |
 
@@ -38,9 +37,8 @@ The public website for INTAVOR — Tech built with intention. It presents client
 ├── app/                    # Next.js App Router pages
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
-│   ├── experience/        # Client website management page
+│   ├── experience/        # Expertise page
 │   ├── projects/          # Projects listing and detail pages
-│   ├── skills/            # Skills showcase page
 │   ├── globals.css        # Global styles and Tailwind theme
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
@@ -48,14 +46,14 @@ The public website for INTAVOR — Tech built with intention. It presents client
 │   ├── about/             # About page components
 │   ├── animations/        # Reusable animation components (FadeIn, TextReveal)
 │   ├── contact/           # Contact form components
-│   ├── experience/        # Client engagement components
+│   ├── experience/        # Expertise page sections
 │   ├── home/              # Hero, QuickContact components
 │   ├── layout/            # Navbar, Footer
 │   ├── projects/          # Project cards and grids
-│   ├── skills/            # Skills grid components
+│   ├── illustrations/     # Animated SVG illustrations and banner art
 │   └── ui/                # Base UI components (Button, Badge, Input, etc.)
 ├── lib/
-│   ├── data.ts            # Brand, projects, skills, and engagement data
+│   ├── data.ts            # Brand, services, projects, and engagement data
 │   └── utils.ts           # Utility functions
 └── public/
     └── images/            # Project screenshots and profile picture
@@ -94,7 +92,7 @@ The public website for INTAVOR — Tech built with intention. It presents client
 
 Edit `lib/data.ts` to update:
 - **brandInfo** - Brand positioning, email, location, and social links
-- **skills** - Frontend, backend, and tools categories
+- **services** - Build, manage, and improve service descriptions
 - **clientEngagements** - Ongoing website management and support
 - **projects** - Selected projects with images and links
 - **highlights** - Stats displayed on the about page

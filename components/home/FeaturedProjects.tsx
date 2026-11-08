@@ -6,12 +6,15 @@ import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/projects/ProjectCard";
 import FadeIn from "@/components/animations/FadeIn";
 import { projects } from "@/lib/data";
+import GlowDivider from "@/components/decor/GlowDivider";
+import { cn } from "@/lib/utils";
 
 export default function FeaturedProjects() {
   const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
 
   return (
-    <section className="py-20 bg-secondary/20">
+    <section className="relative py-20 bg-secondary/20">
+      <GlowDivider />
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <FadeIn direction="right">
@@ -31,7 +34,16 @@ export default function FeaturedProjects() {
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          className={cn(
+            "grid grid-cols-1 gap-8",
+            featuredProjects.length === 1 && "mx-auto max-w-xl",
+            featuredProjects.length === 2 &&
+              "mx-auto max-w-4xl md:grid-cols-2",
+            featuredProjects.length >= 3 &&
+              "md:grid-cols-2 lg:grid-cols-3",
+          )}
+        >
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}

@@ -4,13 +4,16 @@ import ContactForm from "@/components/contact/ContactForm";
 import FadeIn from "@/components/animations/FadeIn";
 import { Mail, MapPin, Clock } from "lucide-react";
 import { brandInfo } from "@/lib/data";
+import ContactArt from "@/components/illustrations/ContactArt";
+import DotGrid from "@/components/decor/DotGrid";
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      <section className="pt-24 pb-8 relative overflow-hidden min-h-[calc(100vh-80px)]">
+      <section className="pt-28 pb-16 relative isolate overflow-hidden min-h-[calc(100vh-80px)]">
+        <DotGrid className="bottom-10 left-0 h-72 w-md" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-3xl -z-10 rounded-full" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/5 blur-3xl -z-10 rounded-full" />
 
@@ -39,6 +42,10 @@ export default function ContactPage() {
                     build, a focused improvement, or ongoing support.
                   </p>
                 </div>
+              </FadeIn>
+
+              <FadeIn delay={0.15}>
+                <ContactArt />
               </FadeIn>
 
               <FadeIn delay={0.2}>

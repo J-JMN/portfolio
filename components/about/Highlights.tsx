@@ -1,30 +1,18 @@
-"use client";
-
-import { Card, CardContent } from "@/components/ui/card";
-import FadeIn from "@/components/animations/FadeIn";
 import { highlights } from "@/lib/data";
 
 export default function Highlights() {
   return (
-    <section className="py-12">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {highlights.map((item, index) => (
-            <FadeIn key={item.label} delay={index * 0.1}>
-              <Card className="border-primary/20 bg-primary/5 backdrop-blur-sm hover:bg-primary/10 transition-colors">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                    {item.value}
-                  </div>
-                  <div className="text-muted-foreground font-medium">
-                    {item.label}
-                  </div>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          ))}
+    <dl className="grid w-full max-w-lg grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/10 bg-background/60 py-4 backdrop-blur-md">
+      {highlights.map((item) => (
+        <div key={item.label} className="flex flex-col px-4 sm:px-5">
+          <dt className="order-2 mt-1 text-xs leading-snug text-white/70 sm:text-sm">
+            {item.label}
+          </dt>
+          <dd className="text-2xl font-heading font-bold text-[#c8c1ff] md:text-3xl">
+            {item.value}
+          </dd>
         </div>
-      </div>
-    </section>
+      ))}
+    </dl>
   );
 }

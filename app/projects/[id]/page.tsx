@@ -8,8 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { projects } from "@/lib/data";
+import { clientEngagements, projects } from "@/lib/data";
 
 const projectOverviews: Record<
   number,
@@ -39,14 +38,6 @@ const projectOverviews: Record<
     impact:
       "Nyota Roots has a focused online reference for programme outreach and partnership conversations, supported through ongoing content and technical updates.",
   },
-  5: {
-    challenge:
-      "The experiment asked how a familiar game could feel more complete without losing the simplicity that makes it immediately playable.",
-    solution:
-      "The classic rules were extended with computer opponents, persistent scoring, onboarding, rewards, and detailed visual feedback while keeping the core interaction quick to understand.",
-    impact:
-      "The finished browser game demonstrates interaction design, state management, and custom game logic outside the client-platform context.",
-  },
   6: {
     challenge:
       "Sun Rays Foundation is on a mission to transform lives across Africa — but their incredible work was invisible online. With programs spanning education, healthcare, and community development across multiple countries, they needed more than a website. They needed a digital home that could tell their story, showcase their impact, and connect them with donors, volunteers, and partners who share their vision.",
@@ -61,6 +52,7 @@ export default function ProjectDetailPage() {
   const params = useParams();
   const projectId = Number(params.id);
   const project = projects.find((p) => p.id === projectId);
+  const engagement = clientEngagements.find((e) => e.projectId === projectId);
 
   if (!project) {
     return (
@@ -129,22 +121,29 @@ export default function ProjectDetailPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                    Technologies Used
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge
-                        key={tag}
-                        variant="secondary"
-                        className="px-3 py-1"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
+                <dl className="grid grid-cols-2 gap-4 rounded-2xl border border-border/60 bg-card/40 p-5">
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      Sector
+                    </dt>
+                    <dd className="mt-1.5 font-medium">{project.sector}</dd>
                   </div>
-                </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      Engagement
+                    </dt>
+                    <dd className="mt-1.5 font-medium">
+                      {engagement ? (
+                        <span className="inline-flex items-center gap-2 text-[#8be8ce]">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#8be8ce]" />
+                          Delivered · {engagement.status}
+                        </span>
+                      ) : (
+                        "Independent build"
+                      )}
+                    </dd>
+                  </div>
+                </dl>
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   {project.demoUrl && project.demoUrl !== "#" && (

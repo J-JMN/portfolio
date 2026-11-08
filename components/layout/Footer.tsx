@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { brandInfo } from "@/lib/data";
 import BrandLogo from "@/components/layout/BrandLogo";
+import GlowDivider from "@/components/decor/GlowDivider";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background border-t border-border py-12">
+    <footer className="relative bg-background py-12">
+      <GlowDivider />
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
@@ -57,18 +59,26 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/projects"
+                  href="/experience"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Projects
+                  Expertise
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/experience"
+                  href="/projects"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Website Management
+                  Work
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Contact
                 </Link>
               </li>
             </ul>

@@ -4,10 +4,14 @@ import Link from "next/link";
 import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/animations/FadeIn";
+import GlowDivider from "@/components/decor/GlowDivider";
+import FlowLines from "@/components/decor/FlowLines";
 
 export default function QuickContact() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-16 md:py-20 relative isolate overflow-hidden">
+      <GlowDivider />
+      <FlowLines />
       <div className="absolute inset-0 bg-primary/5 -z-10" />
       <div className="container mx-auto px-4 md:px-6 text-center">
         <FadeIn>

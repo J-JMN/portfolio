@@ -7,19 +7,19 @@ import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/animations/FadeIn";
 import { brandInfo } from "@/lib/data";
 import { motion } from "framer-motion";
+import HeroBackdrop from "@/components/illustrations/HeroBackdrop";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden pt-16 pb-20">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-160 h-160 bg-primary/5 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-160 h-160 bg-primary/10 rounded-full blur-3xl opacity-50" />
+    <section className="relative isolate flex min-h-svh items-center overflow-hidden pb-10 pt-20">
+      <div className="absolute inset-0 -z-10">
+        <HeroBackdrop />
       </div>
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-background to-transparent" />
 
-      <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto grid min-w-0 grid-cols-1 items-center gap-10 px-4 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         {/* Text Content */}
-        <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
+        <div className="order-2 min-w-0 space-y-6 text-center lg:order-1 lg:text-left [@media(max-height:760px)]:space-y-4">
           <FadeIn delay={0.1}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/50 border border-border/50 text-primary text-sm font-medium mb-2 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -32,7 +32,7 @@ export default function Hero() {
 
           <div className="space-y-4">
             <FadeIn delay={0.2}>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-[1.08] [@media(max-height:760px)]:lg:text-5xl">
                 Tech built with{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-[#c4bcff] to-primary">
                   intention.
@@ -40,14 +40,14 @@ export default function Hero() {
               </h1>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <h2 className="text-2xl font-semibold leading-snug text-foreground md:text-3xl">
+              <h2 className="text-lg font-semibold leading-snug text-foreground/90 md:text-xl">
                 {brandInfo.role}
               </h2>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.4}>
-            <p className="text-lg text-foreground/90 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed md:text-lg">
               {brandInfo.bio}
             </p>
           </FadeIn>
@@ -78,9 +78,9 @@ export default function Hero() {
         </div>
 
         {/* Visual Content */}
-        <div className="order-1 lg:order-2 flex justify-center relative overflow-hidden">
+        <div className="relative order-1 flex min-w-0 justify-center overflow-hidden py-4 lg:order-2">
           <FadeIn delay={0.3} direction="left">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 overflow-visible flex items-center justify-center">
+            <div className="relative flex h-60 w-60 items-center justify-center overflow-visible md:h-80 md:w-80 [@media(max-height:760px)]:md:h-64 [@media(max-height:760px)]:md:w-64">
               {/* Animated Floating Particles */}
               {[...Array(6)].map((_, i) => (
                 <motion.div

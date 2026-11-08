@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Code2, Mail, RefreshCcw, Settings2 } from "lucide-react";
 
 export const brandInfo = {
   name: "INTAVOR",
@@ -17,38 +17,29 @@ export const brandInfo = {
   ],
 };
 
-export const skills = {
-  frontend: [
-    { name: "React" },
-    { name: "Next.js" },
-    { name: "TypeScript" },
-    { name: "JavaScript" },
-    { name: "Tailwind CSS" },
-    { name: "Bootstrap v5" },
-    { name: "CSS3" },
-  ],
-  backend: [
-    { name: "Django" },
-    { name: "Python" },
-    { name: "Laravel" },
-    { name: "Node.js" },
-    { name: "Express" },
-    { name: "FastAPI" },
-    { name: "Flask" },
-    { name: "MySQL" },
-    { name: "PostgreSQL" },
-    { name: "MongoDB" },
-    { name: "Prisma" },
-  ],
-  tools: [
-    { name: "Git" },
-    { name: "GitHub" },
-    { name: "Docker" },
-    { name: "Vercel" },
-    { name: "cPanel" },
-    { name: "Linux" },
-  ],
-};
+export const services = [
+  {
+    title: "Build",
+    summary:
+      "Responsive websites and full-stack applications shaped around your audience and the work your organisation needs to do.",
+    includes: ["Website delivery", "CMS", "Business workflows"],
+    icon: Code2,
+  },
+  {
+    title: "Manage",
+    summary:
+      "Content changes, CMS support, and technical maintenance that keep your platform useful after launch.",
+    includes: ["Content updates", "Admin support", "Maintenance"],
+    icon: Settings2,
+  },
+  {
+    title: "Improve",
+    summary:
+      "Focused refinements to usability, performance, and features as your organisation's needs evolve.",
+    includes: ["Responsive design", "Performance", "Integrations"],
+    icon: RefreshCcw,
+  },
+];
 
 export const clientEngagements = [
   {
@@ -63,7 +54,6 @@ export const clientEngagements = [
       "Programme, gallery, and blog updates",
       "Technical maintenance and platform iteration",
     ],
-    technologies: ["React", "TypeScript", "Django", "MySQL"],
     projectId: 6,
   },
   {
@@ -78,7 +68,6 @@ export const clientEngagements = [
       "Booking, email, and enquiry workflows",
       "CMS and admin dashboard support",
     ],
-    technologies: ["React", "TypeScript", "Django", "MySQL"],
     projectId: 2,
   },
   {
@@ -93,7 +82,6 @@ export const clientEngagements = [
       "Responsive experience improvements",
       "Technical support for outreach pages",
     ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     projectId: 4,
   },
   {
@@ -108,7 +96,6 @@ export const clientEngagements = [
       "Responsive interface maintenance",
       "Performance and presentation refinements",
     ],
-    technologies: ["Next.js", "JavaScript", "Tailwind CSS"],
     projectId: 1,
   },
 ];
@@ -120,7 +107,7 @@ export const projects = [
     description:
       "A responsive company website for an education technology business, designed to communicate its services clearly through purposeful motion, structured content, and a consistent experience across screen sizes. INTAVOR also provides ongoing website support.",
     image: "/images/chanzo-website.png",
-    tags: ["Next.js", "JavaScript", "Tailwind CSS"],
+    sector: "Education technology",
     demoUrl: "https://chanzo.co.ke",
     featured: true,
   },
@@ -130,7 +117,7 @@ export const projects = [
     description:
       "A full-stack consultancy platform combining service pages, a guided booking flow, transactional emails, publishing tools, and a private dashboard for managing enquiries and content. The platform remains under ongoing INTAVOR support.",
     image: "/images/stratedge-solutions-website.png",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Django", "MySQL"],
+    sector: "Business consultancy",
     demoUrl: "https://stratedgesolutions.co.ke",
     featured: true,
   },
@@ -140,7 +127,7 @@ export const projects = [
     description:
       "An education website with distinct journeys for parents, schools, and organisations. Course information, certification details, and partnership enquiries are organised around the needs of each audience, with continued website support from INTAVOR.",
     image: "/images/nyota-roots-website.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Education"],
+    sector: "Education",
     demoUrl: "https://nyotaroots.stratedgesolutions.co.ke/#home",
     featured: true,
   },
@@ -150,24 +137,14 @@ export const projects = [
     description:
       "A digital platform for a non-profit working across Africa, with programme pages, impact stories, event galleries, and content-management tools. Ongoing platform development and CMS support keep the site useful for supporters, volunteers, and partners.",
     image: "/images/sun-rays-foundation-website.png",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Django", "MySQL"],
+    sector: "Non-profit",
     demoUrl: "https://sunraysfoundationafrica.org",
     featured: true,
-  },
-  {
-    id: 5,
-    title: "Enhanced Tic Tac Toe",
-    description:
-      "A browser-based game experiment with computer opponents, persistent scoring, tutorials, rewards, and polished feedback. It demonstrates interaction design and custom game logic beyond client website work.",
-    image: "/images/tic-tac-toe-game-website.png",
-    tags: ["Next.js", "JavaScript", "CSS", "Game Logic"],
-    demoUrl: "https://tic-tac-toe-rho-two-61.vercel.app/",
-    featured: false,
   },
 ];
 
 export const highlights = [
   { label: "Client Websites Managed", value: "4" },
   { label: "Projects Delivered", value: "5+" },
-  { label: "Technologies in Practice", value: "15+" },
+  { label: "Sectors Served", value: "3" },
 ];

@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import ServicesStrip from "@/components/home/ServicesStrip";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import QuickContact from "@/components/home/QuickContact";
 import Navbar from "@/components/layout/Navbar";
@@ -9,6 +10,7 @@ export default function Home() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       <Hero />
+      <ServicesStrip />
       <FeaturedProjects />
       <QuickContact />
       <Footer />

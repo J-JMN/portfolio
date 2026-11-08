@@ -11,9 +11,8 @@ import BrandLogo from "@/components/layout/BrandLogo";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Skills", path: "/skills" },
   { name: "Expertise", path: "/experience" },
-  { name: "Projects", path: "/projects" },
+  { name: "Work", path: "/projects" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -63,7 +62,10 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => {
-                const isActive = pathname === item.path;
+                const isActive =
+                  item.path === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.path);
                 return (
                   <Link
                     key={item.path}
@@ -130,7 +132,10 @@ export default function Navbar() {
             >
               <div className="px-4 py-4 flex flex-col gap-2">
                 {navItems.map((item) => {
-                  const isActive = pathname === item.path;
+                  const isActive =
+                    item.path === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(item.path);
                   return (
                     <Link
                       key={item.path}
