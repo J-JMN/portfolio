@@ -7,6 +7,7 @@ import {
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import sharp from "sharp";
+import { escapeXml } from "./svg-utils.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const socialDir = path.join(projectRoot, "public", "brand", "social");
@@ -34,10 +35,10 @@ const markPath =
   "M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z";
 
 const staffTemplate = {
-  name: process.env.INTAVOR_STAFF_NAME || "FULL NAME",
-  role: process.env.INTAVOR_STAFF_ROLE || "ROLE / DEPARTMENT",
-  phone: process.env.INTAVOR_STAFF_PHONE || "+254 7XX XXX XXX",
-  email: process.env.INTAVOR_STAFF_EMAIL || "name@intavor.co.ke",
+  name: escapeXml(process.env.INTAVOR_STAFF_NAME || "FULL NAME"),
+  role: escapeXml(process.env.INTAVOR_STAFF_ROLE || "ROLE / DEPARTMENT"),
+  phone: escapeXml(process.env.INTAVOR_STAFF_PHONE || "+254 7XX XXX XXX"),
+  email: escapeXml(process.env.INTAVOR_STAFF_EMAIL || "name@intavor.co.ke"),
 };
 
 const force = process.argv.includes("--force");
@@ -523,49 +524,6 @@ write(
       <text x="82" y="1082" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">contact@intavor.co.ke</text>
       ${mark(770, 820, 230, 0.38)}
       ${footer()}
-    `,
-  ),
-);
-
-write(
-  "business-card/intavor-card-front.svg",
-  documentSvg(
-    1134,
-    661,
-    "INTAVOR business card front",
-    `
-      <circle cx="567" cy="255" r="400" fill="url(#glow)"/>
-      <path d="M-40 604 C270 450 750 734 1180 418" fill="none" stroke="${palette.purple}" stroke-opacity="0.22" stroke-width="2"/>
-      <path d="M-40 640 C290 486 760 768 1180 458" fill="none" stroke="${palette.lilac}" stroke-opacity="0.1" stroke-width="2"/>
-      ${mark(397, 112, 340)}
-      <text x="567" y="442" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="65" font-weight="600" letter-spacing="17">INTAVOR</text>
-      <line x1="368" y1="482" x2="766" y2="482" stroke="${palette.purple}" stroke-width="2"/>
-      <text x="567" y="536" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="5">TECH BUILT WITH INTENTION.</text>
-    `,
-  ),
-);
-
-write(
-  "business-card/intavor-card-back.svg",
-  documentSvg(
-    1134,
-    661,
-    "INTAVOR business card back",
-    `
-      <circle cx="1070" cy="600" r="360" fill="url(#glow)"/>
-      ${mark(808, 344, 350, 0.12)}
-      ${brandLockup(76, 62, 0.76)}
-      <text x="76" y="218" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">Web development &amp;</text>
-      <text x="76" y="269" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">ongoing website support</text>
-      <text x="76" y="327" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">BUILD  ·  MANAGE  ·  IMPROVE</text>
-      <line x1="76" y1="376" x2="1058" y2="376" stroke="${palette.line}" stroke-width="2"/>
-      <text x="76" y="444" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">WEB</text>
-      <text x="76" y="483" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">intavor.co.ke</text>
-      <text x="414" y="444" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">EMAIL</text>
-      <text x="414" y="483" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">contact@intavor.co.ke</text>
-      <text x="865" y="444" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">LOCATION</text>
-      <text x="865" y="483" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">Nairobi, Kenya</text>
-      <text x="76" y="570" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="21">Intent gives the work direction. Endeavor carries it through.</text>
     `,
   ),
 );
