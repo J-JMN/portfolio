@@ -105,13 +105,13 @@ export const clientEngagements = [
 
 export const projects = [
   {
-    id: 1,
-    title: "Chanzo Technologies",
+    id: 6,
+    title: "Sun Rays Foundation",
     description:
-      "A responsive company website for an education technology business, designed to communicate its services clearly through purposeful motion, structured content, and a consistent experience across screen sizes. INTAVOR also provides ongoing website support.",
-    image: "/images/chanzo-website.png",
-    sector: "Education technology",
-    demoUrl: "https://chanzo.co.ke",
+      "A digital platform for a non-profit working across Africa, with programme pages, impact stories, event galleries, and content-management tools. Ongoing platform development and CMS support keep the site useful for supporters, volunteers, and partners.",
+    image: "/images/sun-rays-foundation-website.png",
+    sector: "Non-profit",
+    demoUrl: "https://sunraysfoundationafrica.org",
     featured: true,
   },
   {
@@ -135,13 +135,13 @@ export const projects = [
     featured: true,
   },
   {
-    id: 6,
-    title: "Sun Rays Foundation",
+    id: 1,
+    title: "Chanzo Technologies",
     description:
-      "A digital platform for a non-profit working across Africa, with programme pages, impact stories, event galleries, and content-management tools. Ongoing platform development and CMS support keep the site useful for supporters, volunteers, and partners.",
-    image: "/images/sun-rays-foundation-website.png",
-    sector: "Non-profit",
-    demoUrl: "https://sunraysfoundationafrica.org",
+      "A responsive company website for an education technology business, designed to communicate its services clearly through purposeful motion, structured content, and a consistent experience across screen sizes. INTAVOR also provides ongoing website support.",
+    image: "/images/chanzo-website.png",
+    sector: "Education technology",
+    demoUrl: "https://chanzo.co.ke",
     featured: true,
   },
 ];

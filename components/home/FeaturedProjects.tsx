@@ -10,7 +10,7 @@ import GlowDivider from "@/components/decor/GlowDivider";
 import { cn } from "@/lib/utils";
 
 export default function FeaturedProjects() {
-  const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
+  const featuredProjects = projects.filter((project) => project.featured).slice(0, 2);
 
   return (
     <section className="relative py-20 bg-secondary/20">
@@ -40,8 +40,10 @@ export default function FeaturedProjects() {
             featuredProjects.length === 1 && "mx-auto max-w-xl",
             featuredProjects.length === 2 &&
               "mx-auto max-w-4xl md:grid-cols-2",
-            featuredProjects.length >= 3 &&
+            featuredProjects.length === 3 &&
               "md:grid-cols-2 lg:grid-cols-3",
+            featuredProjects.length >= 4 &&
+              "mx-auto max-w-6xl md:grid-cols-2",
           )}
         >
           {featuredProjects.map((project, index) => (
