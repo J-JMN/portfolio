@@ -555,7 +555,7 @@ write(
       <circle cx="1070" cy="600" r="360" fill="url(#glow)"/>
       ${mark(808, 344, 350, 0.12)}
       ${brandLockup(76, 62, 0.76)}
-      <text x="76" y="218" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">Web development +</text>
+      <text x="76" y="218" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">Web development &amp;</text>
       <text x="76" y="269" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">ongoing website support</text>
       <text x="76" y="327" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">BUILD  ·  MANAGE  ·  IMPROVE</text>
       <line x1="76" y1="376" x2="1058" y2="376" stroke="${palette.line}" stroke-width="2"/>
