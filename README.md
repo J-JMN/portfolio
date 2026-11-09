@@ -267,6 +267,9 @@ For each scheduled post:
 7. Reply to comments and messages on the same day.
 8. Record reach, profile visits, saves, link clicks, messages, and enquiries.
 
+Meta Business Suite manages the Instagram and Facebook posts only. It does not
+publish the TikTok Photo Mode version, so post that separately in TikTok.
+
 ### Hashtags
 
 Append this small set to each launch caption:
@@ -512,8 +515,22 @@ Run:
 npm run assets:generate
 ```
 
-This writes editable SVG files and matching PNG exports. PNG conversion is
-handled automatically by Sharp.
+The generator always uses the same filenames, so it replaces an existing asset
+rather than adding duplicates. It compares the generated SVG content with the
+existing master:
+
+- changed or missing SVG files are written;
+- PNG files are re-exported only when their SVG changed or the PNG is missing;
+- unaffected SVG and PNG files are left untouched; and
+- deleted active assets are restored the next time the command runs.
+
+PNG conversion is handled automatically by Sharp.
+
+To intentionally rebuild all 18 SVG/PNG pairs:
+
+```bash
+npm run assets:generate -- --force
+```
 
 ### Editing the design system
 
@@ -572,9 +589,9 @@ INTAVOR_STAFF_EMAIL="name@intavor.co.ke" \
 npm run assets:generate
 ```
 
-This regenerates every active asset and places the supplied details on the
-staff-card front. If an environment variable is omitted, its editable
-placeholder is used.
+This updates the staff-card front with the supplied details. The other assets
+are checked but remain untouched when their generated content has not changed.
+If an environment variable is omitted, its editable placeholder is used.
 
 Do not commit private personal contact details unless the card is intended to
 be public in the repository.

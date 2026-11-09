@@ -1,4 +1,9 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import sharp from "sharp";
@@ -35,7 +40,10 @@ const staffTemplate = {
   email: process.env.INTAVOR_STAFF_EMAIL || "name@intavor.co.ke",
 };
 
+const force = process.argv.includes("--force");
 const generatedSvgs = [];
+const pngsToRender = [];
+let updatedSvgCount = 0;
 
 function defs() {
   return `
@@ -102,7 +110,19 @@ function footer() {
 
 function write(relativePath, contents) {
   const output = path.join(projectRoot, "public", "brand", relativePath);
-  writeFileSync(output, contents);
+  const pngOutput = output.replace(/\.svg$/, ".png");
+  const svgChanged =
+    force || !existsSync(output) || readFileSync(output, "utf8") !== contents;
+
+  if (svgChanged) {
+    writeFileSync(output, contents);
+    updatedSvgCount += 1;
+  }
+
+  if (svgChanged || !existsSync(pngOutput)) {
+    pngsToRender.push([output, pngOutput]);
+  }
+
   generatedSvgs.push(output);
   return output;
 }
@@ -592,9 +612,9 @@ write(
 );
 
 await Promise.all(
-  generatedSvgs.map((svgPath) =>
-    sharp(svgPath).png().toFile(svgPath.replace(/\.svg$/, ".png")),
-  ),
+  pngsToRender.map(([svgPath, pngPath]) => sharp(svgPath).png().toFile(pngPath)),
 );
 
-console.log("Generated 18 editable SVG masters and matching PNG exports.");
+console.log(
+  `Checked ${generatedSvgs.length} asset pairs: updated ${updatedSvgCount} SVG and ${pngsToRender.length} PNG file(s); left ${generatedSvgs.length - pngsToRender.length} unchanged.`,
+);
