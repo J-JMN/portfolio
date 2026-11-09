@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -7,6 +6,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import DotGrid from "@/components/decor/DotGrid";
+import WhyIntavorArt from "@/components/illustrations/WhyIntavorArt";
 import { brandInfo } from "@/lib/data";
 
 export default function AboutPage() {
@@ -20,15 +20,8 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <FadeIn direction="right">
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
-                <Image
-                  src="https://images.unsplash.com/photo-1612396555231-0211d42a46d1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2h5fGVufDB8MXwwfHx8Mg%3D%3D"
-                  alt="Coding workspace"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
+              <div className="relative w-full">
+                <WhyIntavorArt />
               </div>
             </FadeIn>
 
