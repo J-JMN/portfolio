@@ -38,7 +38,7 @@ describe("contact email messages", () => {
     const email = buildNotificationEmail(submission, config);
 
     expect(email.from).toEqual({
-      name: "INTAVOR Website",
+      name: "INTAVOR",
       address: "contact@intavor.co.ke",
     });
     expect(email.to).toBe("contact@intavor.co.ke");

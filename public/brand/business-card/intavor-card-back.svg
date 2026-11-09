@@ -27,24 +27,21 @@
     </defs>
   <rect width="1134" height="661" fill="url(#bg)"/>
   
-      <circle cx="70" cy="650" r="340" fill="url(#glow)"/>
+      <circle cx="1070" cy="600" r="360" fill="url(#glow)"/>
+      <g transform="translate(808 344) scale(0.49786628733997157)" opacity="0.12"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
       
-    <g transform="translate(78 72) scale(0.09320056899004267)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
-    <text x="159.9" y="98.52" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="21.84" font-weight="700" letter-spacing="5.46">INTAVOR</text>
-      <text x="78" y="232" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="45" font-weight="700">Web development +</text>
-      <text x="78" y="286" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="45" font-weight="700">ongoing website support</text>
-      <rect x="76" y="340" width="5" height="190" rx="2.5" fill="url(#accent)"/>
-      <text x="112" y="386" fill="#b5bfce" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">WEB</text>
-      <text x="112" y="426" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="28">intavor.co.ke</text>
-      <text x="112" y="480" fill="#b5bfce" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">EMAIL</text>
-      <text x="112" y="520" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="28">contact@intavor.co.ke</text>
-      <rect x="736" y="78" width="320" height="500" rx="30" fill="#152132" stroke="#344157" stroke-width="2"/>
-      <text x="786" y="164" fill="#a99cff" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">WHAT WE DO</text>
-      <text x="786" y="245" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="37" font-weight="700">BUILD</text>
-      <line x1="786" y1="275" x2="1006" y2="275" stroke="#344157" stroke-width="2"/>
-      <text x="786" y="350" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="37" font-weight="700">MANAGE</text>
-      <line x1="786" y1="380" x2="1006" y2="380" stroke="#344157" stroke-width="2"/>
-      <text x="786" y="455" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="37" font-weight="700">IMPROVE</text>
-      <text x="786" y="526" fill="#b5bfce" font-family="Arial, sans-serif" font-size="20">Nairobi, Kenya</text>
+    <g transform="translate(76 62) scale(0.09081081081081081)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+    <text x="155.8" y="87.84" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="21.28" font-weight="700" letter-spacing="5.32">INTAVOR</text>
+      <text x="76" y="218" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="43" font-weight="700">Web development +</text>
+      <text x="76" y="269" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="43" font-weight="700">ongoing website support</text>
+      <text x="76" y="327" fill="#a99cff" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">BUILD  ·  MANAGE  ·  IMPROVE</text>
+      <line x1="76" y1="376" x2="1058" y2="376" stroke="#344157" stroke-width="2"/>
+      <text x="76" y="444" fill="#b5bfce" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">WEB</text>
+      <text x="76" y="483" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="27">intavor.co.ke</text>
+      <text x="414" y="444" fill="#b5bfce" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">EMAIL</text>
+      <text x="414" y="483" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="27">contact@intavor.co.ke</text>
+      <text x="865" y="444" fill="#b5bfce" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">LOCATION</text>
+      <text x="865" y="483" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="27">Nairobi, Kenya</text>
+      <text x="76" y="570" fill="#b5bfce" font-family="Arial, sans-serif" font-size="21">Intent gives the work direction. Endeavor carries it through.</text>
     
 </svg>

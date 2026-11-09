@@ -1,14 +1,15 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import sharp from "sharp";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const socialDir = path.join(projectRoot, "public", "brand", "social");
-const reelsDir = path.join(socialDir, "reels");
+const brandFirstDir = path.join(socialDir, "brand-first");
 const cardDir = path.join(projectRoot, "public", "brand", "business-card");
 
 mkdirSync(socialDir, { recursive: true });
-mkdirSync(reelsDir, { recursive: true });
+mkdirSync(brandFirstDir, { recursive: true });
 mkdirSync(cardDir, { recursive: true });
 
 const palette = {
@@ -26,6 +27,15 @@ const palette = {
 
 const markPath =
   "M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z";
+
+const staffTemplate = {
+  name: process.env.INTAVOR_STAFF_NAME || "FULL NAME",
+  role: process.env.INTAVOR_STAFF_ROLE || "ROLE / DEPARTMENT",
+  phone: process.env.INTAVOR_STAFF_PHONE || "+254 7XX XXX XXX",
+  email: process.env.INTAVOR_STAFF_EMAIL || "name@intavor.co.ke",
+};
+
+const generatedSvgs = [];
 
 function defs() {
   return `
@@ -93,33 +103,8 @@ function footer() {
 function write(relativePath, contents) {
   const output = path.join(projectRoot, "public", "brand", relativePath);
   writeFileSync(output, contents);
+  generatedSvgs.push(output);
   return output;
-}
-
-function caseStudy({ number, client, sector, image, statement, accent }) {
-  return documentSvg(
-    1080,
-    1350,
-    `${client} selected work by INTAVOR`,
-    `
-      ${topLabel("Selected work", number)}
-      <circle cx="920" cy="252" r="210" fill="url(#glow)"/>
-      <text x="82" y="252" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="76" font-weight="700">${client}</text>
-      <text x="84" y="305" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25" letter-spacing="2">${sector.toUpperCase()}</text>
-      <rect x="82" y="356" width="916" height="500" rx="28" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2" filter="url(#shadow)"/>
-      <clipPath id="screen"><rect x="102" y="376" width="876" height="460" rx="18"/></clipPath>
-      <image href="../../images/${image}" x="102" y="376" width="876" height="460" preserveAspectRatio="xMidYMid slice" clip-path="url(#screen)"/>
-      <rect x="102" y="376" width="876" height="460" rx="18" fill="none" stroke="${accent}" stroke-opacity="0.42" stroke-width="2"/>
-      <circle cx="120" cy="346" r="6" fill="${accent}"/>
-      <circle cx="140" cy="346" r="6" fill="${palette.line}"/>
-      <circle cx="160" cy="346" r="6" fill="${palette.line}"/>
-      <text x="82" y="944" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">THE WORK</text>
-      <text x="82" y="1012" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="38" font-weight="600">
-        ${statement.map((line, index) => `<tspan x="82" dy="${index === 0 ? 0 : 50}">${line}</tspan>`).join("")}
-      </text>
-      ${footer()}
-    `,
-  );
 }
 
 write(
@@ -159,138 +144,78 @@ write(
 );
 
 write(
-  "social/x-cover.svg",
-  documentSvg(
-    1500,
-    500,
-    "INTAVOR X cover",
-    `
-      <circle cx="1290" cy="-20" r="430" fill="url(#glow)"/>
-      ${mark(1050, 84, 400, 0.9)}
-      <text x="92" y="176" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="69" font-weight="700">Clear intent.</text>
-      <text x="92" y="252" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="69" font-weight="700">Dependable execution.</text>
-      <text x="96" y="329" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="29">Websites built to keep working.</text>
-      <text x="330" y="422" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">BUILD  ·  MANAGE  ·  IMPROVE     |     INTAVOR.CO.KE</text>
-    `,
-  ),
-);
-
-write(
-  "social/01-brand-introduction.svg",
+  "social/brand-first/01-tech-built-with-intention.svg",
   documentSvg(
     1080,
     1350,
-    "Introducing INTAVOR",
+    "INTAVOR tech built with intention",
     `
-      ${topLabel("Introducing INTAVOR", "01")}
-      <circle cx="540" cy="530" r="360" fill="url(#glow)"/>
-      ${mark(180, 308, 720)}
-      <text x="540" y="815" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="17">INTAVOR</text>
-      <text x="540" y="900" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="54" font-weight="600">Tech built with <tspan fill="${palette.lilac}">intention.</tspan></text>
-      <text x="540" y="972" text-anchor="middle" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="28">Web development + ongoing website support</text>
-      ${footer()}
-    `,
-  ),
-);
-
-write(
-  "social/02-name-story-intent.svg",
-  documentSvg(
-    1080,
-    1350,
-    "The INTAVOR name story: Intent",
-    `
-      ${topLabel("The name story", "01 / 03")}
-      <text x="82" y="300" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="29">EVERY USEFUL DIGITAL PRODUCT STARTS WITH</text>
-      <text x="74" y="510" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="158" font-weight="700" letter-spacing="-7">INTENT</text>
-      <rect x="82" y="566" width="916" height="3" fill="url(#accent)"/>
-      <text x="82" y="680" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="47" font-weight="600">
-        <tspan x="82">Clear goals.</tspan>
-        <tspan x="82" dy="68">Thoughtful decisions.</tspan>
-        <tspan x="82" dy="68">A reason behind every feature.</tspan>
+      ${topLabel("The INTAVOR standard", "01 / 12")}
+      <circle cx="760" cy="460" r="390" fill="url(#glow)"/>
+      ${mark(170, 266, 740)}
+      <text x="82" y="780" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="80" font-weight="700">
+        <tspan x="82">Tech built with</tspan>
+        <tspan x="82" dy="90" fill="${palette.lilac}">intention.</tspan>
       </text>
-      <circle cx="884" cy="954" r="132" fill="none" stroke="${palette.purple}" stroke-width="3"/>
-      <line x1="826" y1="954" x2="942" y2="954" stroke="${palette.lilac}" stroke-width="7" stroke-linecap="round"/>
-      <line x1="884" y1="896" x2="884" y2="1012" stroke="${palette.lilac}" stroke-width="7" stroke-linecap="round"/>
-      ${footer()}
-    `,
-  ),
-);
-
-write(
-  "social/03-name-story-endeavor.svg",
-  documentSvg(
-    1080,
-    1350,
-    "The INTAVOR name story: Endeavor",
-    `
-      ${topLabel("The name story", "02 / 03")}
-      <text x="82" y="300" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="29">A GOOD IDEA ONLY BECOMES USEFUL THROUGH</text>
-      <text x="74" y="510" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="132" font-weight="700" letter-spacing="-7">ENDEAVOR</text>
-      <rect x="82" y="566" width="916" height="3" fill="url(#accent)"/>
-      <text x="82" y="680" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="47" font-weight="600">
-        <tspan x="82">Focused execution.</tspan>
-        <tspan x="82" dy="68">Dependable delivery.</tspan>
-        <tspan x="82" dy="68">Support beyond launch.</tspan>
+      <text x="84" y="970" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="30">
+        <tspan x="84">Clear thinking. Dependable execution.</tspan>
+        <tspan x="84" dy="46">Digital products built to keep working.</tspan>
       </text>
-      <path d="M768 1018 C816 928 870 1000 918 874" fill="none" stroke="${palette.lilac}" stroke-width="8" stroke-linecap="round"/>
-      <path d="M883 889 L923 866 L928 913" fill="none" stroke="${palette.lilac}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
       ${footer()}
     `,
   ),
 );
 
 write(
-  "social/04-name-story-intavor.svg",
+  "social/brand-first/02-intent-meets-endeavor.svg",
   documentSvg(
     1080,
     1350,
-    "Intent plus Endeavor equals INTAVOR",
+    "Intent meets endeavor at INTAVOR",
     `
-      ${topLabel("The name story", "03 / 03")}
-      <text x="540" y="300" text-anchor="middle" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="31" font-weight="600" letter-spacing="5">INTENT</text>
-      <text x="540" y="394" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="70" font-weight="300">+</text>
-      <text x="540" y="492" text-anchor="middle" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="31" font-weight="600" letter-spacing="5">ENDEAVOR</text>
-      <line x1="300" y1="552" x2="780" y2="552" stroke="${palette.line}" stroke-width="2"/>
-      ${mark(240, 630, 600)}
-      <text x="540" y="1005" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="84" font-weight="700" letter-spacing="18">INTAVOR</text>
-      <text x="540" y="1074" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="27">Intent gives the work direction.</text>
-      <text x="540" y="1116" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">Endeavor carries it through.</text>
+      ${topLabel("Behind the name", "02 / 12")}
+      <text x="82" y="302" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="108" font-weight="700">INTENT</text>
+      <text x="82" y="361" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="27">Direction, purpose and thoughtful decisions.</text>
+      <circle cx="540" cy="520" r="48" fill="${palette.panelLight}" stroke="${palette.purple}" stroke-width="3"/>
+      <text x="540" y="541" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="60" font-weight="300">+</text>
+      <text x="998" y="705" text-anchor="end" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="108" font-weight="700">ENDEAVOR</text>
+      <text x="998" y="764" text-anchor="end" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="27">Focused effort, delivery and follow-through.</text>
+      <line x1="82" y1="874" x2="998" y2="874" stroke="url(#accent)" stroke-width="3"/>
+      <text x="540" y="971" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="13">INTAVOR</text>
+      <text x="540" y="1037" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="28">Intent gives the work direction.</text>
+      <text x="540" y="1081" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="28">Endeavor carries it through.</text>
       ${footer()}
     `,
   ),
 );
 
 write(
-  "social/05-build-manage-improve.svg",
+  "social/brand-first/03-build-manage-improve.svg",
   documentSvg(
     1080,
     1350,
-    "INTAVOR build, manage, improve services",
+    "INTAVOR builds manages and improves websites",
     `
-      ${topLabel("What we do", "03")}
-      <text x="82" y="242" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="67" font-weight="700">One digital partner.</text>
-      <text x="82" y="312" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="67" font-weight="700">Three ways we help.</text>
-      <g transform="translate(82 388)">
-        <rect width="916" height="202" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
-        <circle cx="76" cy="74" r="34" fill="${palette.purple}"/>
-        <text x="76" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" font-weight="700">01</text>
-        <text x="136" y="83" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="44" font-weight="700">BUILD</text>
-        <text x="136" y="132" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Websites, web apps, CMS and business workflows.</text>
+      ${topLabel("One digital partner", "03 / 12")}
+      <text x="82" y="252" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="68" font-weight="700">From first build</text>
+      <text x="82" y="326" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="68" font-weight="700">to what comes next.</text>
+      <g transform="translate(82 422)">
+        <rect width="916" height="178" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="42" y="72" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">01</text>
+        <text x="116" y="80" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="46" font-weight="700">BUILD</text>
+        <text x="116" y="130" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Websites and web applications shaped around real goals.</text>
       </g>
-      <g transform="translate(82 618)">
-        <rect width="916" height="202" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
-        <circle cx="76" cy="74" r="34" fill="${palette.purple}"/>
-        <text x="76" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" font-weight="700">02</text>
-        <text x="136" y="83" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="44" font-weight="700">MANAGE</text>
-        <text x="136" y="132" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Content updates, admin support and maintenance.</text>
+      <g transform="translate(82 630)">
+        <rect width="916" height="178" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="42" y="72" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">02</text>
+        <text x="116" y="80" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="46" font-weight="700">MANAGE</text>
+        <text x="116" y="130" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Updates, technical care and reliable ongoing support.</text>
       </g>
-      <g transform="translate(82 848)">
-        <rect width="916" height="202" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
-        <circle cx="76" cy="74" r="34" fill="${palette.purple}"/>
-        <text x="76" y="85" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" font-weight="700">03</text>
-        <text x="136" y="83" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="44" font-weight="700">IMPROVE</text>
-        <text x="136" y="132" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Usability, performance, features and integrations.</text>
+      <g transform="translate(82 838)">
+        <rect width="916" height="178" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="42" y="72" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">03</text>
+        <text x="116" y="80" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="46" font-weight="700">IMPROVE</text>
+        <text x="116" y="130" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Focused refinements as your organisation evolves.</text>
       </g>
       ${footer()}
     `,
@@ -298,164 +223,287 @@ write(
 );
 
 write(
-  "social/06-beyond-launch.svg",
+  "social/brand-first/04-digital-first-impression.svg",
   documentSvg(
     1080,
     1350,
-    "A website is not finished at launch",
+    "Your website is often your first impression",
     `
-      ${topLabel("A better website mindset", "04")}
-      <text x="82" y="272" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="75" font-weight="700">
-        <tspan x="82">A website is not</tspan>
-        <tspan x="82" dy="82">finished at launch.</tspan>
+      ${topLabel("A simple truth", "04 / 12")}
+      <circle cx="850" cy="350" r="310" fill="url(#glow)"/>
+      <text x="82" y="334" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="82" font-weight="700">
+        <tspan x="82">Your website is</tspan>
+        <tspan x="82" dy="92">often your first</tspan>
+        <tspan x="82" dy="92" fill="${palette.lilac}">impression.</tspan>
       </text>
-      <text x="82" y="487" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="31">
-        <tspan x="82">Your business changes. Your customers change.</tspan>
-        <tspan x="82" dy="46">Your website should keep pace.</tspan>
+      <rect x="82" y="690" width="916" height="270" rx="30" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+      <text x="132" y="775" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="26">BEFORE SOMEONE CALLS, EMAILS OR VISITS—</text>
+      <text x="132" y="852" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="38" font-weight="600">
+        <tspan x="132">your website has already said something</tspan>
+        <tspan x="132" dy="52">about your business.</tspan>
       </text>
-      <line x1="154" y1="710" x2="926" y2="710" stroke="${palette.line}" stroke-width="5" stroke-linecap="round"/>
+      <text x="82" y="1066" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="28">Make that first impression intentional.</text>
+      ${footer()}
+    `,
+  ),
+);
+
+write(
+  "social/brand-first/05-three-things-clear.svg",
+  documentSvg(
+    1080,
+    1350,
+    "Three things a good business website should make clear",
+    `
+      ${topLabel("Website clarity", "05 / 12")}
+      <text x="82" y="246" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="64" font-weight="700">
+        <tspan x="82">A good website makes</tspan>
+        <tspan x="82" dy="72">three things clear.</tspan>
+      </text>
+      <g transform="translate(82 432)">
+        <circle cx="62" cy="62" r="62" fill="${palette.purple}"/>
+        <text x="62" y="78" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="42" font-weight="700">1</text>
+        <text x="160" y="54" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="40" font-weight="700">What you do</text>
+        <text x="160" y="97" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Without making visitors search for the answer.</text>
+      </g>
+      <g transform="translate(82 648)">
+        <circle cx="62" cy="62" r="62" fill="${palette.panelLight}" stroke="${palette.purple}" stroke-width="3"/>
+        <text x="62" y="78" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="42" font-weight="700">2</text>
+        <text x="160" y="54" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="40" font-weight="700">Who it is for</text>
+        <text x="160" y="97" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">So the right audience knows they are in the right place.</text>
+      </g>
+      <g transform="translate(82 864)">
+        <circle cx="62" cy="62" r="62" fill="${palette.panelLight}" stroke="${palette.purple}" stroke-width="3"/>
+        <text x="62" y="78" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="42" font-weight="700">3</text>
+        <text x="160" y="54" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="40" font-weight="700">What to do next</text>
+        <text x="160" y="97" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">A clear path to enquire, book, buy or learn more.</text>
+      </g>
+      ${footer()}
+    `,
+  ),
+);
+
+write(
+  "social/brand-first/06-rebuild-or-improve.svg",
+  documentSvg(
+    1080,
+    1350,
+    "Not every website needs a complete rebuild",
+    `
+      ${topLabel("Better decisions first", "06 / 12")}
+      <text x="82" y="290" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="78" font-weight="700">
+        <tspan x="82">Not every website</tspan>
+        <tspan x="82" dy="88">needs a complete</tspan>
+        <tspan x="82" dy="88" fill="${palette.lilac}">rebuild.</tspan>
+      </text>
+      <text x="82" y="606" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="30">
+        <tspan x="82">Sometimes the right answer is a focused improvement:</tspan>
+      </text>
+      <g fill="${palette.pale}" font-family="Arial, sans-serif" font-size="32" font-weight="600">
+        <text x="110" y="714">• clearer content</text>
+        <text x="110" y="784">• a better mobile experience</text>
+        <text x="110" y="854">• improved speed and usability</text>
+        <text x="110" y="924">• a simpler enquiry journey</text>
+      </g>
+      <rect x="82" y="1010" width="916" height="100" rx="50" fill="${palette.panel}" stroke="${palette.purple}" stroke-width="2"/>
+      <text x="540" y="1073" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="27" font-weight="700">Start with what the website needs to accomplish.</text>
+      ${footer()}
+    `,
+  ),
+);
+
+write(
+  "social/brand-first/07-after-launch.svg",
+  documentSvg(
+    1080,
+    1350,
+    "Launch is the beginning of a useful website",
+    `
+      ${topLabel("Beyond launch", "07 / 12")}
+      <text x="82" y="280" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="76" font-weight="700">
+        <tspan x="82">Launch is a milestone.</tspan>
+        <tspan x="82" dy="88" fill="${palette.lilac}">Not the finish line.</tspan>
+      </text>
+      <line x1="170" y1="626" x2="910" y2="626" stroke="${palette.line}" stroke-width="5" stroke-linecap="round"/>
       <g font-family="Arial, sans-serif">
-        <circle cx="184" cy="710" r="34" fill="${palette.purple}"/>
-        <text x="184" y="719" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="700">01</text>
-        <text x="184" y="784" text-anchor="middle" fill="${palette.pale}" font-size="25" font-weight="700">Launch</text>
-        <circle cx="540" cy="710" r="34" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
-        <text x="540" y="719" text-anchor="middle" fill="${palette.pale}" font-size="24" font-weight="700">02</text>
-        <text x="540" y="784" text-anchor="middle" fill="${palette.pale}" font-size="25" font-weight="700">Learn</text>
-        <circle cx="896" cy="710" r="34" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
-        <text x="896" y="719" text-anchor="middle" fill="${palette.pale}" font-size="24" font-weight="700">03</text>
-        <text x="896" y="784" text-anchor="middle" fill="${palette.pale}" font-size="25" font-weight="700">Improve</text>
+        <circle cx="190" cy="626" r="42" fill="${palette.purple}"/>
+        <text x="190" y="637" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="700">01</text>
+        <text x="190" y="714" text-anchor="middle" fill="${palette.pale}" font-size="28" font-weight="700">Launch</text>
+        <circle cx="430" cy="626" r="42" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
+        <text x="430" y="637" text-anchor="middle" fill="${palette.pale}" font-size="25" font-weight="700">02</text>
+        <text x="430" y="714" text-anchor="middle" fill="${palette.pale}" font-size="28" font-weight="700">Learn</text>
+        <circle cx="670" cy="626" r="42" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
+        <text x="670" y="637" text-anchor="middle" fill="${palette.pale}" font-size="25" font-weight="700">03</text>
+        <text x="670" y="714" text-anchor="middle" fill="${palette.pale}" font-size="28" font-weight="700">Update</text>
+        <circle cx="910" cy="626" r="42" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
+        <text x="910" y="637" text-anchor="middle" fill="${palette.pale}" font-size="25" font-weight="700">04</text>
+        <text x="910" y="714" text-anchor="middle" fill="${palette.pale}" font-size="28" font-weight="700">Improve</text>
       </g>
-      <rect x="82" y="890" width="916" height="178" rx="26" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
-      <text x="122" y="955" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="4">INTAVOR SUPPORT</text>
-      <text x="122" y="1011" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="31" font-weight="600">Updates, maintenance and focused improvements.</text>
+      <rect x="82" y="838" width="916" height="220" rx="28" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+      <text x="132" y="918" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">A WEBSITE SHOULD EVOLVE</text>
+      <text x="132" y="984" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="34" font-weight="600">
+        <tspan x="132">as the organisation behind it changes,</tspan>
+        <tspan x="132" dy="48">learns and grows.</tspan>
+      </text>
       ${footer()}
     `,
   ),
 );
 
 write(
-  "social/07-stratedge-selected-work.svg",
-  caseStudy({
-    number: "05",
-    client: "Stratedge Solutions",
-    sector: "Business consultancy",
-    image: "stratedge-solutions-website.png",
-    statement: ["A full-stack platform connecting content,", "bookings, enquiries and administration."],
-    accent: "#ff7a2f",
-  }),
-);
-
-write(
-  "social/08-chanzo-selected-work.svg",
-  caseStudy({
-    number: "06",
-    client: "Chanzo Technologies",
-    sector: "Education technology",
-    image: "chanzo-website.png",
-    statement: ["A responsive company website with clear", "service journeys and purposeful motion."],
-    accent: "#36b7ff",
-  }),
-);
-
-write(
-  "social/09-nyota-roots-selected-work.svg",
-  caseStudy({
-    number: "07",
-    client: "Nyota Roots",
-    sector: "Education",
-    image: "nyota-roots-website.png",
-    statement: ["Distinct journeys for parents, schools", "and organisations—built around their needs."],
-    accent: "#f1bf4a",
-  }),
-);
-
-write(
-  "social/10-sun-rays-selected-work.svg",
-  caseStudy({
-    number: "08",
-    client: "Sun Rays Foundation",
-    sector: "Non-profit",
-    image: "sun-rays-foundation-website.png",
-    statement: ["A dependable platform for programmes,", "impact stories, events and public outreach."],
-    accent: "#8be000",
-  }),
-);
-
-write(
-  "social/11-project-cta.svg",
+  "social/brand-first/08-underperforming-signs.svg",
   documentSvg(
     1080,
     1350,
-    "Start a project with INTAVOR",
+    "Three signs a website may be underperforming",
     `
-      ${topLabel("Your next step", "09")}
-      <circle cx="882" cy="340" r="300" fill="url(#glow)"/>
-      <text x="82" y="320" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="78" font-weight="700">
-        <tspan x="82">Is your website</tspan>
-        <tspan x="82" dy="86">working as hard</tspan>
-        <tspan x="82" dy="86">as your business?</tspan>
+      ${topLabel("Website check", "08 / 12")}
+      <text x="82" y="252" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="67" font-weight="700">
+        <tspan x="82">Three signs your website</tspan>
+        <tspan x="82" dy="76" fill="${palette.lilac}">may be underperforming.</tspan>
       </text>
-      <text x="82" y="660" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="31">
-        <tspan x="82">Whether you need a new platform, reliable</tspan>
-        <tspan x="82" dy="46">support or focused improvements—we can help.</tspan>
-      </text>
-      <rect x="82" y="810" width="594" height="104" rx="52" fill="url(#accent)"/>
-      <text x="379" y="876" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="31" font-weight="700">DISCUSS YOUR WEBSITE  →</text>
-      <text x="82" y="1002" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">intavor.co.ke/contact</text>
-      <text x="82" y="1052" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="24">contact@intavor.co.ke</text>
-      ${mark(750, 838, 250, 0.42)}
+      <g transform="translate(82 434)">
+        <rect width="916" height="174" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="42" y="77" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="56" font-weight="700">01</text>
+        <text x="146" y="70" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="35" font-weight="700">Your offer is difficult to understand.</text>
+        <text x="146" y="119" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="24">Visitors should not have to decode what you do.</text>
+      </g>
+      <g transform="translate(82 640)">
+        <rect width="916" height="174" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="42" y="77" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="56" font-weight="700">02</text>
+        <text x="146" y="70" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="35" font-weight="700">Mobile visitors struggle to use it.</text>
+        <text x="146" y="119" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="24">Small screens should never feel like an afterthought.</text>
+      </g>
+      <g transform="translate(82 846)">
+        <rect width="916" height="174" rx="24" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="42" y="77" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="56" font-weight="700">03</text>
+        <text x="146" y="70" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="35" font-weight="700">Enquiries are hard to complete.</text>
+        <text x="146" y="119" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="24">Every unnecessary step creates another exit point.</text>
+      </g>
       ${footer()}
     `,
   ),
 );
 
-function reelCover(title, lines, number) {
-  return documentSvg(
+write(
+  "social/brand-first/09-built-around-business.svg",
+  documentSvg(
     1080,
-    1920,
-    title,
+    1350,
+    "Technology should fit the business",
     `
-      <circle cx="820" cy="480" r="520" fill="url(#glow)"/>
-      ${brandLockup(76, 92, 0.86)}
-      <text x="1000" y="122" text-anchor="end" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">${number}</text>
-      <text x="76" y="560" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="5">WEBSITE NOTES</text>
-      <text x="76" y="668" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="82" font-weight="700">
-        ${lines.map((line, index) => `<tspan x="76" dy="${index === 0 ? 0 : 94}">${line}</tspan>`).join("")}
+      ${topLabel("Intentional by design", "09 / 12")}
+      <circle cx="810" cy="444" r="380" fill="url(#glow)"/>
+      <text x="82" y="322" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="80" font-weight="700">
+        <tspan x="82">Your business should</tspan>
+        <tspan x="82" dy="92">not have to fit</tspan>
+        <tspan x="82" dy="92">the technology.</tspan>
       </text>
-      <rect x="76" y="1190" width="370" height="74" rx="37" fill="${palette.panelLight}" stroke="${palette.purple}" stroke-width="2"/>
-      <text x="261" y="1237" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="24" font-weight="700">SAVE FOR LATER</text>
-      ${mark(558, 1324, 440, 0.45)}
-      <line x1="76" y1="1762" x2="1004" y2="1762" stroke="${palette.line}" stroke-width="2"/>
-      <text x="76" y="1822" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">Tech built with intention.</text>
-      <text x="1004" y="1822" text-anchor="end" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="25">intavor.co.ke</text>
+      <text x="82" y="665" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="55" font-weight="700">
+        The technology should fit you.
+      </text>
+      <rect x="82" y="790" width="916" height="268" rx="30" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+      <text x="132" y="870" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25" letter-spacing="2">THAT MEANS UNDERSTANDING</text>
+      <text x="132" y="945" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="34" font-weight="600">
+        <tspan x="132">your audience, your workflows and what</tspan>
+        <tspan x="132" dy="50">the website genuinely needs to achieve.</tspan>
+      </text>
+      ${footer()}
     `,
-  );
-}
-
-write(
-  "social/reels/01-three-signs-cover.svg",
-  reelCover(
-    "Three signs your business website needs an upgrade",
-    ["3 signs your", "business website", "needs an upgrade"],
-    "01",
   ),
 );
 
 write(
-  "social/reels/02-after-launch-cover.svg",
-  reelCover(
-    "What happens after your website launches",
-    ["What happens", "after your website", "launches?"],
-    "02",
+  "social/brand-first/10-support-matters.svg",
+  documentSvg(
+    1080,
+    1350,
+    "Why ongoing website support matters",
+    `
+      ${topLabel("Reliable after launch", "10 / 12")}
+      <text x="82" y="262" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="69" font-weight="700">
+        <tspan x="82">A dependable website</tspan>
+        <tspan x="82" dy="78">needs dependable</tspan>
+        <tspan x="82" dy="78" fill="${palette.lilac}">support.</tspan>
+      </text>
+      <g font-family="Arial, sans-serif">
+        <rect x="82" y="572" width="438" height="210" rx="26" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="124" y="640" fill="${palette.lilac}" font-size="23" font-weight="700" letter-spacing="3">STAY CURRENT</text>
+        <text x="124" y="705" fill="${palette.pale}" font-size="30" font-weight="600">Content and services</text>
+        <text x="124" y="746" fill="${palette.muted}" font-size="24">change over time.</text>
+        <rect x="560" y="572" width="438" height="210" rx="26" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="602" y="640" fill="${palette.lilac}" font-size="23" font-weight="700" letter-spacing="3">STAY USEFUL</text>
+        <text x="602" y="705" fill="${palette.pale}" font-size="30" font-weight="600">Fix friction before</text>
+        <text x="602" y="746" fill="${palette.muted}" font-size="24">it becomes a problem.</text>
+        <rect x="82" y="822" width="438" height="210" rx="26" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="124" y="890" fill="${palette.lilac}" font-size="23" font-weight="700" letter-spacing="3">STAY SECURE</text>
+        <text x="124" y="955" fill="${palette.pale}" font-size="30" font-weight="600">Maintain the platform</text>
+        <text x="124" y="996" fill="${palette.muted}" font-size="24">and its dependencies.</text>
+        <rect x="560" y="822" width="438" height="210" rx="26" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
+        <text x="602" y="890" fill="${palette.lilac}" font-size="23" font-weight="700" letter-spacing="3">KEEP GROWING</text>
+        <text x="602" y="955" fill="${palette.pale}" font-size="30" font-weight="600">Add improvements as</text>
+        <text x="602" y="996" fill="${palette.muted}" font-size="24">new needs emerge.</text>
+      </g>
+      ${footer()}
+    `,
   ),
 );
 
 write(
-  "social/reels/03-walkthrough-cover.svg",
-  reelCover(
-    "Website walkthrough: Stratedge Solutions",
-    ["Website", "walkthrough:", "Stratedge Solutions"],
-    "03",
+  "social/brand-first/11-how-we-work.svg",
+  documentSvg(
+    1080,
+    1350,
+    "How INTAVOR works",
+    `
+      ${topLabel("How we work", "11 / 12")}
+      <text x="82" y="262" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="71" font-weight="700">Clear at every stage.</text>
+      <text x="82" y="324" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="28">No unnecessary complexity. No disappearing after launch.</text>
+      <line x1="174" y1="518" x2="174" y2="1012" stroke="${palette.line}" stroke-width="5" stroke-linecap="round"/>
+      <g font-family="Arial, sans-serif">
+        <circle cx="174" cy="548" r="52" fill="${palette.purple}"/>
+        <text x="174" y="560" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700">01</text>
+        <text x="270" y="542" fill="${palette.pale}" font-size="43" font-weight="700">Understand</text>
+        <text x="270" y="591" fill="${palette.muted}" font-size="25">Goals, audience, content and practical needs.</text>
+        <circle cx="174" cy="762" r="52" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
+        <text x="174" y="774" text-anchor="middle" fill="${palette.pale}" font-size="27" font-weight="700">02</text>
+        <text x="270" y="756" fill="${palette.pale}" font-size="43" font-weight="700">Build with purpose</text>
+        <text x="270" y="805" fill="${palette.muted}" font-size="25">Every decision supports the intended outcome.</text>
+        <circle cx="174" cy="976" r="52" fill="${palette.panelLight}" stroke="${palette.lilac}" stroke-width="3"/>
+        <text x="174" y="988" text-anchor="middle" fill="${palette.pale}" font-size="27" font-weight="700">03</text>
+        <text x="270" y="970" fill="${palette.pale}" font-size="43" font-weight="700">Keep it working</text>
+        <text x="270" y="1019" fill="${palette.muted}" font-size="25">Manage, support and improve beyond delivery.</text>
+      </g>
+      ${footer()}
+    `,
+  ),
+);
+
+write(
+  "social/brand-first/12-discuss-your-website.svg",
+  documentSvg(
+    1080,
+    1350,
+    "Discuss your website with INTAVOR",
+    `
+      ${topLabel("Start with a conversation", "12 / 12")}
+      <circle cx="864" cy="330" r="330" fill="url(#glow)"/>
+      <text x="82" y="322" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="82" font-weight="700">
+        <tspan x="82">What should your</tspan>
+        <tspan x="82" dy="92">website be doing</tspan>
+        <tspan x="82" dy="92" fill="${palette.lilac}">better?</tspan>
+      </text>
+      <text x="82" y="675" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="31">
+        <tspan x="82">A new build. Reliable management.</tspan>
+        <tspan x="82" dy="47">Or focused improvements to what you already have.</tspan>
+      </text>
+      <rect x="82" y="842" width="620" height="104" rx="52" fill="url(#accent)"/>
+      <text x="392" y="908" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="31" font-weight="700">DISCUSS YOUR WEBSITE  →</text>
+      <text x="82" y="1032" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="29">intavor.co.ke/contact</text>
+      <text x="82" y="1082" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="25">contact@intavor.co.ke</text>
+      ${mark(770, 820, 230, 0.38)}
+      ${footer()}
+    `,
   ),
 );
 
@@ -466,14 +514,13 @@ write(
     661,
     "INTAVOR business card front",
     `
-      <circle cx="936" cy="-40" r="440" fill="url(#glow)"/>
-      <path d="M790 0 C880 156 902 414 1134 508" fill="none" stroke="${palette.purple}" stroke-opacity="0.3" stroke-width="2"/>
-      <path d="M720 0 C838 212 826 506 1090 661" fill="none" stroke="${palette.lilac}" stroke-opacity="0.14" stroke-width="2"/>
-      ${mark(108, 164, 400)}
-      <line x1="548" y1="150" x2="548" y2="492" stroke="${palette.purple}" stroke-width="3"/>
-      <text x="612" y="275" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="72" font-weight="600" letter-spacing="16">INTAVOR</text>
-      <text x="616" y="350" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6">TECH BUILT WITH INTENTION.</text>
-      <text x="616" y="420" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="23">Build  ·  Manage  ·  Improve</text>
+      <circle cx="567" cy="255" r="400" fill="url(#glow)"/>
+      <path d="M-40 604 C270 450 750 734 1180 418" fill="none" stroke="${palette.purple}" stroke-opacity="0.22" stroke-width="2"/>
+      <path d="M-40 640 C290 486 760 768 1180 458" fill="none" stroke="${palette.lilac}" stroke-opacity="0.1" stroke-width="2"/>
+      ${mark(397, 112, 340)}
+      <text x="567" y="442" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="65" font-weight="600" letter-spacing="17">INTAVOR</text>
+      <line x1="368" y1="482" x2="766" y2="482" stroke="${palette.purple}" stroke-width="2"/>
+      <text x="567" y="536" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="5">TECH BUILT WITH INTENTION.</text>
     `,
   ),
 );
@@ -485,25 +532,69 @@ write(
     661,
     "INTAVOR business card back",
     `
-      <circle cx="70" cy="650" r="340" fill="url(#glow)"/>
-      ${brandLockup(78, 72, 0.78)}
-      <text x="78" y="232" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="45" font-weight="700">Web development +</text>
-      <text x="78" y="286" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="45" font-weight="700">ongoing website support</text>
-      <rect x="76" y="340" width="5" height="190" rx="2.5" fill="url(#accent)"/>
-      <text x="112" y="386" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">WEB</text>
-      <text x="112" y="426" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="28">intavor.co.ke</text>
-      <text x="112" y="480" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">EMAIL</text>
-      <text x="112" y="520" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="28">contact@intavor.co.ke</text>
-      <rect x="736" y="78" width="320" height="500" rx="30" fill="${palette.panel}" stroke="${palette.line}" stroke-width="2"/>
-      <text x="786" y="164" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">WHAT WE DO</text>
-      <text x="786" y="245" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="37" font-weight="700">BUILD</text>
-      <line x1="786" y1="275" x2="1006" y2="275" stroke="${palette.line}" stroke-width="2"/>
-      <text x="786" y="350" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="37" font-weight="700">MANAGE</text>
-      <line x1="786" y1="380" x2="1006" y2="380" stroke="${palette.line}" stroke-width="2"/>
-      <text x="786" y="455" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="37" font-weight="700">IMPROVE</text>
-      <text x="786" y="526" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="20">Nairobi, Kenya</text>
+      <circle cx="1070" cy="600" r="360" fill="url(#glow)"/>
+      ${mark(808, 344, 350, 0.12)}
+      ${brandLockup(76, 62, 0.76)}
+      <text x="76" y="218" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">Web development +</text>
+      <text x="76" y="269" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="43" font-weight="700">ongoing website support</text>
+      <text x="76" y="327" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">BUILD  ·  MANAGE  ·  IMPROVE</text>
+      <line x1="76" y1="376" x2="1058" y2="376" stroke="${palette.line}" stroke-width="2"/>
+      <text x="76" y="444" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">WEB</text>
+      <text x="76" y="483" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">intavor.co.ke</text>
+      <text x="414" y="444" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">EMAIL</text>
+      <text x="414" y="483" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">contact@intavor.co.ke</text>
+      <text x="865" y="444" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="19" letter-spacing="3">LOCATION</text>
+      <text x="865" y="483" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">Nairobi, Kenya</text>
+      <text x="76" y="570" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="21">Intent gives the work direction. Endeavor carries it through.</text>
     `,
   ),
 );
 
-console.log("Generated 19 editable INTAVOR marketing assets.");
+write(
+  "business-card/intavor-staff-card-front.svg",
+  documentSvg(
+    1134,
+    661,
+    "INTAVOR editable staff business card front",
+    `
+      <circle cx="1040" cy="70" r="390" fill="url(#glow)"/>
+      ${mark(830, 64, 238, 0.8)}
+      <text x="76" y="108" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="4">INTAVOR TEAM</text>
+      <text x="76" y="252" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="2">${staffTemplate.name}</text>
+      <text x="78" y="307" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="4">${staffTemplate.role}</text>
+      <line x1="76" y1="356" x2="1058" y2="356" stroke="${palette.line}" stroke-width="2"/>
+      <text x="76" y="424" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">MOBILE / WHATSAPP</text>
+      <text x="76" y="463" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">${staffTemplate.phone}</text>
+      <text x="414" y="424" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">EMAIL</text>
+      <text x="414" y="463" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">${staffTemplate.email}</text>
+      <text x="864" y="424" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">WEB</text>
+      <text x="864" y="463" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">intavor.co.ke</text>
+      <text x="76" y="570" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="21">Web development + ongoing website support</text>
+    `,
+  ),
+);
+
+write(
+  "business-card/intavor-staff-card-back.svg",
+  documentSvg(
+    1134,
+    661,
+    "INTAVOR editable staff business card back",
+    `
+      <circle cx="567" cy="280" r="390" fill="url(#glow)"/>
+      <path d="M-40 604 C270 450 750 734 1180 418" fill="none" stroke="${palette.purple}" stroke-opacity="0.22" stroke-width="2"/>
+      ${mark(407, 108, 320)}
+      <text x="567" y="421" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="59" font-weight="600" letter-spacing="16">INTAVOR</text>
+      <text x="567" y="493" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">TECH BUILT WITH INTENTION.</text>
+      <text x="567" y="558" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">BUILD  ·  MANAGE  ·  IMPROVE</text>
+    `,
+  ),
+);
+
+await Promise.all(
+  generatedSvgs.map((svgPath) =>
+    sharp(svgPath).png().toFile(svgPath.replace(/\.svg$/, ".png")),
+  ),
+);
+
+console.log("Generated 18 editable SVG masters and matching PNG exports.");
