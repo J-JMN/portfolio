@@ -5,13 +5,13 @@ export const brandInfo = {
   tagline: "Tech built with intention.",
   role: "Web development and ongoing website support",
   bio: "INTAVOR builds and manages websites and web applications for businesses and organisations, from initial delivery to ongoing updates and technical support.",
-  email: "intavortech@gmail.com",
+  email: "contact@intavor.co.ke",
   location: "Nairobi, Kenya",
   availability: "Open for projects and website support",
   socials: [
     {
       name: "Email",
-      url: "mailto:intavortech@gmail.com",
+      url: "mailto:contact@intavor.co.ke",
       icon: Mail,
     },
   ],

@@ -8,7 +8,7 @@ The public website for INTAVOR — Tech built with intention. It presents client
 - **INTAVOR Brand System** - Branded assets, typography, and dark visual system
 - **Smooth Animations** - Framer Motion powered animations and transitions
 - **Dynamic Content** - Easily customizable data-driven content
-- **Contact Form** - React Hook Form with Zod validation
+- **Contact Form** - Validated server-side delivery and branded auto-replies from the INTAVOR domain
 - **SEO Optimized** - Built with Next.js App Router for optimal performance
 
 ## Pages
@@ -30,11 +30,13 @@ The public website for INTAVOR — Tech built with intention. It presents client
 - **UI Components**: [Radix UI](https://www.radix-ui.com/) primitives
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+- **Email**: [Nodemailer](https://nodemailer.com/) through authenticated Zoho SMTP
 
 ## Project Structure
 
 ```
 ├── app/                    # Next.js App Router pages
+│   ├── api/contact/       # Server-side contact email endpoint
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
 │   ├── experience/        # Expertise page
@@ -53,6 +55,9 @@ The public website for INTAVOR — Tech built with intention. It presents client
 │   ├── illustrations/     # Animated SVG illustrations and banner art
 │   └── ui/                # Base UI components (Button, Badge, Input, etc.)
 ├── lib/
+│   ├── contact.ts         # Shared contact validation
+│   ├── contact-email.ts   # SMTP delivery and email templates
+│   ├── contact-handler.ts # Request validation and API responses
 │   ├── data.ts            # Brand, services, projects, and engagement data
 │   └── utils.ts           # Utility functions
 └── public/
@@ -63,7 +68,7 @@ The public website for INTAVOR — Tech built with intention. It presents client
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 20+
 - npm, yarn, pnpm, or bun
 
 ### Installation
@@ -79,12 +84,14 @@ The public website for INTAVOR — Tech built with intention. It presents client
    npm install
    ```
 
-3. Run the development server:
+3. Copy `.env.example` to `.env.local` and add the Zoho SMTP application password. See [EMAIL_SETUP.md](./EMAIL_SETUP.md).
+
+4. Run the development server:
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Customization
 
@@ -111,6 +118,7 @@ Edit `lib/data.ts` to update:
 | `npm run build` | Build for production |
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
+| `npm test` | Run the contact-form test suite |
 
 ## Deployment
 
@@ -118,7 +126,8 @@ This project is optimized for deployment on [Vercel](https://vercel.com/):
 
 1. Push your code to GitHub
 2. Import the repository on Vercel
-3. Deploy automatically
+3. Add the server-only `SMTP_PASSWORD` environment variable described in [EMAIL_SETUP.md](./EMAIL_SETUP.md)
+4. Deploy automatically
 
 Alternatively, build and deploy to any Node.js hosting platform:
 ```bash
@@ -134,4 +143,4 @@ This project is not open source. All rights are reserved to INTAVOR.
 
 **INTAVOR** — Tech built with intention.
 
-- Email: intavortech@gmail.com
+- Email: contact@intavor.co.ke

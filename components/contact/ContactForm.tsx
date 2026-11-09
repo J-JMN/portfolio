@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import emailjs from "@emailjs/browser";
 import { Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,22 +23,17 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import FadeIn from "@/components/animations/FadeIn";
-import { brandInfo } from "@/lib/data";
-
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  honeypot: z.string().optional(),
-});
+import {
+  contactFormSchema,
+  type ContactFormValues,
+} from "@/lib/contact";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -50,7 +43,7 @@ export default function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: ContactFormValues) {
     setIsSubmitting(true);
     setError(null);
 
@@ -64,56 +57,32 @@ export default function ContactForm() {
       return;
     }
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const autoReplyTemplateId =
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_AUTOREPLY_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setError("Email service is not configured. Please try again later.");
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      // Send the project enquiry to the configured mailbox.
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: values.name,
-          from_email: values.email,
-          to_email: brandInfo.email,
-          brand_name: brandInfo.name,
-          subject: values.subject,
-          message: values.message,
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        publicKey,
-      );
+        body: JSON.stringify(values),
+      });
 
-      // Send an auto-reply confirmation when a template is configured.
-      if (autoReplyTemplateId) {
-        await emailjs.send(
-          serviceId,
-          autoReplyTemplateId,
-          {
-            to_name: values.name,
-            to_email: values.email,
-            reply_to: brandInfo.email,
-            brand_name: brandInfo.name,
-            subject: values.subject,
-            message: values.message,
-          },
-          publicKey,
+      if (!response.ok) {
+        const result = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        throw new Error(
+          result?.error ?? "Failed to send message. Please try again.",
         );
       }
 
       setIsSuccess(true);
       form.reset();
     } catch (err) {
-      console.error("EmailJS error:", err);
-      setError("Failed to send message. Please try again.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
