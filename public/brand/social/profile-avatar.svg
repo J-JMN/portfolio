@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title">
+  <title id="title">INTAVOR social profile image</title>
+  
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b1220"/>
+        <stop offset="0.58" stop-color="#111d2e"/>
+        <stop offset="1" stop-color="#17152e"/>
+      </linearGradient>
+      <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="0.35" stop-color="#f8f7ff"/>
+        <stop offset="0.72" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#7a6cff" stop-opacity="0.38"/>
+        <stop offset="1" stop-color="#7a6cff" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.38"/>
+      </filter>
+    </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  
+      <circle cx="540" cy="510" r="430" fill="url(#glow)"/>
+      <circle cx="540" cy="510" r="370" fill="#111d2e" stroke="#344157" stroke-width="4"/>
+      <g transform="translate(220 335) scale(0.9103840682788051)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+      <text x="540" y="875" text-anchor="middle" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="58" font-weight="700" letter-spacing="17">INTAVOR</text>
+    
+</svg>

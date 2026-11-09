@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1134" height="661" viewBox="0 0 1134 661" role="img" aria-labelledby="title">
+  <title id="title">INTAVOR business card front</title>
+  
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b1220"/>
+        <stop offset="0.58" stop-color="#111d2e"/>
+        <stop offset="1" stop-color="#17152e"/>
+      </linearGradient>
+      <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="0.35" stop-color="#f8f7ff"/>
+        <stop offset="0.72" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#7a6cff" stop-opacity="0.38"/>
+        <stop offset="1" stop-color="#7a6cff" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.38"/>
+      </filter>
+    </defs>
+  <rect width="1134" height="661" fill="url(#bg)"/>
+  
+      <circle cx="936" cy="-40" r="440" fill="url(#glow)"/>
+      <path d="M790 0 C880 156 902 414 1134 508" fill="none" stroke="#7a6cff" stroke-opacity="0.3" stroke-width="2"/>
+      <path d="M720 0 C838 212 826 506 1090 661" fill="none" stroke="#a99cff" stroke-opacity="0.14" stroke-width="2"/>
+      <g transform="translate(108 164) scale(0.5689900426742532)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+      <line x1="548" y1="150" x2="548" y2="492" stroke="#7a6cff" stroke-width="3"/>
+      <text x="612" y="275" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="72" font-weight="600" letter-spacing="16">INTAVOR</text>
+      <text x="616" y="350" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6">TECH BUILT WITH INTENTION.</text>
+      <text x="616" y="420" fill="#b5bfce" font-family="Arial, sans-serif" font-size="23">Build  ·  Manage  ·  Improve</text>
+    
+</svg>

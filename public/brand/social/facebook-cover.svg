@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="624" viewBox="0 0 1640 624" role="img" aria-labelledby="title">
+  <title id="title">INTAVOR Facebook cover</title>
+  
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b1220"/>
+        <stop offset="0.58" stop-color="#111d2e"/>
+        <stop offset="1" stop-color="#17152e"/>
+      </linearGradient>
+      <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="0.35" stop-color="#f8f7ff"/>
+        <stop offset="0.72" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#7a6cff" stop-opacity="0.38"/>
+        <stop offset="1" stop-color="#7a6cff" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.38"/>
+      </filter>
+    </defs>
+  <rect width="1640" height="624" fill="url(#bg)"/>
+  
+      <circle cx="1420" cy="40" r="470" fill="url(#glow)"/>
+      <path d="M1050 0 C1220 170 1290 455 1640 540" fill="none" stroke="#7a6cff" stroke-opacity="0.25" stroke-width="2"/>
+      <path d="M990 0 C1180 210 1230 520 1580 624" fill="none" stroke="#a99cff" stroke-opacity="0.12" stroke-width="2"/>
+      <g transform="translate(1060 155) scale(0.7112375533428165)" opacity="0.92"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+      
+    <g transform="translate(118 100) scale(0.12546230440967285)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+    <text x="228.25" y="135.7" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="29.400000000000002" font-weight="700" letter-spacing="7.3500000000000005">INTAVOR</text>
+      <text x="118" y="294" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="67" font-weight="700">Tech built with intention.</text>
+      <text x="120" y="360" fill="#b5bfce" font-family="Arial, sans-serif" font-size="29">Web development + ongoing website support</text>
+      <rect x="118" y="422" width="398" height="74" rx="37" fill="url(#accent)"/>
+      <text x="317" y="469" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="25" font-weight="700">BUILD · MANAGE · IMPROVE</text>
+      <text x="120" y="556" fill="#b5bfce" font-family="Arial, sans-serif" font-size="23">Nairobi, Kenya  •  intavor.co.ke</text>
+    
+</svg>

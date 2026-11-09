@@ -3,6 +3,9 @@ import { Code2, Mail, RefreshCcw, Settings2 } from "lucide-react";
 export const brandInfo = {
   name: "INTAVOR",
   tagline: "Tech built with intention.",
+  meaning: "Intent gives the work direction. Endeavor carries it through.",
+  purpose:
+    "To turn clear intent into dependable digital products—and keep improving them as the organisations behind them grow.",
   role: "Web development and ongoing website support",
   bio: "INTAVOR builds and manages websites and web applications for businesses and organisations, from initial delivery to ongoing updates and technical support.",
   email: "contact@intavor.co.ke",

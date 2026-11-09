@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title">
+  <title id="title">What happens after your website launches</title>
+  
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b1220"/>
+        <stop offset="0.58" stop-color="#111d2e"/>
+        <stop offset="1" stop-color="#17152e"/>
+      </linearGradient>
+      <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="0.35" stop-color="#f8f7ff"/>
+        <stop offset="0.72" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#7a6cff" stop-opacity="0.38"/>
+        <stop offset="1" stop-color="#7a6cff" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.38"/>
+      </filter>
+    </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  
+      <circle cx="820" cy="480" r="520" fill="url(#glow)"/>
+      
+    <g transform="translate(76 92) scale(0.10275960170697013)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+    <text x="166.3" y="121.24" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="24.08" font-weight="700" letter-spacing="6.02">INTAVOR</text>
+      <text x="1000" y="122" text-anchor="end" fill="#b5bfce" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">02</text>
+      <text x="76" y="560" fill="#a99cff" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="5">WEBSITE NOTES</text>
+      <text x="76" y="668" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="82" font-weight="700">
+        <tspan x="76" dy="0">What happens</tspan><tspan x="76" dy="94">after your website</tspan><tspan x="76" dy="94">launches?</tspan>
+      </text>
+      <rect x="76" y="1190" width="370" height="74" rx="37" fill="#1e2b3b" stroke="#7a6cff" stroke-width="2"/>
+      <text x="261" y="1237" text-anchor="middle" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="24" font-weight="700">SAVE FOR LATER</text>
+      <g transform="translate(558 1324) scale(0.6258890469416786)" opacity="0.45"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+      <line x1="76" y1="1762" x2="1004" y2="1762" stroke="#344157" stroke-width="2"/>
+      <text x="76" y="1822" fill="#b5bfce" font-family="Arial, sans-serif" font-size="25">Tech built with intention.</text>
+      <text x="1004" y="1822" text-anchor="end" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="25">intavor.co.ke</text>
+    
+</svg>

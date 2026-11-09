@@ -7,6 +7,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import DotGrid from "@/components/decor/DotGrid";
+import { brandInfo } from "@/lib/data";
 
 export default function AboutPage() {
   return (
@@ -60,6 +61,15 @@ export default function AboutPage() {
                   </span>
                   . These relationships now extend into ongoing website
                   management and technical support.
+                </p>
+              </div>
+
+              <div className="mt-6 rounded-xl border border-primary/25 bg-primary/5 p-5">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                  Our purpose
+                </p>
+                <p className="text-base leading-relaxed text-foreground/90">
+                  {brandInfo.purpose}
                 </p>
               </div>
 

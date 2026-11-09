@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1134" height="661" viewBox="0 0 1134 661" role="img" aria-labelledby="title">
+  <title id="title">INTAVOR business card back</title>
+  
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b1220"/>
+        <stop offset="0.58" stop-color="#111d2e"/>
+        <stop offset="1" stop-color="#17152e"/>
+      </linearGradient>
+      <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="0.35" stop-color="#f8f7ff"/>
+        <stop offset="0.72" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#a99cff"/>
+        <stop offset="1" stop-color="#7a6cff"/>
+      </linearGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#7a6cff" stop-opacity="0.38"/>
+        <stop offset="1" stop-color="#7a6cff" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.38"/>
+      </filter>
+    </defs>
+  <rect width="1134" height="661" fill="url(#bg)"/>
+  
+      <circle cx="70" cy="650" r="340" fill="url(#glow)"/>
+      
+    <g transform="translate(78 72) scale(0.09320056899004267)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+    <text x="159.9" y="98.52" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="21.84" font-weight="700" letter-spacing="5.46">INTAVOR</text>
+      <text x="78" y="232" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="45" font-weight="700">Web development +</text>
+      <text x="78" y="286" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="45" font-weight="700">ongoing website support</text>
+      <rect x="76" y="340" width="5" height="190" rx="2.5" fill="url(#accent)"/>
+      <text x="112" y="386" fill="#b5bfce" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">WEB</text>
+      <text x="112" y="426" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="28">intavor.co.ke</text>
+      <text x="112" y="480" fill="#b5bfce" font-family="Arial, sans-serif" font-size="23" letter-spacing="2">EMAIL</text>
+      <text x="112" y="520" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="28">contact@intavor.co.ke</text>
+      <rect x="736" y="78" width="320" height="500" rx="30" fill="#152132" stroke="#344157" stroke-width="2"/>
+      <text x="786" y="164" fill="#a99cff" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">WHAT WE DO</text>
+      <text x="786" y="245" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="37" font-weight="700">BUILD</text>
+      <line x1="786" y1="275" x2="1006" y2="275" stroke="#344157" stroke-width="2"/>
+      <text x="786" y="350" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="37" font-weight="700">MANAGE</text>
+      <line x1="786" y1="380" x2="1006" y2="380" stroke="#344157" stroke-width="2"/>
+      <text x="786" y="455" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="37" font-weight="700">IMPROVE</text>
+      <text x="786" y="526" fill="#b5bfce" font-family="Arial, sans-serif" font-size="20">Nairobi, Kenya</text>
+    
+</svg>
