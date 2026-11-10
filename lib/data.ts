@@ -46,7 +46,7 @@ export const services = [
   {
     title: "Improve",
     summary:
-      "Focused refinements to usability, performance, and features as your organisation's needs evolve.",
+      "Focused refinements to usability, performance, and features for websites INTAVOR delivers as organisations' needs evolve.",
     includes: ["Responsive design", "Performance", "Integrations"],
     icon: RefreshCcw,
   },

@@ -309,25 +309,28 @@ write(
   documentSvg(
     1080,
     1350,
-    "Not every website needs a complete rebuild",
+    "A new website built around what comes next",
     `
       ${topLabel("Better decisions first", "06 / 12")}
-      <text x="82" y="290" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="78" font-weight="700">
-        <tspan x="82">Not every website</tspan>
-        <tspan x="82" dy="88">needs a complete</tspan>
-        <tspan x="82" dy="88" fill="${palette.lilac}">rebuild.</tspan>
+      <text x="82" y="290" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="76" font-weight="700">
+        <tspan x="82">Ready for a website</tspan>
+        <tspan x="82" dy="90" fill="${palette.lilac}">that fits today?</tspan>
       </text>
-      <text x="82" y="606" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="30">
-        <tspan x="82">Sometimes the right answer is a focused improvement:</tspan>
+      <text x="82" y="530" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="29">
+        <tspan x="82">A new website can create:</tspan>
       </text>
-      <g fill="${palette.pale}" font-family="Arial, sans-serif" font-size="32" font-weight="600">
-        <text x="110" y="714">• clearer content</text>
-        <text x="110" y="784">• a better mobile experience</text>
-        <text x="110" y="854">• improved speed and usability</text>
-        <text x="110" y="924">• a simpler enquiry journey</text>
+      <g fill="${palette.pale}" font-family="Arial, sans-serif" font-size="31" font-weight="600">
+        <text x="110" y="640">• clearer content</text>
+        <text x="110" y="710">• a better mobile experience</text>
+        <text x="110" y="780">• improved speed and usability</text>
+        <text x="110" y="850">• a simpler enquiry journey</text>
       </g>
-      <rect x="82" y="1010" width="916" height="100" rx="50" fill="${palette.panel}" stroke="${palette.purple}" stroke-width="2"/>
-      <text x="540" y="1073" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="27" font-weight="700">Start with what the website needs to accomplish.</text>
+      <rect x="82" y="945" width="916" height="170" rx="28" fill="${palette.panel}" stroke="${palette.purple}" stroke-width="2"/>
+      <text x="132" y="1000" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="3">BUILD FOR WHAT COMES NEXT</text>
+      <text x="132" y="1058" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="33" font-weight="600">
+        <tspan x="132">Start with what the website</tspan>
+        <tspan x="132" dy="44">now needs to accomplish.</tspan>
+      </text>
       ${footer()}
     `,
   ),
@@ -515,8 +518,8 @@ write(
         <tspan x="82" dy="92" fill="${palette.lilac}">better?</tspan>
       </text>
       <text x="82" y="675" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="31">
-        <tspan x="82">A new build. Reliable management.</tspan>
-        <tspan x="82" dy="47">Or focused improvements to what you already have.</tspan>
+        <tspan x="82">Your first website. Or a better one.</tspan>
+        <tspan x="82" dy="47">Dependable support after delivery.</tspan>
       </text>
       <rect x="82" y="842" width="620" height="104" rx="52" fill="url(#accent)"/>
       <text x="392" y="908" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="31" font-weight="700">DISCUSS YOUR WEBSITE  →</text>

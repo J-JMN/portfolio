@@ -42,8 +42,9 @@ presence to keep working beyond launch.
 ### Service model
 
 1. **Build** — websites and web applications shaped around real goals.
-2. **Manage** — updates, technical care, and reliable ongoing support.
-3. **Improve** — focused refinements as an organisation evolves.
+2. **Manage** — updates, technical care, and reliable support after delivery.
+3. **Improve** — focused refinements to INTAVOR-delivered websites as an
+   organisation evolves.
 
 ### Voice
 
@@ -280,6 +281,10 @@ Append this small set to each launch caption:
 
 Do not add unrelated trending hashtags.
 
+Do not include website URLs, email addresses, or other contact links in post
+captions. Direct people to the profile link, platform action button, or direct
+messages instead so the same caption works cleanly on Instagram and Facebook.
+
 ## Four-week launch calendar
 
 The initial calendar begins Monday, 16 November 2026. If the accounts are not
@@ -314,8 +319,6 @@ Clear thinking. Dependable execution. Support beyond launch.
 
 Tech built with intention.
 
-intavor.co.ke
-
 #INTAVOR #WebDevelopmentKenya #WebsiteSupport #NairobiBusiness
 ```
 
@@ -337,7 +340,7 @@ That is the standard behind everything we build.
 ### Post 3 — Build, Manage, Improve
 
 ```text
-Your organisation may need a completely new website—or simply dependable support for the one it already has.
+Your organisation may need its first website or a new one that better fits where it is today.
 
 INTAVOR helps at every stage:
 
@@ -376,19 +379,19 @@ If visitors have to search for these answers, the website is making their decisi
 #INTAVOR #WebDevelopmentKenya #WebsiteSupport #NairobiBusiness
 ```
 
-### Post 6 — Rebuild or improve?
+### Post 6 — A website that fits today
 
 ```text
-Not every website needs to be rebuilt.
+Sometimes a website no longer reflects the business behind it.
 
-Sometimes the better decision is a focused improvement:
+When repeated patches cannot solve the larger problem, the better step may be a new website built around what the business needs today.
 
 • clearer content
 • a better mobile experience
 • improved usability and speed
 • a simpler enquiry journey
 
-Start with what the website needs to accomplish—not with a predetermined solution.
+Start with what the next website needs to accomplish.
 
 #INTAVOR #WebDevelopmentKenya #WebsiteSupport #NairobiBusiness
 ```
@@ -436,7 +439,7 @@ That starts with understanding what the website genuinely needs to achieve.
 ```text
 A dependable website needs dependable support.
 
-Ongoing website support helps you:
+After delivery, ongoing website support helps you:
 
 • keep information current
 • fix friction before it becomes a bigger problem
@@ -467,10 +470,7 @@ No unnecessary complexity. No disappearing after launch.
 ```text
 What should your website be doing better?
 
-Whether you need a new platform, reliable website management or focused improvements to what you already have, let’s start with a conversation.
-
-intavor.co.ke/contact
-contact@intavor.co.ke
+Whether you need your first website, a new one that better fits or dependable support after delivery, let’s start with a conversation.
 
 #INTAVOR #WebDevelopmentKenya #WebsiteSupport #NairobiBusiness
 ```

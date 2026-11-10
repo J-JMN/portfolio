@@ -39,8 +39,9 @@ export default function ContactPage() {
                     <span className="text-primary">Keep It Working.</span>
                   </h1>
                   <p className="text-muted-foreground">
-                    Share what your website needs to do, whether it is a new
-                    build, a focused improvement, or ongoing support.
+                    Share what your next website needs to do, whether you are
+                    starting from scratch or moving on from one that no longer
+                    serves you. Ongoing support is available after delivery.
                   </p>
                 </div>
               </FadeIn>

@@ -96,8 +96,8 @@ export default function ContactForm() {
             Send a Message
           </CardTitle>
           <CardDescription>
-            Tell INTAVOR about a new build, an existing website, or the support
-            you need.
+            Tell INTAVOR about the website your organisation needs next, or the
+            support you need after delivery.
           </CardDescription>
         </CardHeader>
         <CardContent>

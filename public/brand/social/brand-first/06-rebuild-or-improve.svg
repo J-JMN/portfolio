@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title">
-  <title id="title">Not every website needs a complete rebuild</title>
+  <title id="title">A new website built around what comes next</title>
   
     <defs>
       <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -31,22 +31,25 @@
     <text x="82" y="98" fill="#a99cff" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">BETTER DECISIONS FIRST</text>
     <text x="998" y="98" text-anchor="end" fill="#b5bfce" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">06 / 12</text>
     <line x1="82" y1="132" x2="998" y2="132" stroke="#344157" stroke-width="2"/>
-      <text x="82" y="290" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="78" font-weight="700">
-        <tspan x="82">Not every website</tspan>
-        <tspan x="82" dy="88">needs a complete</tspan>
-        <tspan x="82" dy="88" fill="#a99cff">rebuild.</tspan>
+      <text x="82" y="290" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="76" font-weight="700">
+        <tspan x="82">Ready for a website</tspan>
+        <tspan x="82" dy="90" fill="#a99cff">that fits today?</tspan>
       </text>
-      <text x="82" y="606" fill="#b5bfce" font-family="Arial, sans-serif" font-size="30">
-        <tspan x="82">Sometimes the right answer is a focused improvement:</tspan>
+      <text x="82" y="530" fill="#b5bfce" font-family="Arial, sans-serif" font-size="29">
+        <tspan x="82">A new website can create:</tspan>
       </text>
-      <g fill="#f5f5f6" font-family="Arial, sans-serif" font-size="32" font-weight="600">
-        <text x="110" y="714">• clearer content</text>
-        <text x="110" y="784">• a better mobile experience</text>
-        <text x="110" y="854">• improved speed and usability</text>
-        <text x="110" y="924">• a simpler enquiry journey</text>
+      <g fill="#f5f5f6" font-family="Arial, sans-serif" font-size="31" font-weight="600">
+        <text x="110" y="640">• clearer content</text>
+        <text x="110" y="710">• a better mobile experience</text>
+        <text x="110" y="780">• improved speed and usability</text>
+        <text x="110" y="850">• a simpler enquiry journey</text>
       </g>
-      <rect x="82" y="1010" width="916" height="100" rx="50" fill="#152132" stroke="#7a6cff" stroke-width="2"/>
-      <text x="540" y="1073" text-anchor="middle" fill="#a99cff" font-family="Arial, sans-serif" font-size="27" font-weight="700">Start with what the website needs to accomplish.</text>
+      <rect x="82" y="945" width="916" height="170" rx="28" fill="#152132" stroke="#7a6cff" stroke-width="2"/>
+      <text x="132" y="1000" fill="#a99cff" font-family="Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="3">BUILD FOR WHAT COMES NEXT</text>
+      <text x="132" y="1058" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="33" font-weight="600">
+        <tspan x="132">Start with what the website</tspan>
+        <tspan x="132" dy="44">now needs to accomplish.</tspan>
+      </text>
       
     <line x1="82" y1="1230" x2="998" y2="1230" stroke="#344157" stroke-width="2"/>
     
