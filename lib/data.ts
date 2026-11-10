@@ -1,4 +1,5 @@
 import { Code2, Mail, RefreshCcw, Settings2 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export const brandInfo = {
   name: "INTAVOR",
@@ -9,6 +10,8 @@ export const brandInfo = {
   role: "Web development and ongoing website support",
   bio: "INTAVOR builds and manages websites and web applications for businesses and organisations, from initial delivery to ongoing updates and technical support.",
   email: "contact@intavor.co.ke",
+  phone: "+254 111 235 767",
+  whatsappUrl: "https://wa.me/254111235767",
   location: "Nairobi, Kenya",
   availability: "Open for projects and website support",
   socials: [
@@ -16,6 +19,11 @@ export const brandInfo = {
       name: "Email",
       url: "mailto:contact@intavor.co.ke",
       icon: Mail,
+    },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/254111235767",
+      icon: WhatsAppIcon,
     },
   ],
 };

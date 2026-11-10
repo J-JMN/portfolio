@@ -95,6 +95,16 @@ export default function Footer() {
                   {brandInfo.email}
                 </a>
               </li>
+              <li>
+                <a
+                  href={brandInfo.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  WhatsApp: {brandInfo.phone}
+                </a>
+              </li>
               <li className="text-muted-foreground">{brandInfo.location}</li>
               <li className="text-primary font-medium text-sm">
                 {brandInfo.availability}

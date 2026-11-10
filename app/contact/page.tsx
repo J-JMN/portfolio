@@ -6,6 +6,7 @@ import { Mail, MapPin, Clock } from "lucide-react";
 import { brandInfo } from "@/lib/data";
 import ContactArt from "@/components/illustrations/ContactArt";
 import DotGrid from "@/components/decor/DotGrid";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 export default function ContactPage() {
   return (
@@ -61,6 +62,22 @@ export default function ContactPage() {
                         className="font-medium hover:text-primary transition-colors text-sm"
                       >
                         {brandInfo.email}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <WhatsAppIcon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">WhatsApp</p>
+                      <a
+                        href={brandInfo.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium hover:text-primary transition-colors text-sm"
+                      >
+                        {brandInfo.phone}
                       </a>
                     </div>
                   </div>
