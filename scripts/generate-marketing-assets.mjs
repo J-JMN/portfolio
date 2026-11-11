@@ -28,7 +28,7 @@ const palette = {
   pale: "#f5f5f6",
   muted: "#b5bfce",
   line: "#344157",
-  green: "#62d99b",
+  stone: "#8b97a6",
 };
 
 const markPath =
@@ -39,6 +39,13 @@ const staffTemplate = {
   role: escapeXml(process.env.INTAVOR_STAFF_ROLE || "ROLE / DEPARTMENT"),
   phone: escapeXml(process.env.INTAVOR_STAFF_PHONE || "+254 7XX XXX XXX"),
   email: escapeXml(process.env.INTAVOR_STAFF_EMAIL || "name@intavor.co.ke"),
+};
+
+const companyDetails = {
+  phone: "+254 111 235 767",
+  email: "contact@intavor.co.ke",
+  website: "intavor.co.ke",
+  location: "Nairobi, Kenya",
 };
 
 const force = process.argv.includes("--force");
@@ -109,14 +116,114 @@ function footer() {
     <text x="998" y="1295" text-anchor="end" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="22">intavor.co.ke</text>`;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Business card system: "Unbound"                                    */
+/*  The INTAVOR mark bleeds off the card edges as one continuous       */
+/*  object; depth comes from layered marks and soft colour fields —    */
+/*  no lines, rules, panels, or visible card architecture.             */
+/* ------------------------------------------------------------------ */
+
+const CARD_W = 1134;
+const CARD_H = 661;
+const fontDisplay = "Ubuntu Sans, Sora, Inter, Arial, sans-serif";
+const fontText = "Ubuntu, Inter, Arial, sans-serif";
+
+function cardDefs() {
+  return `
+    <defs>
+      <linearGradient id="cardMidnight" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${palette.ink}"/>
+        <stop offset="1" stop-color="${palette.inkSoft}"/>
+      </linearGradient>
+      <radialGradient id="echoAura">
+        <stop offset="0" stop-color="${palette.purple}" stop-opacity="0.26"/>
+        <stop offset="1" stop-color="${palette.purple}" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="panelAura">
+        <stop offset="0" stop-color="${palette.panelLight}" stop-opacity="0.6"/>
+        <stop offset="1" stop-color="${palette.panelLight}" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="lilacAura">
+        <stop offset="0" stop-color="${palette.lilac}" stop-opacity="0.16"/>
+        <stop offset="1" stop-color="${palette.lilac}" stop-opacity="0"/>
+      </radialGradient>
+    </defs>`;
+}
+
+function cardLockup(x, y, dark = false) {
+  const textColor = dark ? palette.ink : palette.pale;
+  const markArt = dark
+    ? `<g transform="translate(${x} ${y}) scale(${58 / 703})"><path d="${markPath}" fill="${palette.ink}" fill-opacity="0.92"/></g>`
+    : mark(x, y, 58);
+  return `
+    ${markArt}
+    <text x="${x + 78}" y="${y + 27}" fill="${textColor}" font-family="${fontDisplay}" font-size="28" font-weight="600" letter-spacing="6">INTAVOR</text>`;
+}
+
+function debossMark(x, y, width, opacity = 1) {
+  const scale = width / 703;
+  return `
+    <g transform="translate(${x} ${y}) scale(${scale})" opacity="${opacity}">
+      <path d="${markPath}" transform="translate(12 16)" fill="#070b13" fill-opacity="0.9"/>
+      <path d="${markPath}" transform="translate(-7 -9)" fill="${palette.line}" fill-opacity="0.75"/>
+      <path d="${markPath}" fill="${palette.panel}"/>
+    </g>`;
+}
+
+function brandFace(detail) {
+  return `
+    ${cardDefs()}
+    <rect width="${CARD_W}" height="${CARD_H}" fill="url(#cardMidnight)"/>
+    <ellipse cx="920" cy="120" rx="390" ry="280" fill="url(#echoAura)"/>
+    <ellipse cx="0" cy="690" rx="410" ry="280" fill="url(#panelAura)"/>
+    ${debossMark(-290, 410, 660, 0.5)}
+    ${debossMark(600, -95, 790)}
+    ${mark(74, 352, 46)}
+    <text x="134" y="384" fill="${palette.pale}" font-family="${fontDisplay}" font-size="34" font-weight="500" letter-spacing="11">INTAVOR</text>
+    <text x="74" y="90" fill="${palette.stone}" font-family="${fontText}" font-size="16" font-weight="700" letter-spacing="4.5">${detail}</text>
+    <text x="76" y="436" fill="${palette.lilac}" font-family="${fontText}" font-size="17" font-weight="700" letter-spacing="4.5">TECH BUILT WITH INTENTION.</text>
+    <text x="74" y="586" fill="${palette.muted}" font-family="${fontText}" font-size="15" font-weight="700" letter-spacing="4">BUILD · MANAGE · IMPROVE</text>
+    <text x="1060" y="586" text-anchor="end" fill="${palette.stone}" font-family="${fontText}" font-size="15" font-weight="700" letter-spacing="4">intavor.co.ke</text>`;
+}
+
+function contactItem(x, y, label, value) {
+  return `
+    <text x="${x}" y="${y}" fill="${palette.lilac}" font-family="${fontText}" font-size="16" font-weight="700" letter-spacing="3">${label}</text>
+    <text x="${x}" y="${y + 34}" fill="${palette.pale}" font-family="${fontText}" font-size="25" font-weight="500">${value}</text>`;
+}
+
+function infoFace(title, subtitle, cells) {
+  return `
+    ${cardDefs()}
+    <rect width="${CARD_W}" height="${CARD_H}" fill="url(#cardMidnight)"/>
+    <ellipse cx="150" cy="105" rx="370" ry="260" fill="url(#panelAura)"/>
+    <ellipse cx="1020" cy="610" rx="390" ry="280" fill="url(#lilacAura)"/>
+    <ellipse cx="880" cy="100" rx="280" ry="200" fill="url(#echoAura)"/>
+    ${debossMark(760, 345, 640)}
+    ${cardLockup(74, 64)}
+    <text x="74" y="172" fill="${palette.lilac}" font-family="${fontText}" font-size="17" font-weight="700" letter-spacing="4">CONTACT</text>
+    <text x="74" y="234" fill="${palette.pale}" font-family="${fontDisplay}" font-size="44" font-weight="600" letter-spacing="-0.5">${title}</text>
+    <text x="76" y="274" fill="${palette.muted}" font-family="${fontText}" font-size="20" font-weight="500">${subtitle}</text>
+    ${cells}`;
+}
+
 function write(relativePath, contents) {
   const output = path.join(projectRoot, "public", "brand", relativePath);
   const pngOutput = output.replace(/\.svg$/, ".png");
+  const normalizedContents = relativePath.startsWith("business-card/")
+    ? contents
+        .split("\n")
+        .map((line) => line.trimEnd())
+        .join("\n")
+        .replace(/\n+$/, "\n")
+    : contents;
   const svgChanged =
-    force || !existsSync(output) || readFileSync(output, "utf8") !== contents;
+    force ||
+    !existsSync(output) ||
+    readFileSync(output, "utf8") !== normalizedContents;
 
   if (svgChanged) {
-    writeFileSync(output, contents);
+    writeFileSync(output, normalizedContents);
     updatedSvgCount += 1;
   }
 
@@ -532,43 +639,58 @@ write(
 );
 
 write(
+  "business-card/intavor-card-front.svg",
+  documentSvg(
+    CARD_W,
+    CARD_H,
+    "INTAVOR company business card front",
+    brandFace("WEB DEVELOPMENT + SUPPORT"),
+  ),
+);
+
+write(
+  "business-card/intavor-card-back.svg",
+  documentSvg(
+    CARD_W,
+    CARD_H,
+    "INTAVOR company business card back",
+    infoFace(
+      "Start a conversation.",
+      "A new website. Dependable support after delivery.",
+      `
+      ${contactItem(74, 352, "EMAIL", companyDetails.email)}
+      ${contactItem(520, 352, "WHATSAPP", companyDetails.phone)}
+      ${contactItem(74, 500, "WEB", companyDetails.website)}
+      ${contactItem(520, 500, "BASED IN", companyDetails.location)}`,
+    ),
+  ),
+);
+
+write(
   "business-card/intavor-staff-card-front.svg",
   documentSvg(
-    1134,
-    661,
+    CARD_W,
+    CARD_H,
     "INTAVOR editable staff business card front",
-    `
-      <circle cx="1040" cy="70" r="390" fill="url(#glow)"/>
-      ${mark(830, 64, 238, 0.8)}
-      <text x="76" y="108" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="4">INTAVOR TEAM</text>
-      <text x="76" y="252" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="2">${staffTemplate.name}</text>
-      <text x="78" y="307" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="4">${staffTemplate.role}</text>
-      <line x1="76" y1="356" x2="1058" y2="356" stroke="${palette.line}" stroke-width="2"/>
-      <text x="76" y="424" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">MOBILE / WHATSAPP</text>
-      <text x="76" y="463" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">${staffTemplate.phone}</text>
-      <text x="414" y="424" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">EMAIL</text>
-      <text x="414" y="463" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">${staffTemplate.email}</text>
-      <text x="864" y="424" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">WEB</text>
-      <text x="864" y="463" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="27">intavor.co.ke</text>
-      <text x="76" y="570" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="21">Web development + ongoing website support</text>
-    `,
+    infoFace(
+      staffTemplate.name,
+      staffTemplate.role,
+      `
+      ${contactItem(74, 352, "EMAIL", staffTemplate.email)}
+      ${contactItem(520, 352, "WHATSAPP", staffTemplate.phone)}
+      ${contactItem(74, 500, "WEB", companyDetails.website)}
+      ${contactItem(520, 500, "BASED IN", companyDetails.location)}`,
+    ),
   ),
 );
 
 write(
   "business-card/intavor-staff-card-back.svg",
   documentSvg(
-    1134,
-    661,
+    CARD_W,
+    CARD_H,
     "INTAVOR editable staff business card back",
-    `
-      <circle cx="567" cy="280" r="390" fill="url(#glow)"/>
-      <path d="M-40 604 C270 450 750 734 1180 418" fill="none" stroke="${palette.purple}" stroke-opacity="0.22" stroke-width="2"/>
-      ${mark(407, 108, 320)}
-      <text x="567" y="421" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="59" font-weight="600" letter-spacing="16">INTAVOR</text>
-      <text x="567" y="493" text-anchor="middle" fill="${palette.pale}" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">TECH BUILT WITH INTENTION.</text>
-      <text x="567" y="558" text-anchor="middle" fill="${palette.lilac}" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">BUILD  ·  MANAGE  ·  IMPROVE</text>
-    `,
+    brandFace(staffTemplate.role),
   ),
 );
 

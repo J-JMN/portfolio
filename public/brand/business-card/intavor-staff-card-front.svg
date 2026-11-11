@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1134" height="661" viewBox="0 0 1134 661" role="img" aria-labelledby="title">
   <title id="title">INTAVOR editable staff business card front</title>
-  
+
     <defs>
       <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stop-color="#0b1220"/>
@@ -26,19 +26,53 @@
       </filter>
     </defs>
   <rect width="1134" height="661" fill="url(#bg)"/>
-  
-      <circle cx="1040" cy="70" r="390" fill="url(#glow)"/>
-      <g transform="translate(830 64) scale(0.3385490753911807)" opacity="0.8"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
-      <text x="76" y="108" fill="#a99cff" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="4">INTAVOR TEAM</text>
-      <text x="76" y="252" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="2">Joseph Mburu</text>
-      <text x="78" y="307" fill="#a99cff" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="4">Founder &amp; CEO</text>
-      <line x1="76" y1="356" x2="1058" y2="356" stroke="#344157" stroke-width="2"/>
-      <text x="76" y="424" fill="#b5bfce" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">MOBILE / WHATSAPP</text>
-      <text x="76" y="463" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="27">+254 111 235 767</text>
-      <text x="414" y="424" fill="#b5bfce" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">EMAIL</text>
-      <text x="414" y="463" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="27">josephmburu@intavor.co.ke</text>
-      <text x="864" y="424" fill="#b5bfce" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">WEB</text>
-      <text x="864" y="463" fill="#f5f5f6" font-family="Arial, sans-serif" font-size="27">intavor.co.ke</text>
-      <text x="76" y="570" fill="#b5bfce" font-family="Arial, sans-serif" font-size="21">Web development + ongoing website support</text>
-    
+
+
+    <defs>
+      <linearGradient id="cardMidnight" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b1220"/>
+        <stop offset="1" stop-color="#111d2e"/>
+      </linearGradient>
+      <radialGradient id="echoAura">
+        <stop offset="0" stop-color="#7a6cff" stop-opacity="0.26"/>
+        <stop offset="1" stop-color="#7a6cff" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="panelAura">
+        <stop offset="0" stop-color="#1e2b3b" stop-opacity="0.6"/>
+        <stop offset="1" stop-color="#1e2b3b" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="lilacAura">
+        <stop offset="0" stop-color="#a99cff" stop-opacity="0.16"/>
+        <stop offset="1" stop-color="#a99cff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1134" height="661" fill="url(#cardMidnight)"/>
+    <ellipse cx="150" cy="105" rx="370" ry="260" fill="url(#panelAura)"/>
+    <ellipse cx="1020" cy="610" rx="390" ry="280" fill="url(#lilacAura)"/>
+    <ellipse cx="880" cy="100" rx="280" ry="200" fill="url(#echoAura)"/>
+
+    <g transform="translate(760 345) scale(0.9103840682788051)" opacity="1">
+      <path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" transform="translate(12 16)" fill="#070b13" fill-opacity="0.9"/>
+      <path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" transform="translate(-7 -9)" fill="#344157" fill-opacity="0.75"/>
+      <path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="#152132"/>
+    </g>
+
+    <g transform="translate(74 64) scale(0.08250355618776671)" opacity="1"><path d="M 0,338 L 304,19 Q 331,-8 359,20 L 599,248 L 599,52 Q 599,6 645,6 L 703,6 L 703,157 Q 703,180 684,202 L 540,339 Q 518,360 497,338 L 283,126 Q 256,100 236,124 Q 229,133 228,161 L 226,254 Q 220,338 135,338 Z" fill="url(#mark)"/></g>
+    <text x="152" y="91" fill="#f5f5f6" font-family="Ubuntu Sans, Sora, Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="6">INTAVOR</text>
+    <text x="74" y="172" fill="#a99cff" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="4">CONTACT</text>
+    <text x="74" y="234" fill="#f5f5f6" font-family="Ubuntu Sans, Sora, Inter, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="-0.5">Joseph Mburu</text>
+    <text x="76" y="274" fill="#b5bfce" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="20" font-weight="500">Founder &amp; CEO</text>
+
+
+    <text x="74" y="352" fill="#a99cff" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3">EMAIL</text>
+    <text x="74" y="386" fill="#f5f5f6" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="25" font-weight="500">josephmburu@intavor.co.ke</text>
+
+    <text x="520" y="352" fill="#a99cff" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3">WHATSAPP</text>
+    <text x="520" y="386" fill="#f5f5f6" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="25" font-weight="500">+254 111 235 767</text>
+
+    <text x="74" y="500" fill="#a99cff" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3">WEB</text>
+    <text x="74" y="534" fill="#f5f5f6" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="25" font-weight="500">intavor.co.ke</text>
+
+    <text x="520" y="500" fill="#a99cff" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3">BASED IN</text>
+    <text x="520" y="534" fill="#f5f5f6" font-family="Ubuntu, Inter, Arial, sans-serif" font-size="25" font-weight="500">Nairobi, Kenya</text>
 </svg>

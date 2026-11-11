@@ -608,6 +608,12 @@ The card canvas is prepared for a 90 × 50 mm finished card with 3 mm bleed:
 - use a matte or soft-touch finish; and
 - request a physical proof before ordering a large quantity.
 
+For a premium result, use a thick duplexed stock with a violet painted edge.
+The tonal marks on both faces are designed as a blind-emboss impression —
+ask the printer to reproduce them as a true blind emboss or letterpress if
+available, or preserve them as tonal print. A soft-touch matte laminate
+suits the quiet finish.
+
 Give the printer the SVG masters for the cleanest result. Confirm that:
 
 - no text is cropped;
