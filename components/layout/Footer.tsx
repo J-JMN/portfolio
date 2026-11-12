@@ -43,10 +43,10 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/services/website-design"
+                  href="/services/website-development"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Website Design
+                  Website Development
                 </Link>
               </li>
               <li>
@@ -54,7 +54,7 @@ export default function Footer() {
                   href="/services/web-application-development"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Web Applications
+                  Web Application Development
                 </Link>
               </li>
               <li>
@@ -109,6 +109,14 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact#faq"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  FAQ
                 </Link>
               </li>
             </ul>

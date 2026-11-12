@@ -32,6 +32,9 @@ export default function ServicesOverview() {
                     <service.icon className="h-5 w-5" />
                   </div>
                   <div>
+                    <p className="mb-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#b7adff]">
+                      {service.label}
+                    </p>
                     <h3 className="text-xl font-heading font-semibold">
                       <Link
                         href={service.href}

@@ -6,7 +6,7 @@ const pages = [
   "",
   "/about",
   "/experience",
-  "/services/website-design",
+  "/services/website-development",
   "/services/web-application-development",
   "/projects",
   "/contact",

@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/services/website-design",
+        destination: "/services/website-development",
+        permanent: true,
+      },
+      {
         source: "/projects/6",
         destination: "/projects/sun-rays-foundation",
         permanent: true,

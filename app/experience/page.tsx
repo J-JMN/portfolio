@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata = createPageMetadata({
-  title: "Website Design & Web Development Services",
+  title: "Website & Web Application Development Services",
   description:
-    "Business website design, custom web application development and after-launch support from INTAVOR in Nairobi, Kenya.",
+    "Purposeful website development, custom web application development and after-launch care from INTAVOR in Nairobi, Kenya.",
   path: "/experience",
 });
 
@@ -31,7 +31,7 @@ export default function ExperiencePage() {
             <span className="text-[#a99cff]">Strong enough to trust.</span>
           </>
         }
-        description="Business website design, custom web application development, and dependable after-launch support shaped around what your organisation needs people to understand and do."
+        description="Purposeful website development, custom web application development, and dependable after-launch care shaped around what your organisation needs people to understand and do."
         visual={<ExpertiseArt />}
         actions={
           <>

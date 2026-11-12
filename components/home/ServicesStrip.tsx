@@ -35,6 +35,9 @@ export default function ServicesStrip() {
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-[#b7adff]">
                   <service.icon className="h-5 w-5" />
                 </div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#b7adff]">
+                  {service.label}
+                </p>
                 <h3 className="text-xl font-heading font-semibold transition-colors group-hover:text-primary">
                   {service.title}
                 </h3>

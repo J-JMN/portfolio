@@ -9,6 +9,7 @@ import Navbar from "@/components/layout/Navbar";
 import PageBanner from "@/components/layout/PageBanner";
 import ProjectCard from "@/components/projects/ProjectCard";
 import { Button } from "@/components/ui/button";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 import { projects } from "@/lib/data";
 
 type Project = (typeof projects)[number];
@@ -233,26 +234,7 @@ export default function ServicePage({
               Useful things to know.
             </h2>
           </FadeIn>
-          <div className="divide-y divide-border/60 border-y border-border/60">
-            {questions.map((item, index) => (
-              <FadeIn key={item.question} delay={index * 0.05}>
-                <details className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-heading text-lg font-semibold">
-                    {item.question}
-                    <span
-                      aria-hidden="true"
-                      className="text-2xl font-normal text-[#b7adff] transition-transform group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="max-w-2xl pt-3 leading-relaxed text-muted-foreground">
-                    {item.answer}
-                  </p>
-                </details>
-              </FadeIn>
-            ))}
-          </div>
+          <FaqAccordion items={questions} />
         </div>
       </section>
 

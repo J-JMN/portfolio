@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { createPageMetadata, defaultDescription } from "@/lib/site";
 
 export const metadata = createPageMetadata({
-  title: "Nairobi Website Design & Web App Development | INTAVOR",
+  title: "Website & Web Application Development in Nairobi | INTAVOR",
   description: defaultDescription,
   path: "/",
   absoluteTitle: true,

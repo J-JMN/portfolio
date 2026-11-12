@@ -1,6 +1,6 @@
 import ServicePage from "@/components/services/ServicePage";
 import StructuredData from "@/components/seo/StructuredData";
-import WebsiteDesignArt from "@/components/illustrations/WebsiteDesignArt";
+import WebsiteDevelopmentArt from "@/components/illustrations/WebsiteDevelopmentArt";
 import { projects } from "@/lib/data";
 import { createPageMetadata } from "@/lib/site";
 import {
@@ -8,19 +8,19 @@ import {
   createServiceStructuredData,
 } from "@/lib/structured-data";
 
-const path = "/services/website-design";
+const path = "/services/website-development";
 const description =
-  "Business website design and development from Nairobi-based INTAVOR for organisations in Kenya and internationally.";
+  "Purposeful website development from Nairobi-based INTAVOR for organisations in Kenya and internationally.";
 
 export const metadata = createPageMetadata({
-  title: "Business Website Design in Nairobi, Kenya",
+  title: "Website Development in Nairobi, Kenya",
   description,
   path,
 });
 
 const serviceData = createServiceStructuredData({
-  name: "Business Website Design",
-  serviceType: "Website design and development",
+  name: "Website Development",
+  serviceType: "Website development",
   description,
   path,
 });
@@ -28,20 +28,20 @@ const serviceData = createServiceStructuredData({
 const breadcrumbData = createBreadcrumbStructuredData([
   { name: "Home", path: "/" },
   { name: "Expertise", path: "/experience" },
-  { name: "Website Design", path },
+  { name: "Website Development", path },
 ]);
 
 const relatedProjects = projects
-  .filter((project) => project.serviceSlugs.includes("website-design"))
+  .filter((project) => project.serviceSlugs.includes("website-development"))
   .slice(0, 2);
 
-export default function WebsiteDesignPage() {
+export default function WebsiteDevelopmentPage() {
   return (
     <>
       <StructuredData data={serviceData} />
       <StructuredData data={breadcrumbData} />
       <ServicePage
-        eyebrow="Business website design"
+        eyebrow="Website development"
         title={
           <>
             A website that makes your value{" "}
@@ -49,9 +49,9 @@ export default function WebsiteDesignPage() {
           </>
         }
         description="INTAVOR designs and develops responsive business websites that help the right people understand your organisation, trust what they see, and take the next step."
-        visual={<WebsiteDesignArt />}
+        visual={<WebsiteDevelopmentArt />}
         introduction={{
-          eyebrow: "Website design and development",
+          eyebrow: "Website development",
           title: "Built around what your audience needs to understand.",
           paragraphs: [
             "A strong business website does more than look polished. It gives your services a clear structure, represents the quality of your work, and makes it easy for visitors to move from interest to action.",

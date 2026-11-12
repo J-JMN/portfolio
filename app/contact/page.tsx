@@ -8,11 +8,12 @@ import ContactArt from "@/components/illustrations/ContactArt";
 import DotGrid from "@/components/decor/DotGrid";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { createPageMetadata } from "@/lib/site";
+import ContactFaq from "@/components/contact/ContactFaq";
 
 export const metadata = createPageMetadata({
-  title: "Contact a Website Designer & Developer",
+  title: "Contact a Website & Web Application Developer",
   description:
-    "Contact INTAVOR in Nairobi about website design or custom web application development for your business or organisation.",
+    "Contact INTAVOR in Nairobi about website or custom web application development for your business or organisation.",
   path: "/contact",
 });
 
@@ -144,6 +145,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <ContactFaq />
       <Footer />
     </main>
   );

@@ -8,7 +8,7 @@ describe("SEO routes and structured data", () => {
   it("creates ordered absolute breadcrumb data", () => {
     const data = createBreadcrumbStructuredData([
       { name: "Home", path: "/" },
-      { name: "Website Design", path: "/services/website-design" },
+      { name: "Website Development", path: "/services/website-development" },
     ]);
 
     expect(data.itemListElement).toEqual([
@@ -21,25 +21,25 @@ describe("SEO routes and structured data", () => {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Website Design",
-        item: "https://intavor.co.ke/services/website-design",
+        name: "Website Development",
+        item: "https://intavor.co.ke/services/website-development",
       },
     ]);
   });
 
   it("connects service data to the INTAVOR organization", () => {
     const data = createServiceStructuredData({
-      name: "Business Website Design",
-      serviceType: "Website design and development",
-      description: "Business website design by INTAVOR.",
-      path: "/services/website-design",
+      name: "Website Development",
+      serviceType: "Website development",
+      description: "Website development by INTAVOR.",
+      path: "/services/website-development",
     });
 
     expect(data.provider).toEqual({
       "@id": "https://intavor.co.ke/#organization",
     });
     expect(data.url).toBe(
-      "https://intavor.co.ke/services/website-design",
+      "https://intavor.co.ke/services/website-development",
     );
   });
 });

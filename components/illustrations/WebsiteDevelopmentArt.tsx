@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import BannerArt from "@/components/illustrations/BannerArt";
 import { useLoop } from "@/components/illustrations/useLoop";
 
-export default function WebsiteDesignArt() {
+export default function WebsiteDevelopmentArt() {
   const loop = useLoop();
 
   return (

@@ -20,13 +20,13 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nairobi Website Design & Web App Development | INTAVOR",
+    default: "Website & Web Application Development in Nairobi | INTAVOR",
     template: "%s | INTAVOR",
   },
   description: defaultDescription,
   applicationName: "INTAVOR",
   openGraph: {
-    title: "Nairobi Website Design & Web App Development | INTAVOR",
+    title: "Website & Web Application Development in Nairobi | INTAVOR",
     description: defaultDescription,
     type: "website",
     siteName: "INTAVOR",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nairobi Website Design & Web App Development | INTAVOR",
+    title: "Website & Web Application Development in Nairobi | INTAVOR",
     description: defaultDescription,
     images: ["/brand/social/facebook-cover.png"],
   },

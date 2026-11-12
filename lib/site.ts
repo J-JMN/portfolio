@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteUrl = "https://intavor.co.ke";
 
 export const defaultDescription =
-  "Based in Nairobi, INTAVOR designs and develops business websites and web applications for organisations in Kenya and internationally.";
+  "Based in Nairobi, INTAVOR develops purposeful websites and web applications for organisations in Kenya and internationally.";
 
 type PageMetadata = {
   title: string;

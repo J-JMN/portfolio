@@ -11,9 +11,9 @@ import { brandInfo } from "@/lib/data";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata = createPageMetadata({
-  title: "About Our Website Design Approach",
+  title: "About Our Development Approach",
   description:
-    "Meet INTAVOR, a Nairobi-based website design and web application development studio working with organisations in Kenya and internationally.",
+    "Meet INTAVOR, a Nairobi-based website and web application development studio working with organisations in Kenya and internationally.",
   path: "/about",
 });
 

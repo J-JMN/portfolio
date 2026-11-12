@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import BrandLogo from "@/components/layout/BrandLogo";
@@ -11,9 +11,26 @@ import BrandLogo from "@/components/layout/BrandLogo";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Expertise", path: "/experience" },
   { name: "Work", path: "/projects" },
   { name: "Contact", path: "/contact" },
+];
+
+const serviceItems = [
+  {
+    name: "Website Development",
+    description: "Digital presence that earns trust.",
+    path: "/services/website-development",
+  },
+  {
+    name: "Web Application Development",
+    description: "Purpose-built tools and workflows.",
+    path: "/services/web-application-development",
+  },
+  {
+    name: "Explore All Expertise",
+    description: "Services, process, and ongoing care.",
+    path: "/experience",
+  },
 ];
 
 export default function Navbar() {
@@ -61,7 +78,7 @@ export default function Navbar() {
             </Link>
 
             <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => {
+              {navItems.slice(0, 2).map((item) => {
                 const isActive =
                   item.path === "/"
                     ? pathname === "/"
@@ -88,6 +105,65 @@ export default function Navbar() {
                           stiffness: 500,
                           damping: 30,
                         }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+
+              <div className="group relative">
+                <button
+                  type="button"
+                  aria-haspopup="menu"
+                  className={cn(
+                    "relative flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-300",
+                    pathname.startsWith("/services") || pathname === "/experience"
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground/80 hover:bg-white/5 hover:text-primary",
+                  )}
+                >
+                  Services
+                  <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
+                </button>
+                <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div className="rounded-2xl border border-border/70 bg-background/98 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
+                    {serviceItems.map((service) => (
+                      <Link
+                        key={service.path}
+                        href={service.path}
+                        className="block rounded-xl px-4 py-3 transition-colors hover:bg-primary/10"
+                      >
+                        <span className="block font-heading text-sm font-semibold text-foreground">
+                          {service.name}
+                        </span>
+                        <span className="mt-1 block text-xs text-muted-foreground">
+                          {service.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {navItems.slice(2).map((item) => {
+                const isActive = pathname.startsWith(item.path);
+                return (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    className={cn(
+                      "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
+                      isActive
+                        ? "text-primary bg-primary/10"
+                        : "text-foreground/80 hover:text-primary hover:bg-white/5",
+                    )}
+                  >
+                    {item.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="navbar-indicator"
+                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full"
+                        initial={false}
                       />
                     )}
                   </Link>
@@ -131,7 +207,7 @@ export default function Navbar() {
               className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden rounded-b-2xl"
             >
               <div className="px-4 py-4 flex flex-col gap-2">
-                {navItems.map((item) => {
+                {navItems.slice(0, 2).map((item) => {
                   const isActive =
                     item.path === "/"
                       ? pathname === "/"
@@ -152,6 +228,36 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
+                <div className="rounded-xl border border-border/60 bg-card/30 p-2">
+                  <p className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#b7adff]">
+                    Services
+                  </p>
+                  {serviceItems.map((service) => (
+                    <Link
+                      key={service.path}
+                      href={service.path}
+                      onClick={closeMenu}
+                      className="block rounded-lg px-3 py-2.5 hover:bg-primary/10"
+                    >
+                      <span className="block font-heading text-sm font-semibold">
+                        {service.name}
+                      </span>
+                      <span className="mt-0.5 block text-xs text-muted-foreground">
+                        {service.description}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                {navItems.slice(2).map((item) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    onClick={closeMenu}
+                    className="px-4 py-3 rounded-lg text-base font-medium text-foreground/80 hover:text-primary hover:bg-white/5"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
                 <div className="pt-4 mt-2 border-t border-border/50">
                   <Link
                     href="/contact"

@@ -16,9 +16,9 @@ type ProjectPageProps = {
 };
 
 const serviceLinks = {
-  "website-design": {
-    label: "Website Design",
-    href: "/services/website-design",
+  "website-development": {
+    label: "Website Development",
+    href: "/services/website-development",
   },
   "web-application-development": {
     label: "Web Application Development",
@@ -81,7 +81,7 @@ export async function generateMetadata({
   }
 
   const title = `${project.title} Website Project`;
-  const description = `${project.description} Explore the website design and development approach used by INTAVOR.`;
+  const description = `${project.description} Explore the website development approach used by INTAVOR.`;
   const path = `/projects/${project.slug}`;
 
   return {
