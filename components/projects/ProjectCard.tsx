@@ -63,6 +63,11 @@ export default function ProjectCard({
             src={project.image}
             alt={project.title}
             fill
+            sizes={
+              wide
+                ? "(min-width: 1280px) 550px, (min-width: 768px) 55vw, 100vw"
+                : "(min-width: 1280px) 500px, (min-width: 768px) 50vw, 100vw"
+            }
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             onError={(e) => {
               // Fallback if image fails to load

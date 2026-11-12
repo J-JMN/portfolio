@@ -157,6 +157,7 @@ export default async function ProjectDetailPage({
                     src={project.image}
                     alt={`${project.title} website designed and developed by INTAVOR`}
                     fill
+                    sizes="(min-width: 1280px) 560px, (min-width: 1024px) 50vw, 100vw"
                     className="object-cover"
                     priority
                   />
