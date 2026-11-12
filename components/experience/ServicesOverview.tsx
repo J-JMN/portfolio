@@ -15,10 +15,11 @@ export default function ServicesOverview() {
               What we do
             </p>
             <h2 className="text-3xl font-heading font-bold md:text-4xl">
-              Three ways to work together.
+              What your audience sees. What your business needs.
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Start with one, or keep the same partner across all three.
+              The best digital work does both: it earns attention while making
+              something important easier to understand or do.
             </p>
           </FadeIn>
           <div className="mt-4 divide-y divide-border/60">

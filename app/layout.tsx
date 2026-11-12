@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  axes: ["wdth"],
 });
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
+  axes: ["opsz", "wdth"],
 });
 
 export const metadata: Metadata = {
@@ -19,12 +21,12 @@ export const metadata: Metadata = {
     template: "%s | INTAVOR",
   },
   description:
-    "INTAVOR builds and manages intentional websites and web applications for businesses and organisations in Nairobi and beyond.",
+    "INTAVOR designs and builds thoughtful websites and web applications that help businesses and organisations communicate clearly and earn trust.",
   applicationName: "INTAVOR",
   openGraph: {
     title: "INTAVOR | Tech built with intention.",
     description:
-      "Web development, platform delivery, and ongoing website support for businesses and organisations.",
+      "Thoughtful websites and web applications designed to make your value clear and your next step easy to take.",
     type: "website",
   },
 };
@@ -37,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${jakarta.variable} antialiased bg-background text-foreground font-sans`}
+        className={`${instrument.variable} ${bricolage.variable} antialiased bg-background text-foreground font-sans`}
       >
         {children}
         <Analytics />

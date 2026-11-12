@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
@@ -7,6 +8,12 @@ import { brandInfo } from "@/lib/data";
 import ContactArt from "@/components/illustrations/ContactArt";
 import DotGrid from "@/components/decor/DotGrid";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Start a conversation with INTAVOR about a thoughtful website or web application for your business or organisation.",
+};
 
 export default function ContactPage() {
   return (
@@ -32,16 +39,16 @@ export default function ContactPage() {
               <FadeIn delay={0.1}>
                 <div>
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
-                    Get in Touch
+                    Start a conversation
                   </span>
                   <h1 className="text-3xl md:text-4xl font-heading font-bold mb-3">
-                    Build It Well.{" "}
-                    <span className="text-primary">Keep It Working.</span>
+                    Let&apos;s make your value clear{" "}
+                    <span className="text-primary">from the first click.</span>
                   </h1>
                   <p className="text-muted-foreground">
-                    Share what your next website needs to do, whether you are
-                    starting from scratch or moving on from one that no longer
-                    serves you. Ongoing support is available after delivery.
+                    Tell us what your organisation needs people to understand,
+                    trust, or do online. We&apos;ll turn that into a clear
+                    direction for your website or web application.
                   </p>
                 </div>
               </FadeIn>

@@ -93,11 +93,11 @@ export default function ContactForm() {
       <Card className="border-primary/20 bg-card/50 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-2xl font-heading">
-            Send a Message
+            Tell Us What You&apos;re Building
           </CardTitle>
           <CardDescription>
-            Tell INTAVOR about the website your organisation needs next, or the
-            support you need after delivery.
+            Share the goal, the audience, and what needs to change. Existing
+            clients can also enquire about care for an INTAVOR-built website.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -106,17 +106,17 @@ export default function ContactForm() {
               <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Send className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold">Message Sent!</h3>
+              <h3 className="text-xl font-bold">Your Enquiry Is on Its Way</h3>
               <p className="text-muted-foreground">
-                Thanks for reaching out. A response will follow as soon as
-                possible.
+                Thank you for sharing your plans. INTAVOR will be in touch as
+                soon as possible.
               </p>
               <Button
                 onClick={() => setIsSuccess(false)}
                 variant="outline"
                 className="mt-4"
               >
-                Send Another Message
+                Send Another Enquiry
               </Button>
             </div>
           ) : (
@@ -161,7 +161,7 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="Project Inquiry" {...field} />
+                        <Input placeholder="New website or web application" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -176,7 +176,7 @@ export default function ContactForm() {
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Share your goals, scope, or support needs..."
+                          placeholder="Tell us about your organisation, your goals, and what this project needs to make possible..."
                           className="min-h-[150px]"
                           {...field}
                         />
@@ -232,7 +232,7 @@ export default function ContactForm() {
                   ) : (
                     <>
                       <Send className="mr-2 w-4 h-4" />
-                      Send Message
+                      Send Enquiry
                     </>
                   )}
                 </Button>

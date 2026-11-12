@@ -8,11 +8,11 @@ export default function AboutHero() {
       eyebrow="Intent + Endeavor"
       title={
         <>
-          Intentional technology,{" "}
-          <span className="text-[#a99cff]">built to keep working.</span>
+          Intent gives the work direction.{" "}
+          <span className="text-[#a99cff]">Endeavor carries it through.</span>
         </>
       }
-      description="INTAVOR combines clear thinking with practical delivery, creating websites and applications that remain useful well beyond launch."
+      description="INTAVOR brings clear thinking, purposeful design, and dependable development together to create digital experiences that represent organisations at their best."
         visual={<AboutArt />}
       actions={<Highlights />}
     />

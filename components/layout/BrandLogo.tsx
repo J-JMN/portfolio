@@ -35,7 +35,7 @@ export default function BrandLogo({
         priority={priority}
         className="h-6 w-11 object-contain"
       />
-      <span className="text-base font-semibold tracking-[0.22em] text-foreground">
+      <span className="font-heading text-base font-bold tracking-[0.18em] text-foreground">
         INTAVOR
       </span>
     </span>

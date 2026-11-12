@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { useLoop } from "@/components/illustrations/useLoop";
 
 const chips = [
-  { title: "Build", sub: "Websites & apps", x: 16, y: 24, icon: "M-6 -5 L-11 0 L-6 5 M6 -5 L11 0 L6 5", color: "#A99CFF", line: "M100 86 C 100 126, 126 146, 150 158" },
-  { title: "Improve", sub: "Speed & features", x: 454, y: 36, icon: "M7 -5 A9 9 0 1 0 9 3 M7 -11 V-5 H1", color: "#A99CFF", line: "M540 98 C 540 128, 516 142, 490 150" },
-  { title: "Manage", sub: "Content & CMS", x: 8, y: 404, icon: "M-9 -4 H9 M-9 4 H9 M-3 -8 V0 M3 0 V8", color: "#8BE8CE", line: "M92 404 C 92 366, 120 336, 150 326" },
+  { title: "Websites", sub: "Clarity & presence", x: 16, y: 24, icon: "M-6 -5 L-11 0 L-6 5 M6 -5 L11 0 L6 5", color: "#A99CFF", line: "M100 86 C 100 126, 126 146, 150 158" },
+  { title: "Applications", sub: "Tools & workflows", x: 454, y: 36, icon: "M7 -5 A9 9 0 1 0 9 3 M7 -11 V-5 H1", color: "#A99CFF", line: "M540 98 C 540 128, 516 142, 490 150" },
+  { title: "Support", sub: "Optional care plan", x: 8, y: 404, icon: "M-9 -4 H9 M-9 4 H9 M-3 -8 V0 M3 0 V8", color: "#8BE8CE", line: "M92 404 C 92 366, 120 336, 150 326" },
 ];
 
 export default function LifecycleIllustration() {
@@ -14,7 +14,7 @@ export default function LifecycleIllustration() {
 
   return (
     <svg viewBox="0 0 640 480" className="h-auto w-full" role="img" aria-labelledby="lifecycle-title">
-      <title id="lifecycle-title">A live website supported through build, manage, and improve services</title>
+      <title id="lifecycle-title">Website, web application, and optional after-launch support services</title>
       <defs>
         <radialGradient id="lc-glow" cx="0.5" cy="0.5" r="0.5">
           <stop offset="0" stopColor="#7163FF" stopOpacity="0.22" />

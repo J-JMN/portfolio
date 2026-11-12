@@ -79,7 +79,7 @@ export default function ProjectCard({
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View Demo"
+                aria-label={`Visit the ${project.title} live website`}
               >
                 <ExternalLink className="w-5 h-5" />
               </a>
@@ -109,7 +109,7 @@ export default function ProjectCard({
         >
           <Button variant="ghost" className="w-full group/btn" asChild>
             <Link href={`/projects/${project.id}`}>
-              View Details
+              View Case Study
               <span className="ml-2 transition-transform group-hover/btn:translate-x-1">
                 →
               </span>

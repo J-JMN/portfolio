@@ -111,7 +111,7 @@ export default function ProcessIllustration() {
 
       <motion.g {...loop({ y: [0, -7, 0] }, 6.5, 0.8)}>
         <rect x="374" y="360" width="218" height="96" rx="16" fill="#142034" stroke="#3A4A68" />
-        <text x="392" y="386" fill="#F5F5F6" fontSize="15" fontWeight="700" className="font-heading">Always improving</text>
+        <text x="392" y="386" fill="#F5F5F6" fontSize="15" fontWeight="700" className="font-heading">Refined with care</text>
         <path d="M392 438 H574" stroke="#2E3C56" />
         <motion.path
           d="M392 436 L428 426 L462 430 L498 414 L532 410 L572 396"

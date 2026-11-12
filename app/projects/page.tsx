@@ -8,7 +8,7 @@ import ProjectGrid from "@/components/projects/ProjectGrid";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected websites and digital platforms delivered and supported by INTAVOR.",
+    "Selected websites and web applications designed and built by INTAVOR.",
 };
 
 export default function ProjectsPage() {
@@ -16,14 +16,14 @@ export default function ProjectsPage() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       <PageBanner
-        eyebrow="Selected work"
+        eyebrow="Selected client work"
         title={
           <>
-            Client platforms,{" "}
-            <span className="text-[#a99cff]">delivered and supported.</span>
+            Every screen should earn its place.{" "}
+            <span className="text-[#a99cff]">Every journey should lead somewhere.</span>
           </>
         }
-        description="Websites, business platforms, and digital experiences built around clear goals, practical workflows, and lasting value."
+        description="Selected websites and web applications shaped around what each organisation needs people to understand, trust, and do."
         visual={<WorkArt />}
       />
       <ProjectGrid />

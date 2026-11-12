@@ -4,20 +4,20 @@ import GlowDivider from "@/components/decor/GlowDivider";
 
 const steps = [
   {
-    title: "Understand",
-    description: "Clarify the audience, the goal, and what success looks like.",
+    title: "Discover",
+    description: "Find the real goal, the audience that matters, and what may be standing in their way.",
   },
   {
-    title: "Shape",
-    description: "Turn that direction into the right structure and technical plan.",
+    title: "Define",
+    description: "Shape the message, structure, and technical direction before the build begins.",
   },
   {
-    title: "Deliver",
-    description: "Build, test, and launch with care for the complete experience.",
+    title: "Create",
+    description: "Design and develop the experience with clarity, consistency, and care.",
   },
   {
-    title: "Evolve",
-    description: "Keep the platform useful through support and steady improvement.",
+    title: "Refine",
+    description: "Test the details, sharpen the journey, and launch with confidence.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function WorkingProcess() {
               How we work
             </p>
             <h2 className="text-3xl font-heading font-bold md:text-4xl">
-              Clear intent, then focused execution.
+              Good work starts before the first screen.
             </h2>
           </FadeIn>
           <ol className="mt-8 grid auto-rows-fr gap-4 sm:grid-cols-2">

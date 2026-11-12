@@ -14,9 +14,9 @@ const FULL_ELLIPSE = `M${CX - RX} ${CY} A${RX} ${RY} 0 1 1 ${CX + RX} ${CY} A${R
 
 const stations = [
   { x: 186, y: 273, top: true, number: "01", title: "UNDERSTAND", reason: "Goals before code", color: "#A99CFF", glyph: "target", at: 0 },
-  { x: 454, y: 273, top: true, number: "02", title: "BUILD", reason: "Built with purpose", color: "#C8C1FF", glyph: "code", at: 0.3 },
-  { x: 454, y: 407, top: false, number: "03", title: "LAUNCH", reason: "Tested and live", color: "#8BE8CE", glyph: "check", at: 0.44 },
-  { x: 186, y: 407, top: false, number: "04", title: "IMPROVE", reason: "Support that stays", color: "#8BE8CE", glyph: "bars", at: 0.68 },
+  { x: 454, y: 273, top: true, number: "02", title: "SHAPE", reason: "Direction made clear", color: "#C8C1FF", glyph: "code", at: 0.3 },
+  { x: 454, y: 407, top: false, number: "03", title: "BUILD", reason: "Purpose in every detail", color: "#8BE8CE", glyph: "bars", at: 0.44 },
+  { x: 186, y: 407, top: false, number: "04", title: "LAUNCH", reason: "Tested and ready", color: "#8BE8CE", glyph: "check", at: 0.68 },
 ] as const;
 
 const chevrons = [
@@ -84,10 +84,10 @@ export default function WhyIntavorArt() {
 
   return (
     <svg viewBox="40 0 560 570" className="h-auto w-full" role="img" aria-labelledby="why-loop-title why-loop-desc">
-      <title id="why-loop-title">The INTAVOR loop: understand, build, launch, improve</title>
+      <title id="why-loop-title">The INTAVOR process: understand, shape, build, and launch</title>
       <desc id="why-loop-desc">
-        Starting from understanding the goal, a line draws through building, launching and improving, then
-        returns to the start, showing that INTAVOR keeps working on a website instead of handing it off at launch.
+        Starting from understanding the goal, a line moves through shaping the direction, building the experience,
+        and launching a tested, purposeful website.
       </desc>
 
       <defs>
@@ -123,7 +123,7 @@ export default function WhyIntavorArt() {
         WHY INTAVOR
       </text>
       <text x={CX} y="70" textAnchor="middle" fill="#F5F5F6" fontSize="34" fontWeight="700" className="font-heading">
-        A loop, not a handoff.
+        Intent, carried through.
       </text>
 
       <ellipse cx={CX} cy={CY + 26} rx="215" ry="105" fill="#02050B" fillOpacity="0.55" filter="url(#wl-blur)" />
@@ -223,7 +223,7 @@ export default function WhyIntavorArt() {
       })}
 
       <text x={CX} y="540" textAnchor="middle" fill="#C9D1DE" fontSize="17" className="font-sans">
-        Most projects stop at launch. <tspan fill="#8BE8CE" fontWeight="700">Ours keep improving.</tspan>
+        Clear thinking first. <tspan fill="#8BE8CE" fontWeight="700">Purpose in every detail.</tspan>
       </text>
     </svg>
   );

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +9,12 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import DotGrid from "@/components/decor/DotGrid";
 import WhyIntavorArt from "@/components/illustrations/WhyIntavorArt";
 import { brandInfo } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Discover the intent behind INTAVOR and the considered approach used to design and build digital experiences.",
+};
 
 export default function AboutPage() {
   return (
@@ -31,13 +38,13 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p className="text-lg">
-                  INTAVOR means Intent + Endeavor: thoughtful decisions followed
-                  by focused execution. Each project starts with what the
-                  website needs to accomplish, then turns that direction into a
-                  dependable digital product.
+                  INTAVOR comes from Intent + Endeavor: knowing why the work
+                  matters, then carrying it through with focus and care. Every
+                  project begins by making the organisation&apos;s value clear
+                  before deciding how the technology should take shape.
                 </p>
                 <p>
-                  Work delivered for{" "}
+                  That principle has shaped work for{" "}
                   <span className="text-primary font-medium">
                     Stratedge Solutions
                   </span>
@@ -52,8 +59,8 @@ export default function AboutPage() {
                   <span className="text-primary font-medium">
                     Sun Rays Foundation
                   </span>
-                  . These relationships now extend into ongoing website
-                  management and technical support.
+                  —each with a different audience, challenge, and measure of
+                  success.
                 </p>
               </div>
 
@@ -70,25 +77,25 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Clear scope and purposeful technical decisions
+                    Clear thinking before visual or technical decisions
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Responsive experiences built for real audiences
+                    Design shaped around your audience and message
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Full-stack features, CMS tools, and integrations
+                    Engineering that makes complex workflows feel simple
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    Ongoing website management after delivery
+                    A dependable relationship from brief to launch—and beyond
                   </span>
                 </div>
               </div>
@@ -96,7 +103,7 @@ export default function AboutPage() {
               <div className="mt-8">
                 <Button className="gap-2 rounded-full" asChild>
                   <Link href="/contact">
-                    Discuss Your Project
+                    Start a Conversation
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>

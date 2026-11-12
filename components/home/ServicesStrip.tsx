@@ -12,10 +12,10 @@ export default function ServicesStrip() {
         <FadeIn className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#b7adff]">
-              What INTAVOR does
+              Our expertise
             </p>
             <h2 className="text-3xl font-heading font-bold md:text-4xl">
-              From first build to ongoing care.
+              Built to be understood. Designed to be remembered.
             </h2>
           </div>
           <Link

@@ -10,9 +10,9 @@ const B = 92;
 const T = 16;
 
 const levels = [
-  { title: "Build", sub: "Plan & deliver", cy: 420, top: "#17243B", accent: "#A99CFF", float: 3 },
-  { title: "Manage", sub: "Care & content", cy: 320, top: "#152A33", accent: "#8BE8CE", float: 5 },
-  { title: "Improve", sub: "Refine & grow", cy: 220, top: "#1F1E47", accent: "#A99CFF", float: 7 },
+  { title: "Websites", sub: "Clarity & presence", cy: 420, top: "#17243B", accent: "#A99CFF", float: 3 },
+  { title: "Applications", sub: "Tools & workflows", cy: 320, top: "#152A33", accent: "#8BE8CE", float: 5 },
+  { title: "Support", sub: "Optional after launch", cy: 220, top: "#1F1E47", accent: "#A99CFF", float: 7 },
 ];
 
 const xy = (cy: number, u: number, v: number) => [CX - A + A * (u + v), cy + B * (v - u)];

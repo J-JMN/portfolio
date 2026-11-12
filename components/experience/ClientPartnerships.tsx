@@ -12,17 +12,22 @@ export default function ClientPartnerships() {
         <FadeIn className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#b7adff]">
-              Ongoing partnerships
+              Beyond delivery
             </p>
             <h2 className="text-3xl font-heading font-bold md:text-4xl">
-              Support that continues after launch.
+              Built well. Trusted beyond launch.
             </h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              For clients who want continuity, optional support plans keep
+              INTAVOR-built websites current, dependable, and ready for what
+              comes next.
+            </p>
           </div>
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-sm font-medium text-[#c8c1ff] hover:text-white"
           >
-            See the work <ArrowUpRight className="h-4 w-4" />
+            Explore the work <ArrowUpRight className="h-4 w-4" />
           </Link>
         </FadeIn>
 

@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Expertise",
   description:
-    "Website delivery, ongoing management, and continuous improvement from INTAVOR.",
+    "Thoughtful website design and web application development for businesses and organisations.",
 };
 
 export default function ExperiencePage() {
@@ -25,17 +25,17 @@ export default function ExperiencePage() {
         eyebrow="Expertise"
         title={
           <>
-            Built with purpose.{" "}
-            <span className="text-[#a99cff]">Supported for the long run.</span>
+            Clear enough to understand.{" "}
+            <span className="text-[#a99cff]">Strong enough to trust.</span>
           </>
         }
-        description="Websites, web applications, and ongoing technical support in one working relationship, from the first idea to the next improvement."
+        description="Thoughtful design and dependable development come together to make your value easier to see, your services easier to navigate, and the next step easier to take."
         visual={<ExpertiseArt />}
         actions={
           <>
             <Button size="lg" className="h-12 rounded-full px-6" asChild>
               <Link href="/contact">
-                Discuss your website <ArrowRight className="h-4 w-4" />
+                Start a project <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="h-12 rounded-full bg-background/50 px-6" asChild>

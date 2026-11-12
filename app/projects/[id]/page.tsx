@@ -16,35 +16,35 @@ const projectOverviews: Record<
 > = {
   1: {
     challenge:
-      "Chanzo Technologies needed a clear public website that could explain its technology education services to students, parents, and potential partners across different devices.",
+      "Chanzo Technologies needed to explain a broad education technology offer to students, parents, and potential partners without making the experience feel dense or difficult to navigate.",
     solution:
-      "INTAVOR delivered a responsive company website with structured service content and purposeful motion that guides visitors through the organisation's story without getting in the way of the information.",
+      "INTAVOR shaped the content into clear service journeys, then built a responsive company website with purposeful motion that guides attention without competing with the message.",
     impact:
-      "The result is a consistent digital home for Chanzo's services and enquiries. Ongoing support now covers content changes, presentation refinements, and technical upkeep.",
+      "Chanzo now has a coherent digital presence that makes its services easier to grasp and gives every audience a clear route to learn more or make an enquiry.",
   },
   2: {
     challenge:
-      "Stratedge Solutions needed more than a brochure site: its consultancy content, discovery-call scheduling, enquiries, and publishing workflow all needed to work together in one manageable platform.",
+      "Stratedge Solutions needed more than a brochure site. Its expertise, discovery-call scheduling, enquiries, publishing, and internal content management had to work as one credible experience.",
     solution:
-      "INTAVOR built the public experience, a guided booking flow, transactional email handling, blog tools, and a private dashboard for managing content and incoming enquiries.",
+      "INTAVOR designed and built the public experience, a guided booking flow, transactional email handling, publishing tools, and a private dashboard for content and incoming enquiries.",
     impact:
-      "The consultancy now has a single digital platform for presenting its work and handling key website workflows. Continued support keeps those workflows and the public site maintained.",
+      "The consultancy now presents its value and handles key client-facing workflows through one connected platform, reducing friction between interest, enquiry, and conversation.",
   },
   4: {
     challenge:
-      "Nyota Roots serves parents, schools, and organisations, each with different questions about its children's life-skills programmes, courses, and partnership options.",
+      "Nyota Roots serves parents, schools, and organisations, each arriving with different questions about its children's life-skills programmes, courses, and partnership options.",
     solution:
-      "INTAVOR organised the site around those three audience journeys, combining approachable visuals with direct routes to course information, certification details, and enquiries.",
+      "INTAVOR organised the experience around those three audiences, pairing approachable visual design with direct routes to course information, certification details, and enquiries.",
     impact:
-      "Nyota Roots has a focused online reference for programme outreach and partnership conversations, supported through ongoing content and technical updates.",
+      "Nyota Roots now has a focused digital reference that makes programme outreach clearer and gives partnership conversations a stronger place to begin.",
   },
   6: {
     challenge:
-      "Sun Rays Foundation is on a mission to transform lives across Africa — but their incredible work was invisible online. With programs spanning education, healthcare, and community development across multiple countries, they needed more than a website. They needed a digital home that could tell their story, showcase their impact, and connect them with donors, volunteers, and partners who share their vision.",
+      "Sun Rays Foundation works across education, healthcare, and community development, but its digital presence did not yet reveal the breadth of that work or give supporters a clear way to engage.",
     solution:
-      "INTAVOR built a responsive platform with programme pages, impact storytelling, galleries, contact routes, and content-management workflows for non-technical updates.",
+      "INTAVOR created a responsive digital home with programme pages, impact-led storytelling, event galleries, clear contact routes, and content tools the team can use without technical expertise.",
     impact:
-      "The foundation now has a maintainable platform for sharing its work with supporters, volunteers, and partners. The active retainer covers continued development, CMS iteration, and website management.",
+      "The foundation can now bring its work into view with greater clarity and give supporters, volunteers, and partners a more direct path from understanding the mission to taking part.",
   },
 };
 
@@ -69,7 +69,7 @@ export default function ProjectDetailPage() {
             <Button asChild>
               <Link href="/projects">
                 <ArrowLeft className="mr-2 w-4 h-4" />
-                Back to Projects
+                Back to Work
               </Link>
             </Button>
           </div>
@@ -92,7 +92,7 @@ export default function ProjectDetailPage() {
             <Button variant="ghost" asChild className="mb-8 -ml-4">
               <Link href="/projects">
                 <ArrowLeft className="mr-2 w-4 h-4" />
-                Back to Projects
+                Back to Work
               </Link>
             </Button>
           </FadeIn>
@@ -154,7 +154,7 @@ export default function ProjectDetailPage() {
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="mr-2 w-4 h-4" />
-                        View Live Site
+                        Visit Live Website
                       </a>
                     </Button>
                   )}
@@ -208,7 +208,7 @@ export default function ProjectDetailPage() {
                 <Button variant="outline" asChild className="rounded-full">
                   <Link href="/projects">
                     <ArrowLeft className="mr-2 w-4 h-4" />
-                    Back to All Projects
+                    Back to All Work
                   </Link>
                 </Button>
               </div>

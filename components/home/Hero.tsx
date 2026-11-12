@@ -26,16 +26,16 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              Web development + ongoing support
+              Websites &amp; web applications
             </div>
           </FadeIn>
 
           <div className="space-y-4">
             <FadeIn delay={0.2}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-[1.08] [@media(max-height:760px)]:lg:text-5xl">
-                Tech built with{" "}
+                Make the right impression{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-[#c4bcff] to-primary">
-                  intention.
+                  before the first conversation.
                 </span>
               </h1>
             </FadeIn>
@@ -62,7 +62,7 @@ export default function Hero() {
               asChild
             >
               <Link href="/projects">
-                Explore Client Work
+                View Our Work
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -72,7 +72,7 @@ export default function Hero() {
               className="rounded-full px-8 h-12 text-base hover:bg-secondary/50"
               asChild
             >
-              <Link href="/contact">Discuss Your Website</Link>
+              <Link href="/contact">Start a Project</Link>
             </Button>
           </FadeIn>
         </div>

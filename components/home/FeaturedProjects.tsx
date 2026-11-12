@@ -20,14 +20,14 @@ export default function FeaturedProjects() {
           <FadeIn direction="right">
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Featured Work</h2>
             <p className="text-muted-foreground mt-2 max-w-lg">
-              Client platforms built around clear goals, practical workflows,
-              and long-term usefulness.
+              Every project turns a real organisational need into a digital
+              experience that feels clear, credible, and easy to act on.
             </p>
           </FadeIn>
           <FadeIn direction="left">
             <Button variant="outline" asChild className="group">
               <Link href="/projects">
-                Explore All Work
+                View All Work
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

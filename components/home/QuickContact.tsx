@@ -17,12 +17,11 @@ export default function QuickContact() {
       <div className="container mx-auto px-4 md:px-6 text-center">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-            Need a website built to keep working?
+            Your website speaks before you do.
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Start with a new digital platform built around what your
-            organisation needs now, with dependable ongoing support available
-            after delivery.
+            Make sure it reflects the quality of your work, gives people a
+            reason to trust you, and makes the next step feel obvious.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -31,7 +30,7 @@ export default function QuickContact() {
               asChild
             >
               <Link href="/contact">
-                Discuss Your Website
+                Start a Project
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -43,7 +42,7 @@ export default function QuickContact() {
             >
               <a href={`mailto:${brandInfo.email}`}>
                 <Mail className="mr-2 w-4 h-4" />
-                Send Email
+                Email INTAVOR
               </a>
             </Button>
           </div>
