@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
 import LifecycleIllustration from "@/components/illustrations/LifecycleIllustration";
 import { services } from "@/lib/data";
@@ -30,7 +32,15 @@ export default function ServicesOverview() {
                     <service.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-heading font-semibold">{service.title}</h3>
+                    <h3 className="text-xl font-heading font-semibold">
+                      <Link
+                        href={service.href}
+                        className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+                      >
+                        {service.title}
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                       {service.summary}
                     </p>

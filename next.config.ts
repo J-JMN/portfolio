@@ -17,6 +17,26 @@ const nextConfig: NextConfig = {
         destination: "/experience",
         permanent: true,
       },
+      {
+        source: "/projects/6",
+        destination: "/projects/sun-rays-foundation",
+        permanent: true,
+      },
+      {
+        source: "/projects/2",
+        destination: "/projects/stratedge-solutions",
+        permanent: true,
+      },
+      {
+        source: "/projects/4",
+        destination: "/projects/nyota-roots",
+        permanent: true,
+      },
+      {
+        source: "/projects/1",
+        destination: "/projects/chanzo-technologies",
+        permanent: true,
+      },
     ];
   },
 };

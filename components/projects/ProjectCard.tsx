@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 interface ProjectCardProps {
   project: {
     id: number;
+    slug: string;
     title: string;
     description: string;
     image: string;
@@ -108,7 +109,7 @@ export default function ProjectCard({
           className={cn("pb-6 pt-0", wide && "md:px-8 md:pb-8")}
         >
           <Button variant="ghost" className="w-full group/btn" asChild>
-            <Link href={`/projects/${project.id}`}>
+            <Link href={`/projects/${project.slug}`}>
               View Case Study
               <span className="ml-2 transition-transform group-hover/btn:translate-x-1">
                 →

@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="relative bg-background py-12">
       <GlowDivider />
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-5">
           <div className="col-span-1 md:col-span-2">
             <Link
               href="/"
@@ -36,6 +36,36 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+          </div>
+
+          <div>
+            <h3 className="font-heading font-bold mb-4">Services</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/services/website-design"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Website Design
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/web-application-development"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Web Applications
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/experience#partnerships"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  After-Launch Care
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div>

@@ -28,15 +28,24 @@ export default function ServicesStrip() {
         <div className="grid gap-4 md:grid-cols-3">
           {services.map((service, index) => (
             <FadeIn key={service.title} delay={index * 0.08} className="h-full">
-              <div className="h-full rounded-2xl border border-border/60 bg-card/40 p-6">
+              <Link
+                href={service.href}
+                className="group block h-full rounded-2xl border border-border/60 bg-card/40 p-6 transition-colors hover:border-primary/50"
+              >
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-[#b7adff]">
                   <service.icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-xl font-heading font-semibold">{service.title}</h3>
+                <h3 className="text-xl font-heading font-semibold transition-colors group-hover:text-primary">
+                  {service.title}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {service.summary}
                 </p>
-              </div>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#c8c1ff]">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
             </FadeIn>
           ))}
         </div>

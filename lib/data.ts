@@ -35,6 +35,7 @@ export const services = [
     summary:
       "Distinctive, responsive websites that position your organisation clearly and give the right people confidence to take the next step.",
     includes: ["Responsive design", "Clear user journeys", "CMS"],
+    href: "/services/website-design",
     icon: Code2,
   },
   {
@@ -42,6 +43,7 @@ export const services = [
     summary:
       "Purpose-built platforms that turn complex services and workflows into simple, useful digital experiences.",
     includes: ["Business workflows", "Integrations", "Admin tools"],
+    href: "/services/web-application-development",
     icon: Settings2,
   },
   {
@@ -49,6 +51,7 @@ export const services = [
     summary:
       "Optional support plans for websites built by INTAVOR, covering the updates, refinements, and technical care they need over time.",
     includes: ["Content updates", "Improvements", "Technical support"],
+    href: "/experience#partnerships",
     icon: RefreshCcw,
   },
 ];
@@ -115,41 +118,49 @@ export const clientEngagements = [
 export const projects = [
   {
     id: 6,
+    slug: "sun-rays-foundation",
     title: "Sun Rays Foundation",
     description:
       "A digital home that brings the foundation's work across Africa into view through programme stories, evidence of impact, event galleries, and clear ways to get involved.",
     image: "/images/sun-rays-foundation-website.png",
     sector: "Non-profit",
+    serviceSlugs: ["website-design"],
     demoUrl: "https://sunraysfoundationafrica.org",
     featured: true,
   },
   {
     id: 2,
+    slug: "stratedge-solutions",
     title: "Stratedge Solutions",
     description:
       "A unified consultancy platform that turns expertise into clear service journeys, then connects interest to discovery-call bookings, enquiries, and useful published insight.",
     image: "/images/stratedge-solutions-website.png",
     sector: "Business consultancy",
+    serviceSlugs: ["website-design", "web-application-development"],
     demoUrl: "https://stratedgesolutions.co.ke",
     featured: true,
   },
   {
     id: 4,
+    slug: "nyota-roots",
     title: "Nyota Roots",
     description:
       "An education website that gives parents, schools, and organisations a clear path to the programmes, certification details, and partnership opportunities relevant to them.",
     image: "/images/nyota-roots-website.png",
     sector: "Education",
+    serviceSlugs: ["website-design"],
     demoUrl: "https://nyotaroots.stratedgesolutions.co.ke/#home",
     featured: true,
   },
   {
     id: 1,
+    slug: "chanzo-technologies",
     title: "Chanzo Technologies",
     description:
       "A responsive company website that makes an education technology business easier to understand through structured content, purposeful motion, and a consistent experience on every screen.",
     image: "/images/chanzo-website.png",
     sector: "Education technology",
+    serviceSlugs: ["website-design"],
     demoUrl: "https://chanzo.co.ke",
     featured: true,
   },

@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import FadeIn from "@/components/animations/FadeIn";
-import { clientEngagements } from "@/lib/data";
+import { clientEngagements, projects } from "@/lib/data";
 import DotGrid from "@/components/decor/DotGrid";
+
+const projectSlugs = new Map(
+  projects.map((project) => [project.id, project.slug]),
+);
 
 export default function ClientPartnerships() {
   return (
-    <section className="relative isolate py-16 md:py-20">
+    <section id="partnerships" className="relative isolate scroll-mt-24 py-16 md:py-20">
       <DotGrid className="left-0 top-4 h-56 w-96" />
       <div className="container mx-auto px-4 md:px-6">
         <FadeIn className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -52,7 +56,7 @@ export default function ClientPartnerships() {
                   </p>
                 </div>
                 <Link
-                  href={`/projects/${engagement.projectId}`}
+                  href={`/projects/${projectSlugs.get(engagement.projectId)}`}
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-[#c8c1ff] hover:text-white"
                   aria-label={`View the ${engagement.client} project`}
                 >
