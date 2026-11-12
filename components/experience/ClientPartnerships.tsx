@@ -12,10 +12,10 @@ export default function ClientPartnerships() {
         <FadeIn className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#b7adff]">
-              Beyond delivery
+              Ongoing partnerships
             </p>
             <h2 className="text-3xl font-heading font-bold md:text-4xl">
-              Built well. Trusted beyond launch.
+              Built well. Supported after launch.
             </h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">
               For clients who want continuity, optional support plans keep

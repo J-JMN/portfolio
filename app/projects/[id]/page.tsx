@@ -1,14 +1,17 @@
-"use client";
-
-import { useParams } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
 import { Button } from "@/components/ui/button";
 import { clientEngagements, projects } from "@/lib/data";
+
+type ProjectPageProps = {
+  params: Promise<{ id: string }>;
+};
 
 const projectOverviews: Record<
   number,
@@ -48,35 +51,63 @@ const projectOverviews: Record<
   },
 };
 
-export default function ProjectDetailPage() {
-  const params = useParams();
-  const projectId = Number(params.id);
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    id: String(project.id),
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((item) => item.id === Number(id));
+
+  if (!project) {
+    notFound();
+  }
+
+  const title = `${project.title} Website Project`;
+  const description = `${project.description} Explore the website design and development approach used by INTAVOR.`;
+  const path = `/projects/${project.id}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: path,
+    },
+    openGraph: {
+      title: `${title} | INTAVOR`,
+      description,
+      url: path,
+      type: "article",
+      images: [
+        {
+          url: project.image,
+          alt: `${project.title} website designed and developed by INTAVOR`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | INTAVOR`,
+      description,
+      images: [project.image],
+    },
+  };
+}
+
+export default async function ProjectDetailPage({
+  params,
+}: ProjectPageProps) {
+  const { id } = await params;
+  const projectId = Number(id);
   const project = projects.find((p) => p.id === projectId);
   const engagement = clientEngagements.find((e) => e.projectId === projectId);
 
   if (!project) {
-    return (
-      <main className="min-h-screen bg-background">
-        <Navbar />
-        <section className="pt-32 pb-16">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <h1 className="text-4xl font-heading font-bold mb-4">
-              Project Not Found
-            </h1>
-            <p className="text-muted-foreground mb-8">
-              The project you&apos;re looking for doesn&apos;t exist.
-            </p>
-            <Button asChild>
-              <Link href="/projects">
-                <ArrowLeft className="mr-2 w-4 h-4" />
-                Back to Work
-              </Link>
-            </Button>
-          </div>
-        </section>
-        <Footer />
-      </main>
-    );
+    notFound();
   }
 
   return (
@@ -102,7 +133,7 @@ export default function ProjectDetailPage() {
               <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted shadow-2xl">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} website designed and developed by INTAVOR`}
                   fill
                   className="object-cover"
                   priority

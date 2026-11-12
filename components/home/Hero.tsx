@@ -33,9 +33,9 @@ export default function Hero() {
           <div className="space-y-4">
             <FadeIn delay={0.2}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-[1.08] [@media(max-height:760px)]:lg:text-5xl">
-                Make the right impression{" "}
+                Website design and web applications{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-[#c4bcff] to-primary">
-                  before the first conversation.
+                  built around real goals.
                 </span>
               </h1>
             </FadeIn>

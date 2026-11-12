@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
@@ -8,12 +7,14 @@ import { brandInfo } from "@/lib/data";
 import ContactArt from "@/components/illustrations/ContactArt";
 import DotGrid from "@/components/decor/DotGrid";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata = createPageMetadata({
+  title: "Contact a Website Designer & Developer",
   description:
-    "Start a conversation with INTAVOR about a thoughtful website or web application for your business or organisation.",
-};
+    "Contact INTAVOR in Nairobi about website design or custom web application development for your business or organisation.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

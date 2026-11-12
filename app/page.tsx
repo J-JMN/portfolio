@@ -4,6 +4,14 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 import QuickContact from "@/components/home/QuickContact";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { createPageMetadata, defaultDescription } from "@/lib/site";
+
+export const metadata = createPageMetadata({
+  title: "Nairobi Website Design & Web App Development | INTAVOR",
+  description: defaultDescription,
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (

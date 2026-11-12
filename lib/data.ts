@@ -7,7 +7,8 @@ export const brandInfo = {
   meaning: "Intent gives the work direction. Endeavor carries it through.",
   purpose:
     "To turn clear intent into digital experiences that help organisations communicate with confidence, earn trust, and move forward.",
-  role: "Thoughtful digital experiences, built around real goals",
+  role:
+    "Based in Nairobi, working with businesses and organisations in Kenya and internationally",
   bio: "INTAVOR designs and builds thoughtful websites and web applications that help businesses and organisations communicate their value, earn trust, and make the next step clear.",
   email: "contact@intavor.co.ke",
   phone: "+254 111 235 767",

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
@@ -8,14 +7,17 @@ import ExpertiseArt from "@/components/illustrations/ExpertiseArt";
 import ServicesOverview from "@/components/experience/ServicesOverview";
 import WorkingProcess from "@/components/experience/WorkingProcess";
 import ClientPartnerships from "@/components/experience/ClientPartnerships";
+import FaqSection from "@/components/experience/FaqSection";
 import QuickContact from "@/components/home/QuickContact";
 import { Button } from "@/components/ui/button";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Expertise",
+export const metadata = createPageMetadata({
+  title: "Website Design & Web Development Services",
   description:
-    "Thoughtful website design and web application development for businesses and organisations.",
-};
+    "Business website design, custom web application development and after-launch support from INTAVOR in Nairobi, Kenya.",
+  path: "/experience",
+});
 
 export default function ExperiencePage() {
   return (
@@ -29,7 +31,7 @@ export default function ExperiencePage() {
             <span className="text-[#a99cff]">Strong enough to trust.</span>
           </>
         }
-        description="Thoughtful design and dependable development come together to make your value easier to see, your services easier to navigate, and the next step easier to take."
+        description="Business website design, custom web application development, and dependable after-launch support shaped around what your organisation needs people to understand and do."
         visual={<ExpertiseArt />}
         actions={
           <>
@@ -47,6 +49,7 @@ export default function ExperiencePage() {
       <ServicesOverview />
       <WorkingProcess />
       <ClientPartnerships />
+      <FaqSection />
       <QuickContact />
       <Footer />
     </main>

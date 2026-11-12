@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -9,12 +8,14 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import DotGrid from "@/components/decor/DotGrid";
 import WhyIntavorArt from "@/components/illustrations/WhyIntavorArt";
 import { brandInfo } from "@/lib/data";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = createPageMetadata({
+  title: "About Our Website Design Approach",
   description:
-    "Discover the intent behind INTAVOR and the considered approach used to design and build digital experiences.",
-};
+    "Meet INTAVOR, a Nairobi-based website design and web application development studio working with organisations in Kenya and internationally.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -95,7 +96,7 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    A dependable relationship from brief to launch—and beyond
+                    A dependable relationship from brief to launch—and ongoing care
                   </span>
                 </div>
               </div>
