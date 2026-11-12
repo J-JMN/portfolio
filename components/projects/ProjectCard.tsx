@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
@@ -11,7 +9,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
@@ -24,23 +21,19 @@ interface ProjectCardProps {
     sector: string;
     demoUrl: string;
   };
-  index?: number;
   wide?: boolean;
 }
 
 export default function ProjectCard({
   project,
-  index = 0,
   wide = false,
 }: ProjectCardProps) {
   return (
-    <motion.div
-      className={cn("h-full", wide && "md:col-span-2")}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+    <div
+      className={cn(
+        "h-full transition-transform duration-300 md:hover:-translate-y-1",
+        wide && "md:col-span-2",
+      )}
     >
       <Card
         className={cn(
@@ -69,10 +62,6 @@ export default function ProjectCard({
                 : "(min-width: 1280px) 500px, (min-width: 768px) 50vw, 100vw"
             }
             className="object-cover transition-transform duration-500 group-hover:scale-110"
-            onError={(e) => {
-              // Fallback if image fails to load
-              e.currentTarget.style.display = "none";
-            }}
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <Button
@@ -123,6 +112,6 @@ export default function ProjectCard({
           </Button>
         </CardFooter>
       </Card>
-    </motion.div>
+    </div>
   );
 }

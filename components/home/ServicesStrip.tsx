@@ -6,7 +6,7 @@ import DotGrid from "@/components/decor/DotGrid";
 
 export default function ServicesStrip() {
   return (
-    <section className="relative isolate py-16 md:py-20">
+    <section className="defer-render relative isolate py-16 md:py-20">
       <DotGrid className="right-0 top-6 h-56 w-96" />
       <div className="container mx-auto px-4 md:px-6">
         <FadeIn className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">

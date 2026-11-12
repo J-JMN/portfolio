@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-background py-12">
+    <footer className="defer-render relative bg-background py-12">
       <GlowDivider />
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-5">

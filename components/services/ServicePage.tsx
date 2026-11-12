@@ -211,11 +211,10 @@ export default function ServicePage({
             </Link>
           </FadeIn>
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-            {relatedProjects.map((project, index) => (
+            {relatedProjects.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                index={index}
                 wide={relatedProjects.length === 1}
               />
             ))}

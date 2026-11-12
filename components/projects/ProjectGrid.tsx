@@ -1,5 +1,3 @@
-"use client";
-
 import ProjectCard from "@/components/projects/ProjectCard";
 import { projects } from "@/lib/data";
 
@@ -11,7 +9,6 @@ export default function ProjectGrid() {
           <ProjectCard
             key={project.id}
             project={project}
-            index={index}
             wide={projects.length % 2 === 1 && index === projects.length - 1}
           />
         ))}

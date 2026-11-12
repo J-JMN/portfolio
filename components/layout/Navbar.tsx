@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 import BrandLogo from "@/components/layout/BrandLogo";
 
 const navItems = [
@@ -39,26 +38,37 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
+    let frame: number | null = null;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        frame = null;
+      });
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   const closeMenu = () => setIsOpen(false);
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-in-out"
-      style={{ padding: scrolled ? "12px 16px" : "0" }}
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 flex justify-center transition-[padding] duration-300 ease-out",
+        scrolled ? "px-4 py-3" : "p-0",
+      )}
     >
       <nav
         className={cn(
-          "transition-all duration-500 ease-in-out",
+          "transition-[background-color,border-color,border-radius,box-shadow,width] duration-300 ease-out",
           scrolled
-            ? "bg-background/95 backdrop-blur-xl border border-border/70 shadow-2xl shadow-black/20 rounded-2xl max-w-6xl w-full mx-4"
-            : "bg-background/70 backdrop-blur-md border-b border-border/40 w-full",
+            ? "mx-4 w-full max-w-6xl rounded-2xl border border-border/70 bg-background shadow-2xl shadow-black/20 lg:bg-background/95 lg:backdrop-blur-xl"
+            : "w-full border-b border-border/40 bg-background/95 lg:bg-background/70 lg:backdrop-blur-md",
         )}
       >
         <div
@@ -96,15 +106,9 @@ export default function Navbar() {
                   >
                     {item.name}
                     {isActive && (
-                      <motion.div
-                        layoutId="navbar-indicator"
+                      <span
+                        aria-hidden="true"
                         className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full"
-                        initial={false}
-                        transition={{
-                          type: "spring",
-                          stiffness: 500,
-                          damping: 30,
-                        }}
                       />
                     )}
                   </Link>
@@ -160,10 +164,9 @@ export default function Navbar() {
                   >
                     {item.name}
                     {isActive && (
-                      <motion.div
-                        layoutId="navbar-indicator"
+                      <span
+                        aria-hidden="true"
                         className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full"
-                        initial={false}
                       />
                     )}
                   </Link>
@@ -197,15 +200,11 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation Drawer */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              id="mobile-navigation"
-              className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 overflow-hidden rounded-b-2xl"
-            >
+        {isOpen && (
+          <div
+            id="mobile-navigation"
+            className="mobile-menu-enter overflow-hidden rounded-b-2xl border-t border-border/50 bg-background lg:hidden"
+          >
               <div className="px-4 py-4 flex flex-col gap-2">
                 {navItems.slice(0, 2).map((item) => {
                   const isActive =
@@ -268,9 +267,8 @@ export default function Navbar() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          </div>
+        )}
       </nav>
     </div>
   );

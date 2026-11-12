@@ -1,12 +1,9 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/animations/FadeIn";
 import { brandInfo } from "@/lib/data";
-import { motion } from "framer-motion";
 import HeroBackdrop from "@/components/illustrations/HeroBackdrop";
 
 export default function Hero() {
@@ -31,7 +28,7 @@ export default function Hero() {
           </FadeIn>
 
           <div className="space-y-4">
-            <FadeIn delay={0.2}>
+            <FadeIn delay={0.2} className="reveal-critical">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-[1.08] [@media(max-height:760px)]:lg:text-5xl">
                 Website and web application development{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-[#c4bcff] to-primary">
@@ -81,105 +78,52 @@ export default function Hero() {
         <div className="relative order-1 flex min-w-0 justify-center overflow-hidden py-4 lg:order-2">
           <FadeIn delay={0.3} direction="left">
             <div className="relative flex h-60 w-60 items-center justify-center overflow-visible md:h-80 md:w-80 [@media(max-height:760px)]:md:h-64 [@media(max-height:760px)]:md:w-64">
-              {/* Animated Floating Particles */}
+              {/* Decorative particles remain static on small screens. */}
               {[...Array(6)].map((_, i) => (
-                <motion.div
+                <span
                   key={i}
-                  className="absolute w-2 h-2 bg-primary/60 rounded-full"
+                  aria-hidden="true"
+                  className={`hero-particle absolute h-2 w-2 rounded-full bg-primary/60 ${
+                    i > 2 ? "hidden md:block" : ""
+                  }`}
                   style={{
                     top: `${20 + i * 15}%`,
                     left: i % 2 === 0 ? "5%" : "90%",
-                  }}
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.8, 0.3],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 3 + i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.3,
+                    animationDuration: `${3 + i * 0.5}s`,
+                    animationDelay: `${i * 0.3}s`,
                   }}
                 />
               ))}
 
-              <motion.div
-                className="absolute -inset-8 bg-linear-to-tr from-primary/25 via-[#a99cff]/15 to-[#1e2b3b]/30 rounded-full blur-3xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              <div className="hero-glow absolute -inset-8 rounded-full bg-linear-to-tr from-primary/25 via-[#a99cff]/15 to-[#1e2b3b]/30 opacity-40 blur-3xl" />
 
               {/* Secondary Glow Ring */}
-              <motion.div
-                className="absolute -inset-4 rounded-full"
+              <div
+                className="hero-orbit-slow absolute -inset-4 rounded-full"
                 style={{
                   background:
                     "radial-gradient(circle, transparent 60%, rgb(122 108 255 / 0.15) 100%)",
                 }}
-                animate={{
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               />
 
               {/* Primary Animated Gradient Ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full p-1"
+              <div
+                className="hero-orbit absolute inset-0 rounded-full p-1"
                 style={{
                   background:
                     "conic-gradient(from 0deg, transparent 0%, #7a6cff 20%, #a99cff 40%, transparent 60%)",
                 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               >
                 <div className="w-full h-full rounded-full bg-background" />
-              </motion.div>
+              </div>
 
               {/* Inner Highlight Ring */}
-              <motion.div
-                className="absolute inset-1 rounded-full border border-primary/30"
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0 rgb(122 108 255 / 0)",
-                    "0 0 20px 2px rgb(122 108 255 / 0.3)",
-                    "0 0 0 0 rgb(122 108 255 / 0)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              <div className="hero-pulse-ring absolute inset-1 rounded-full border border-primary/30" />
 
               {/* Brand mark */}
               <div className="absolute inset-3 rounded-full overflow-hidden shadow-2xl border-2 border-white/10 bg-background flex items-center justify-center">
-                <motion.div
-                  className="flex w-full flex-col items-center gap-4 px-8 text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                  <motion.div
-                    className="w-full max-w-56"
-                    animate={{
-                      y: [0, -4, 0],
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
+                <div className="hero-brand-enter flex w-full flex-col items-center gap-4 px-8 text-center">
+                  <div className="hero-brand-float w-full max-w-56">
                     <Image
                       src="/brand/intavor-symbol-gradient.svg"
                       alt="INTAVOR"
@@ -188,33 +132,16 @@ export default function Hero() {
                       priority
                       className="h-auto w-full"
                     />
-                  </motion.div>
+                  </div>
                   <span className="text-sm font-semibold tracking-[0.3em] text-foreground">
                     INTAVOR
                   </span>
-                </motion.div>
+                </div>
               </div>
 
               {/* Decorative Corner Accents */}
-              <motion.div
-                className="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-lg"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-primary rounded-bl-lg"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              />
+              <div className="hero-corner-pulse absolute -right-2 -top-2 h-4 w-4 rounded-tr-lg border-r-2 border-t-2 border-primary" />
+              <div className="hero-corner-pulse absolute -bottom-2 -left-2 h-4 w-4 rounded-bl-lg border-b-2 border-l-2 border-primary [animation-delay:1s]" />
             </div>
           </FadeIn>
         </div>

@@ -255,10 +255,208 @@ html {
   animation: dash-flow 8s linear infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
+.reveal {
+  --reveal-x: 0;
+  --reveal-y: 2rem;
+}
+
+.reveal-down {
+  --reveal-y: -2rem;
+}
+
+.reveal-left {
+  --reveal-x: 2rem;
+  --reveal-y: 0;
+}
+
+.reveal-right {
+  --reveal-x: -2rem;
+  --reveal-y: 0;
+}
+
+.reveal-none {
+  --reveal-y: 0;
+}
+
+@keyframes reveal-content {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x), var(--reveal-y), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-particle-float {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate3d(0, -20px, 0) scale(1.2);
+  }
+}
+
+@keyframes hero-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes hero-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-ring-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes hero-brand-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-brand-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes hero-corner-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-menu-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.75rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.mobile-menu-enter {
+  animation: mobile-menu-enter 180ms ease-out both;
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal:not(.reveal-critical) {
+      animation: reveal-content linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+
+  .hero-particle {
+    animation: hero-particle-float 4s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  .hero-glow {
+    animation: hero-glow-breathe 4s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  .hero-orbit {
+    animation: hero-spin 6s linear infinite;
+    will-change: transform;
+  }
+
+  .hero-orbit-slow {
+    animation: hero-spin 10s linear infinite;
+    will-change: transform;
+  }
+
+  .hero-pulse-ring {
+    animation: hero-ring-pulse 2.4s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  .hero-brand-enter {
+    animation: hero-brand-enter 500ms ease-out 350ms both;
+  }
+
+  .hero-brand-float {
+    animation: hero-brand-float 5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .hero-corner-pulse {
+    animation: hero-corner-pulse 2s ease-in-out infinite;
+    will-change: opacity;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    background-attachment: scroll;
+  }
+
   .glint,
   .dash-flow {
     animation: none;
-    opacity: 0;
+  }
+
+  .dash-flow {
+    stroke-dasharray: 20 980;
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+
+  .glint {
+    opacity: 0.45;
+    transform: translateX(45vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glint,
+  .dash-flow,
+  .mobile-menu-enter {
+    animation: none;
   }
 }

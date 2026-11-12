@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,7 +8,7 @@ import { brandInfo } from "@/lib/data";
 
 export default function QuickContact() {
   return (
-    <section className="py-16 md:py-20 relative isolate overflow-hidden">
+    <section className="defer-render relative isolate overflow-hidden py-16 md:py-20">
       <GlowDivider />
       <FlowLines />
       <div className="absolute inset-0 bg-primary/5 -z-10" />

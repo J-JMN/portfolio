@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,7 +11,7 @@ export default function FeaturedProjects() {
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 2);
 
   return (
-    <section className="relative py-20 bg-secondary/20">
+    <section className="defer-render relative bg-secondary/20 py-20">
       <GlowDivider />
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -46,8 +44,8 @@ export default function FeaturedProjects() {
               "mx-auto max-w-6xl md:grid-cols-2",
           )}
         >
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
