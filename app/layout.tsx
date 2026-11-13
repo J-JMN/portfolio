@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { brandInfo } from "@/lib/data";
-import { defaultDescription, siteUrl } from "@/lib/site";
+import { defaultDescription, siteUrl, socialImage } from "@/lib/site";
 import "./globals.css";
 
 const instrument = Instrument_Sans({
@@ -25,26 +25,42 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   applicationName: "INTAVOR",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon",
+        sizes: "256x256",
+      },
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+        sizes: "any",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+  },
   openGraph: {
     title: "Website & Web Application Development in Nairobi | INTAVOR",
     description: defaultDescription,
     type: "website",
     siteName: "INTAVOR",
     locale: "en_KE",
-    images: [
-      {
-        url: "/brand/social/facebook-cover.png",
-        width: 1640,
-        height: 924,
-        alt: "INTAVOR — Tech built with intention.",
-      },
-    ],
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Website & Web Application Development in Nairobi | INTAVOR",
     description: defaultDescription,
-    images: ["/brand/social/facebook-cover.png"],
+    images: [socialImage.url],
   },
 };
 

@@ -5,6 +5,13 @@ export const siteUrl = "https://intavor.co.ke";
 export const defaultDescription =
   "Based in Nairobi, INTAVOR develops purposeful websites and web applications for organisations in Kenya and internationally.";
 
+export const socialImage = {
+  url: "/brand/social/facebook-cover.png",
+  width: 1640,
+  height: 624,
+  alt: "INTAVOR — Tech built with intention.",
+} as const;
+
 type PageMetadata = {
   title: string;
   description: string;
@@ -31,20 +38,13 @@ export function createPageMetadata({
       description,
       url: path,
       type: "website",
-      images: [
-        {
-          url: "/brand/social/facebook-cover.png",
-          width: 1640,
-          height: 924,
-          alt: "INTAVOR — Tech built with intention.",
-        },
-      ],
+      images: [socialImage],
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
-      images: ["/brand/social/facebook-cover.png"],
+      images: [socialImage.url],
     },
   };
 }
