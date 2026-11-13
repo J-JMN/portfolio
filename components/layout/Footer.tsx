@@ -7,22 +7,22 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="defer-render relative bg-background py-12">
+    <footer className="defer-render relative bg-background py-8 md:py-12">
       <GlowDivider />
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-5">
-          <div className="col-span-1 md:col-span-2">
+        <div className="mb-6 grid grid-cols-2 gap-x-5 gap-y-8 md:mb-8 md:grid-cols-5 md:gap-8">
+          <div className="order-1 col-span-2 text-center md:order-none md:col-span-2 md:text-left">
             <Link
               href="/"
-              className="mb-3 block"
+              className="mb-2 inline-block md:mb-3"
             >
               <BrandLogo />
             </Link>
-            <p className="mb-5 text-sm text-primary">{brandInfo.tagline}</p>
-            <p className="text-muted-foreground max-w-xs mb-6">
+            <p className="mb-3 text-sm text-primary md:mb-5">{brandInfo.tagline}</p>
+            <p className="mx-auto mb-4 max-w-md text-sm leading-relaxed text-muted-foreground md:mx-0 md:mb-6 md:max-w-xs md:text-base">
               {brandInfo.bio}
             </p>
-            <div className="flex gap-4">
+            <div className="flex justify-center gap-3 md:justify-start md:gap-4">
               {brandInfo.socials.map((social) => (
                 <a
                   key={social.name}
@@ -38,9 +38,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="font-heading font-bold mb-4">Services</h3>
-            <ul className="space-y-2">
+          <div className="order-3 min-w-0 md:order-none">
+            <h3 className="mb-3 font-heading font-bold md:mb-4">Services</h3>
+            <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link
                   href="/services/website-development"
@@ -68,9 +68,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-heading font-bold mb-4">Navigation</h3>
-            <ul className="space-y-2">
+          <div className="order-2 col-span-2 md:order-none md:col-span-1">
+            <h3 className="mb-3 text-center font-heading font-bold md:mb-4 md:text-left">
+              Navigation
+            </h3>
+            <ul className="grid grid-cols-3 gap-x-3 gap-y-2 text-center text-sm md:block md:space-y-2 md:text-left md:text-base">
               <li>
                 <Link
                   href="/"
@@ -122,13 +124,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-heading font-bold mb-4">Contact</h3>
-            <ul className="space-y-2">
+          <div className="order-4 min-w-0 md:order-none">
+            <h3 className="mb-3 font-heading font-bold md:mb-4">Contact</h3>
+            <ul className="space-y-2 text-sm">
               <li>
                 <a
                   href={`mailto:${brandInfo.email}`}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="break-all text-muted-foreground transition-colors hover:text-primary"
                 >
                   {brandInfo.email}
                 </a>
@@ -138,22 +140,22 @@ export default function Footer() {
                   href={brandInfo.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground transition-colors hover:text-primary"
                 >
-                  WhatsApp: {brandInfo.phone}
+                  {brandInfo.phone}
                 </a>
               </li>
               <li className="text-muted-foreground">{brandInfo.location}</li>
-              <li className="text-primary font-medium text-sm">
+              <li className="text-xs font-medium text-primary md:text-sm">
                 {brandInfo.availability}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 flex justify-center text-sm text-muted-foreground">
+        <div className="flex justify-center border-t border-border pt-5 text-center text-xs text-muted-foreground md:pt-8 md:text-sm">
           <p>
-            &copy; {currentYear} {brandInfo.name}. All rights reserved.
+            &copy;{currentYear} {brandInfo.name}. All rights reserved.
           </p>
         </div>
       </div>
