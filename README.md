@@ -1,22 +1,18 @@
-# INTAVOR Operations Guide
+# INTAVOR
 
-This repository contains the INTAVOR website and social profile graphics.
+Production website for INTAVOR, a founder-led website and web application development studio based in Nairobi.
 
-Use this document as the working manual for:
-
-- running and maintaining the website;
-- setting up Instagram, TikTok, and Facebook;
-- configuring the website contact form; and
-- verifying and deploying changes.
+- **Workspace:** `/home/hush/Dev/INTAVOR`
+- **Live site:** `https://intavor.co.ke`
+- **Founder and developer:** Joseph Mburu
+- **Email:** `contact@intavor.co.ke`
 
 ## Brand foundation
 
 - **Name:** INTAVOR
 - **Tagline:** Tech built with intention.
-- **Service line:** Web development + ongoing website support
+- **Services:** Website design and development, custom web applications, and after-launch care
 - **Location:** Nairobi, Kenya
-- **Website:** `https://intavor.co.ke`
-- **Email:** `contact@intavor.co.ke`
 
 ### Meaning
 
@@ -26,21 +22,22 @@ INTAVOR combines **Intent** and **Endeavor**:
 
 ### Purpose
 
-> To turn clear intent into dependable digital products—and keep improving
-> them as the organisations behind them grow.
+> To turn clear intent into digital experiences that help organisations
+> communicate with confidence, earn trust, and move forward.
 
 ### Positioning
 
-INTAVOR builds, manages, and improves intentional websites and web
-applications for businesses and organisations that need their digital
-presence to keep working beyond launch.
+INTAVOR designs and builds thoughtful websites and web applications that help
+businesses and organisations communicate their value, earn trust, and make the
+next step clear.
 
 ### Service model
 
-1. **Build** — websites and web applications shaped around real goals.
-2. **Manage** — updates, technical care, and reliable support after delivery.
-3. **Improve** — focused refinements to INTAVOR-delivered websites as an
-   organisation evolves.
+1. **Website design and development** for a clear, credible digital presence.
+2. **Custom web application development** for connected services, workflows,
+   integrations, and administration.
+3. **After-launch care** for INTAVOR-built websites that need updates,
+   refinements, and technical support.
 
 ### Voice
 
@@ -51,8 +48,9 @@ Use:
 - specific outcomes;
 - short, confident sentences;
 - straightforward explanations;
-- “build, manage, improve” consistently; and
-- “support beyond launch” as a differentiator.
+- evidence from real work;
+- direct founder accountability; and
+- dependable support beyond launch.
 
 Avoid:
 
@@ -60,16 +58,18 @@ Avoid:
 - “we bring ideas to life”;
 - exaggerated promises;
 - excessive technical jargon;
-- long hashtag blocks; and
-- making client companies the focus of INTAVOR’s social pages.
+- long dashes in public copy;
+- invented team language; and
+- unsupported claims, results, or testimonials.
 
 ## Repository structure
 
 ```text
 app/                         Website routes, metadata, and global styles
 components/                  Website sections and reusable UI
-lib/data.ts                  Brand, services, projects, and website copy
+lib/data.ts                  Shared brand, founder, testimonial, service, engagement, and project data
 lib/contact*.ts              Contact-form validation and email delivery
+lib/site.ts                  Canonical origin and shared metadata
 public/brand/                Website logos and social profile graphics
 public/brand/social/         Profile image and Facebook cover
 public/images/               Project images used by the website
@@ -104,93 +104,19 @@ Open `http://localhost:3000`.
 
 ### Website content
 
-Most editable website content is in `lib/data.ts`:
+Shared website content is in `lib/data.ts`:
 
 - `brandInfo` — brand wording, email, location, and availability;
-- `services` — Build, Manage, and Improve;
+- `founderInfo` — public founder identity and role;
+- `clientTestimonials` — approved client testimonial copy and relationships;
+- `services` — website development, web applications, and after-launch care;
 - `clientEngagements` — ongoing support relationships;
 - `projects` — selected website work; and
 - `highlights` — About-page figures.
 
-Theme colours are in `app/globals.css`.
-
-## Social accounts
-
-INTAVOR’s active platforms are:
-
-1. Instagram
-2. TikTok
-3. Facebook
-
-Do not create an X content workflow unless the strategy changes later.
-
-### Names and handles
-
-Use these where available:
-
-| Platform | Username | Display name |
-|---|---|---|
-| Instagram | `@intavor.co` | `INTAVOR \| Web Development` |
-| TikTok | `@intavor.co` | `INTAVOR \| Websites` |
-| Facebook | `@intavor.co` | `INTAVOR` |
-
-For Facebook, use **Website Designer** as the primary category and **Software
-Company** as a secondary category if Facebook permits both.
-
-### Profile and cover files
-
-- Profile image for all three platforms:
-  `public/brand/social/profile-avatar.png`
-- Facebook cover:
-  `public/brand/social/facebook-cover.png`
-
-Keep the same profile image on every account so people recognize the brand.
-
-### Bios
-
-#### Instagram
-
-```text
-Intentional websites that keep working.
-Build • Manage • Improve
-Nairobi → beyond
-Start your project ↓
-```
-
-Set the profile link to `https://intavor.co.ke/contact`.
-
-#### TikTok
-
-```text
-Intentional websites. Built, managed & improved. Nairobi → beyond.
-```
-
-Set the website link to `https://intavor.co.ke` when the account is eligible
-for a clickable link.
-
-#### Facebook
-
-Short bio:
-
-```text
-Intentional websites built, managed and improved for businesses and organisations.
-```
-
-Long About description:
-
-```text
-INTAVOR builds and manages websites and web applications for businesses and
-organisations—from initial delivery to ongoing updates, improvements and
-technical support. Based in Nairobi, working beyond.
-```
-
-Add:
-
-- website: `https://intavor.co.ke`;
-- email: `contact@intavor.co.ke`;
-- location: Nairobi, Kenya; and
-- action button: **Contact Us**, linked to
-  `https://intavor.co.ke/contact`.
+Service-page content is route-local under `app/services/`. Theme colours are in
+`app/globals.css`. Brand and social-preview assets remain under `public/brand/`;
+this repository does not define an active social publishing workflow.
 
 ## Contact form and email
 
@@ -204,7 +130,7 @@ SMTP. The browser never receives the SMTP password.
 | Website notification | `INTAVOR <contact@intavor.co.ke>` | `contact@intavor.co.ke` | The visitor |
 | Visitor confirmation | `INTAVOR <contact@intavor.co.ke>` | The visitor | `contact@intavor.co.ke` |
 
-`contact@intavor.co.ke` should deliver to the company’s Zoho mailbox.
+`contact@intavor.co.ke` delivers to the INTAVOR Zoho mailbox.
 
 ### Required secret
 
@@ -233,9 +159,9 @@ cp .env.example .env.local
 
 Add the real secret to `.env.local`. This file is ignored by Git.
 
-### Vercel
+### Hosting
 
-In the Vercel project:
+In Vercel:
 
 1. Open **Settings → Environment Variables**.
 2. Add `SMTP_PASSWORD`.
@@ -246,7 +172,7 @@ In the Vercel project:
 
 ## Deployment
 
-The website is configured for a standard Next.js deployment.
+The `main` branch is the production branch for `https://intavor.co.ke`.
 
 Before deployment:
 
@@ -256,14 +182,24 @@ npm run lint
 npm run build
 ```
 
-For Vercel:
+After a production deployment:
 
-1. connect the GitHub repository;
-2. configure the server-side email secret;
-3. deploy the main branch;
-4. verify every page;
-5. submit a contact-form test; and
-6. check analytics and metadata.
+1. verify the changed pages;
+2. submit a contact-form test when form or email code changed;
+3. check analytics and metadata where relevant; and
+4. treat live verification separately from a successful local build.
+
+## SEO and discovery
+
+- Canonical origin: `https://intavor.co.ke`
+- Google Search Console is already configured.
+- `https://intavor.co.ke/sitemap.xml` is already submitted and does not need
+  routine resubmission after deployments.
+- `app/robots.ts` and `app/sitemap.ts` generate the canonical crawl files.
+- Root structured data describes INTAVOR, Joseph Mburu, the service catalogue,
+  Nairobi location, and Kenya/international service area.
+- Use Search Console query and page data to decide later SEO content changes.
+- Do not add INTAVOR credit links to client websites.
 
 ## Routine checklist
 
