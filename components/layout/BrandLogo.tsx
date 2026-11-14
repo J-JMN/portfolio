@@ -16,7 +16,7 @@ export default function BrandLogo({
     return (
       <Image
         src="/brand/intavor-logo-on-dark.png"
-        alt="INTAVOR — Tech built with intention."
+        alt="INTAVOR. Tech built with intention."
         width={1500}
         height={360}
         priority={priority}

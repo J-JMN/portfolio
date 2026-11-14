@@ -17,7 +17,7 @@ const navItems = [
 
 const serviceItems = [
   {
-    name: "Website Development",
+    name: "Website Design & Development",
     description: "Digital presence that earns trust.",
     path: "/services/website-development",
   },

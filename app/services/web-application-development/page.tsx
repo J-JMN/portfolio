@@ -10,7 +10,7 @@ import {
 
 const path = "/services/web-application-development";
 const description =
-  "Custom web application development from Nairobi-based INTAVOR for organisations in Kenya and internationally.";
+  "Custom web application development in Kenya for organisations that need connected workflows, dashboards, integrations, and administrative tools.";
 
 export const metadata = createPageMetadata({
   title: "Custom Web Application Development in Kenya",

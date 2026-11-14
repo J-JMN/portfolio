@@ -46,7 +46,7 @@ export default function Footer() {
                   href="/services/website-development"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Website Development
+                  Website Design &amp; Development
                 </Link>
               </li>
               <li>

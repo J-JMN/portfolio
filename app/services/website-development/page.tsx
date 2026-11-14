@@ -10,17 +10,17 @@ import {
 
 const path = "/services/website-development";
 const description =
-  "Purposeful website development from Nairobi-based INTAVOR for organisations in Kenya and internationally.";
+  "Professional website design and development in Nairobi for businesses, NGOs, and organisations across Kenya and internationally.";
 
 export const metadata = createPageMetadata({
-  title: "Website Development in Nairobi, Kenya",
+  title: "Website Design & Development in Nairobi, Kenya",
   description,
   path,
 });
 
 const serviceData = createServiceStructuredData({
-  name: "Website Development",
-  serviceType: "Website development",
+  name: "Website Design and Development",
+  serviceType: "Website design and development",
   description,
   path,
 });
@@ -28,7 +28,7 @@ const serviceData = createServiceStructuredData({
 const breadcrumbData = createBreadcrumbStructuredData([
   { name: "Home", path: "/" },
   { name: "Expertise", path: "/experience" },
-  { name: "Website Development", path },
+  { name: "Website Design and Development", path },
 ]);
 
 const relatedProjects = projects
@@ -41,7 +41,7 @@ export default function WebsiteDevelopmentPage() {
       <StructuredData data={serviceData} />
       <StructuredData data={breadcrumbData} />
       <ServicePage
-        eyebrow="Website development"
+        eyebrow="Website design and development"
         title={
           <>
             A website that makes your value{" "}
@@ -51,11 +51,11 @@ export default function WebsiteDevelopmentPage() {
         description="INTAVOR designs and develops responsive business websites that help the right people understand your organisation, trust what they see, and take the next step."
         visual={<WebsiteDevelopmentArt />}
         introduction={{
-          eyebrow: "Website development",
+          eyebrow: "Professional website development",
           title: "Built around what your audience needs to understand.",
           paragraphs: [
             "A strong business website does more than look polished. It gives your services a clear structure, represents the quality of your work, and makes it easy for visitors to move from interest to action.",
-            "Based in Nairobi, INTAVOR works with organisations in Kenya and internationally to turn business goals, audience needs, and useful content into a distinctive digital presence.",
+            "Based in Nairobi, INTAVOR is an independent website design and development studio working with organisations in Kenya and internationally. Every project is led directly by the founder, from structure and design through development and launch.",
           ],
         }}
         capabilities={[
@@ -80,6 +80,34 @@ export default function WebsiteDevelopmentPage() {
               "Where needed, content management tools make updates practical without requiring technical expertise.",
           },
         ]}
+        audiences={{
+          eyebrow: "Websites shaped around real organisations",
+          title: "The right structure depends on who needs to trust you.",
+          description:
+            "INTAVOR does not force every organisation into the same template. The message, content structure, and functionality follow the people the website needs to reach and the action it needs to support.",
+          items: [
+            {
+              title: "Business and corporate websites",
+              description:
+                "Professional websites that explain services clearly, strengthen credibility, and turn interest into useful enquiries.",
+            },
+            {
+              title: "NGO and nonprofit websites",
+              description:
+                "Mission-led websites that bring programmes, impact, stories, partners, and ways to get involved into one clear experience.",
+            },
+            {
+              title: "Education and programme websites",
+              description:
+                "Clear journeys for parents, schools, learners, and partners looking for relevant programmes, courses, or opportunities.",
+            },
+            {
+              title: "Website redesigns",
+              description:
+                "A considered rebuild for existing websites that feel outdated, are difficult to navigate, or no longer work well across devices.",
+            },
+          ],
+        }}
         includes={{
           eyebrow: "What the service can include",
           title: "Everything needed for a credible digital presence.",
@@ -120,6 +148,17 @@ export default function WebsiteDevelopmentPage() {
         ]}
         relatedProjects={relatedProjects}
         questions={[
+          {
+            question: "Can INTAVOR redesign an existing website?",
+            answer:
+              "Yes. A redesign can address unclear structure, outdated presentation, weak mobile behaviour, difficult content management, or a website that no longer represents the organisation well.",
+          },
+          {
+            question:
+              "What makes INTAVOR different from a larger web development agency?",
+            answer:
+              "INTAVOR is founder-led, so clients work directly with the person responsible for the thinking, design direction, development, and after-launch relationship. The process remains structured without adding layers between the client and the work.",
+          },
           {
             question: "Do you work with organisations outside Nairobi?",
             answer:

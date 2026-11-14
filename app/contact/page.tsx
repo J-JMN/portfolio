@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
 import FadeIn from "@/components/animations/FadeIn";
 import { Mail, MapPin, Clock } from "lucide-react";
-import { brandInfo } from "@/lib/data";
+import { brandInfo, founderInfo } from "@/lib/data";
 import ContactArt from "@/components/illustrations/ContactArt";
 import DotGrid from "@/components/decor/DotGrid";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
@@ -11,9 +11,9 @@ import { createPageMetadata } from "@/lib/site";
 import ContactFaq from "@/components/contact/ContactFaq";
 
 export const metadata = createPageMetadata({
-  title: "Contact a Website & Web Application Developer",
+  title: "Contact a Web Development Studio in Nairobi",
   description:
-    "Contact INTAVOR in Nairobi about website or custom web application development for your business or organisation.",
+    "Contact INTAVOR about website design, website development, custom web applications, or after-launch support in Kenya and internationally.",
   path: "/contact",
 });
 
@@ -51,6 +51,13 @@ export default function ContactPage() {
                     Tell us what your organisation needs people to understand,
                     trust, or do online. We&apos;ll turn that into a clear
                     direction for your website or web application.
+                  </p>
+                  <p className="mt-3 text-sm text-foreground/80">
+                    Every enquiry is handled directly by{" "}
+                    <span className="font-medium text-foreground">
+                      {founderInfo.name}
+                    </span>
+                    , {founderInfo.role.toLowerCase()} at INTAVOR.
                   </p>
                 </div>
               </FadeIn>

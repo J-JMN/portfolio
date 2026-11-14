@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata = createPageMetadata({
-  title: "Website & Web Application Development Services",
+  title: "Web Development Services in Nairobi, Kenya",
   description:
-    "Purposeful website development, custom web application development and after-launch care from INTAVOR in Nairobi, Kenya.",
+    "Explore website design and development, custom web application development, and after-launch website support from Nairobi-based INTAVOR.",
   path: "/experience",
 });
 

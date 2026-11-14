@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Quote } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
 import StructuredData from "@/components/seo/StructuredData";
 import { Button } from "@/components/ui/button";
-import { clientEngagements, projects } from "@/lib/data";
+import {
+  clientEngagements,
+  clientTestimonials,
+  projects,
+} from "@/lib/data";
 import { createBreadcrumbStructuredData } from "@/lib/structured-data";
 
 type ProjectPageProps = {
@@ -123,6 +127,9 @@ export default async function ProjectDetailPage({
 
   const engagement = clientEngagements.find(
     (item) => item.projectId === project.id,
+  );
+  const testimonials = clientTestimonials.filter((testimonial) =>
+    testimonial.projectIds.includes(project.id),
   );
   const breadcrumbData = createBreadcrumbStructuredData([
     { name: "Home", path: "/" },
@@ -279,6 +286,31 @@ export default async function ProjectDetailPage({
                     </p>
                   </>
                 )}
+
+                {testimonials.map((testimonial) => (
+                  <figure
+                    key={testimonial.id}
+                    className="mt-12 rounded-2xl border border-primary/25 bg-primary/5 p-6 md:p-8"
+                  >
+                    <div className="mb-4 flex items-center justify-between gap-4">
+                      <Quote className="h-7 w-7 text-primary/70" />
+                      <span className="rounded-full border border-[#8be8ce]/35 bg-[#8be8ce]/10 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#a7f3df]">
+                        {testimonial.relationship}
+                      </span>
+                    </div>
+                    <blockquote className="text-lg leading-relaxed text-foreground/90">
+                      “{testimonial.quote}”
+                    </blockquote>
+                    <figcaption className="mt-5">
+                      <p className="font-heading font-semibold">
+                        {testimonial.name}
+                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </p>
+                    </figcaption>
+                  </figure>
+                ))}
 
                 {/* Back to Projects Button at Bottom */}
                 <div className="mt-12 pt-8 border-t border-border">

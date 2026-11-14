@@ -28,6 +28,15 @@ type ServicePageProps = {
     title: string;
     description: string;
   }[];
+  audiences?: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: {
+      title: string;
+      description: string;
+    }[];
+  };
   includes: {
     eyebrow: string;
     title: string;
@@ -52,6 +61,7 @@ export default function ServicePage({
   visual,
   introduction,
   capabilities,
+  audiences,
   includes,
   process,
   relatedProjects,
@@ -127,6 +137,42 @@ export default function ServicePage({
           </div>
         </div>
       </section>
+
+      {audiences && (
+        <section className="border-t border-border/60 py-16 md:py-20">
+          <div className="container mx-auto px-4 md:px-6">
+            <FadeIn className="max-w-3xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#b7adff]">
+                {audiences.eyebrow}
+              </p>
+              <h2 className="text-3xl font-heading font-bold md:text-4xl">
+                {audiences.title}
+              </h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                {audiences.description}
+              </p>
+            </FadeIn>
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {audiences.items.map((audience, index) => (
+                <FadeIn
+                  key={audience.title}
+                  delay={index * 0.08}
+                  className="h-full"
+                >
+                  <article className="h-full rounded-2xl border border-border/60 bg-card/40 p-6">
+                    <h3 className="text-xl font-heading font-semibold">
+                      {audience.title}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-muted-foreground">
+                      {audience.description}
+                    </p>
+                  </article>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="relative border-y border-border/60 bg-secondary/15 py-16 md:py-20">
         <GlowDivider />

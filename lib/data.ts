@@ -29,9 +29,51 @@ export const brandInfo = {
   ],
 };
 
+export const founderInfo = {
+  name: "Joseph Mburu",
+  role: "Founder & Developer",
+};
+
+export const clientTestimonials = [
+  {
+    id: 1,
+    quote:
+      "INTAVOR took time to understand the work of Sun Rays Foundation and translated it into a website that is clear, engaging, and easy for our team to manage. Joseph has remained dependable after launch, helping us keep the platform current as our work grows. I would confidently recommend INTAVOR to organisations looking for thoughtful, reliable digital work, and I look forward to continuing our partnership on future projects.",
+    name: "Mr. Simon Mikanipare",
+    role: "Director and President, Sun Rays Foundation",
+    relationship: "Ongoing partnership",
+    projectIds: [6],
+    projectLinks: [
+      {
+        label: "Sun Rays Foundation",
+        href: "/projects/sun-rays-foundation",
+      },
+    ],
+  },
+  {
+    id: 2,
+    quote:
+      "Working with INTAVOR on Stratedge Solutions showed me the level of thought and care Joseph brings to a project. He built more than a polished website; he created a platform around how the business actually works. The quality of that work gave me the confidence to bring him into Nyota Roots and continue with INTAVOR for ongoing support after launch. I would gladly recommend Joseph and look forward to working with INTAVOR on future projects.",
+    name: "Catherine Njeri",
+    role: "Founder, Stratedge Solutions",
+    relationship: "Repeat client · Ongoing partner",
+    projectIds: [2, 4],
+    projectLinks: [
+      {
+        label: "Stratedge Solutions",
+        href: "/projects/stratedge-solutions",
+      },
+      {
+        label: "Nyota Roots",
+        href: "/projects/nyota-roots",
+      },
+    ],
+  },
+];
+
 export const services = [
   {
-    label: "Website Development",
+    label: "Website Design & Development",
     title: "A digital presence that earns trust.",
     summary:
       "Distinctive, responsive websites that position your organisation clearly and give the right people confidence to take the next step.",

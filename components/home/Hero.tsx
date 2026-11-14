@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/animations/FadeIn";
-import { brandInfo } from "@/lib/data";
+import { brandInfo, founderInfo } from "@/lib/data";
 import HeroBackdrop from "@/components/illustrations/HeroBackdrop";
 
 export default function Hero() {
@@ -38,7 +38,15 @@ export default function Hero() {
             </FadeIn>
             <FadeIn delay={0.3}>
               <h2 className="text-lg font-semibold leading-snug text-foreground/90 md:text-xl">
-                {brandInfo.role}
+                Led by{" "}
+                <Link
+                  href="/about"
+                  className="underline decoration-primary/60 underline-offset-4 transition-colors hover:text-primary"
+                >
+                  {founderInfo.name}
+                </Link>{" "}
+                in Nairobi, working with organisations in Kenya and
+                internationally.
               </h2>
             </FadeIn>
           </div>

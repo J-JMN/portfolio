@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 export const siteUrl = "https://intavor.co.ke";
 
 export const defaultDescription =
-  "Based in Nairobi, INTAVOR develops purposeful websites and web applications for organisations in Kenya and internationally.";
+  "INTAVOR is a Nairobi website development studio creating purposeful business websites and custom web applications for organisations in Kenya and internationally.";
 
 export const socialImage = {
   url: "/brand/social/facebook-cover.png",
   width: 1640,
   height: 624,
-  alt: "INTAVOR — Tech built with intention.",
+  alt: "INTAVOR. Tech built with intention.",
 } as const;
 
 type PageMetadata = {

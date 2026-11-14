@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import DotGrid from "@/components/decor/DotGrid";
 import WhyIntavorArt from "@/components/illustrations/WhyIntavorArt";
-import { brandInfo } from "@/lib/data";
+import { brandInfo, founderInfo } from "@/lib/data";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata = createPageMetadata({
-  title: "About Our Development Approach",
+  title: "Nairobi Website Development Studio",
   description:
-    "Meet INTAVOR, a Nairobi-based website and web application development studio working with organisations in Kenya and internationally.",
+    "Meet INTAVOR, the founder-led Nairobi studio designing and developing purposeful websites and custom web applications for organisations.",
   path: "/about",
 });
 
@@ -60,8 +60,18 @@ export default function AboutPage() {
                   <span className="text-primary font-medium">
                     Sun Rays Foundation
                   </span>
-                  —each with a different audience, challenge, and measure of
-                  success.
+                  . Each came with a different audience, challenge, and measure
+                  of success.
+                </p>
+                <p>
+                  INTAVOR is an independent Nairobi-based development studio
+                  founded and led by{" "}
+                  <span className="font-medium text-foreground">
+                    {founderInfo.name}
+                  </span>
+                  . Clients work directly with {founderInfo.name.split(" ")[0]}{" "}
+                  from the first conversation through development, launch, and
+                  ongoing care.
                 </p>
               </div>
 
@@ -96,7 +106,7 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-foreground/80">
-                    A dependable relationship from brief to launch—and ongoing care
+                    A dependable relationship from brief to launch, with ongoing care
                   </span>
                 </div>
               </div>

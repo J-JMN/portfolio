@@ -6,7 +6,7 @@ import ProjectGrid from "@/components/projects/ProjectGrid";
 import { createPageMetadata } from "@/lib/site";
 
 export const metadata = createPageMetadata({
-  title: "Website & Web Application Development Portfolio",
+  title: "Website Design & Development Portfolio in Kenya",
   description:
     "Explore business websites and web applications designed and developed by INTAVOR for organisations in Kenya and across Africa.",
   path: "/projects",

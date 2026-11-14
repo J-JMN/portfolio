@@ -215,7 +215,7 @@ export function buildAutoReplyEmail(
       <!-- Signature -->
       <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #344157; text-align: center;">
         <p style="color: #cbd5e1; font-size: 15px; margin: 0 0 15px;">Best regards,</p>
-        <img src="https://intavor.co.ke/brand/intavor-logo-on-dark.png" alt="INTAVOR — Tech built with intention." width="170" height="41" style="display: block; margin: 0 auto; max-width: 170px; height: auto; border: 0;" />
+              <img src="https://intavor.co.ke/brand/intavor-logo-on-dark.png" alt="INTAVOR. Tech built with intention." width="170" height="41" style="display: block; margin: 0 auto; max-width: 170px; height: auto; border: 0;" />
       </div>
 
     </div>

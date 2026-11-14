@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { brandInfo } from "@/lib/data";
+import { brandInfo, founderInfo } from "@/lib/data";
 import { defaultDescription, siteUrl, socialImage } from "@/lib/site";
 import "./globals.css";
 
@@ -20,7 +20,7 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Website & Web Application Development in Nairobi | INTAVOR",
+    default: "Website Development Studio in Nairobi, Kenya | INTAVOR",
     template: "%s | INTAVOR",
   },
   description: defaultDescription,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Website & Web Application Development in Nairobi | INTAVOR",
+    title: "Website Development Studio in Nairobi, Kenya | INTAVOR",
     description: defaultDescription,
     type: "website",
     siteName: "INTAVOR",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Website & Web Application Development in Nairobi | INTAVOR",
+    title: "Website Development Studio in Nairobi, Kenya | INTAVOR",
     description: defaultDescription,
     images: [socialImage.url],
   },
@@ -76,6 +76,48 @@ const structuredData = {
       description: brandInfo.bio,
       email: brandInfo.email,
       telephone: brandInfo.phone,
+      areaServed: ["Kenya", "International"],
+      knowsAbout: [
+        "Website design",
+        "Website development",
+        "Web application development",
+        "Responsive web design",
+        "Content management systems",
+        "After-launch website support",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Web development services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              "@id": `${siteUrl}/services/website-development#service`,
+              name: "Website Design and Development",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              "@id": `${siteUrl}/services/web-application-development#service`,
+              name: "Custom Web Application Development",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "After-Launch Website Care",
+              url: `${siteUrl}/experience#partnerships`,
+            },
+          },
+        ],
+      },
+      founder: {
+        "@id": `${siteUrl}/#founder`,
+      },
       address: {
         "@type": "PostalAddress",
         addressLocality: "Nairobi",
@@ -87,6 +129,15 @@ const structuredData = {
         telephone: brandInfo.phone,
         contactType: "customer service",
         availableLanguage: "English",
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#founder`,
+      name: founderInfo.name,
+      jobTitle: founderInfo.role,
+      worksFor: {
+        "@id": `${siteUrl}/#organization`,
       },
     },
     {
